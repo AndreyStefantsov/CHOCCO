@@ -37,47 +37,61 @@
     }
 
     .comments-full {
-        display: flex;
-        flex-direction: row;
         background: url(../img/comments_bg.png) no-repeat center center;
         background-size: cover;
         padding: 52px 0 35px 46px;
 
-        .comments-full__image {
-            width: 30%;
-
-            .comments-full__pic {
-                max-width: 100%;
-            }
-        }
-
-        .comments-full__comments-text {
-            width: 50%;
+        .comments-full__list {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding-left: 20px;
+            flex-direction: row;
 
-            .comments-text__title {
-                font-size: 29.96px;
-                padding-bottom: 28px;
-                font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
-                font-weight: normal;
+            .comments-full__item {
+                display: flex;
+                flex-direction: row;
+                display: none;
+
+                .comments-full__comments-image {
+                    width: 30%;
+        
+                    .comments-image__pic {
+                        max-width: 100%;
+                    }
+                }
+        
+                .comments-full__comments-text {
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: flex-start;
+                    padding-left: 10px;
+        
+                    .comments-text__title {
+                        font-size: 29.96px;
+                        font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
+                        font-weight: normal;
+                    }
+        
+                    .comments-text__text {
+                        font-size: 17.98px;
+                        color: #666666;
+                    }
+        
+                    .comments-text__name {
+                        font-size: 17.98px;
+                        font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
+                        color: #666666;
+                        padding-bottom: 26px;
+                    }
+                }
+
             }
 
-            .comments-text__text {
-                font-size: 17.98px;
-                padding-bottom: 33px;
-                color: #666666;
-            }
-
-            .comments-text__name {
-                font-size: 17.98px;
-                font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
-                color: #666666;
+            .comment-is-active {
+                display: flex;
             }
         }
+        
     }
 
     .peoples__list {
@@ -88,11 +102,11 @@
         
 
         .peoples__item {
-            flex: 0.1;
+            align-self: center;
 
             .peoples__image {
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
                 box-sizing: content-box;
                 overflow: hidden;
                 border: 3px solid transparent;
@@ -104,12 +118,15 @@
                 }
                 
             }
-       
+            
+            .peoples-is-active {
+                border: 6px solid #0f5947 !important; //костыль
+                border-radius: 50%;
+                width: 77px;
+                height: 77px;
+            }
         }
 
-        .pic-is-active {
-            border: 6px solid #0f5947 !important; //костыль
-            border-radius: 50%;
-        }
+       
     }
 }
