@@ -1,0 +1,114 @@
+
+.section-why-chocco {
+    background-color: #fff;
+    background-size: cover;
+    color: #000;
+    
+    
+    &::after {
+        content: url(../img/rasp3.png);
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -120px;
+        z-index: 2;
+    }
+
+}
+
+.container-why-chocco {
+    flex-direction: column;
+    justify-content: space-around;
+
+    .main-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       
+
+        .main-text__title {
+            max-width: 50%;
+
+            .title__text {
+                text-align: center;
+                font-size: 48px;
+                padding-bottom: 28px;
+            }
+        }
+            
+        .main-text__subtitle {
+            max-width: 50%;
+
+            .subtitle__text {
+                text-align: center;
+                font-size: 18px;
+                color: #adadad;
+                
+
+            }
+        }
+       
+    }
+
+    .information {
+        
+        .information__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .information__item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            width: 25%;
+
+            .inforamion__bg-image {
+                background-color: #f2f5f4;
+                border-radius: 50%;
+                width: 128px;
+                height: 128px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 35px;
+
+                .bg-image__pic {
+                    max-width: 50%;
+                    max-height: 50%;
+                }
+            }
+
+            &::after {
+                content: url(../img/dots.png);
+                display: block;
+                position: absolute;
+                top: 17%;
+                right: -40%;
+            }
+           
+            &:last-child::after {
+                content: "";
+            }
+
+            .info-title__text {
+                font-size: 27px;
+                margin-bottom: 30px;
+            }
+
+            .info-subtitle__text {
+                font-size: 18px;
+                text-align: center;
+            }
+
+        }
+
+        }
+        
+    }
+    
+}
