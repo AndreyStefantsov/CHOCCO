@@ -34,6 +34,8 @@
                 text-align: center;
                 font-size: 48px;
                 padding-bottom: 28px;
+                font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
+                text-transform: uppercase;
             }
         }
             
@@ -43,7 +45,7 @@
             .subtitle__text {
                 text-align: center;
                 font-size: 18px;
-                color: #adadad;
+                color: #707070;
                 
 
             }
@@ -65,7 +67,7 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-            width: 25%;
+            width: 30%;
 
             .inforamion__bg-image {
                 background-color: #f2f5f4;
@@ -88,7 +90,7 @@
                 display: block;
                 position: absolute;
                 top: 17%;
-                right: -40%;
+                right: -20%;
             }
            
             &:last-child::after {
@@ -98,10 +100,12 @@
             .info-title__text {
                 font-size: 27px;
                 margin-bottom: 30px;
+                font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
             }
 
             .info-subtitle__text {
                 font-size: 18px;
+                color: #707070;
                 text-align: center;
             }
 
