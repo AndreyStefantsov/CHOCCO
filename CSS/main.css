@@ -1,3 +1,23 @@
+/*@mixin monitor {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media screen and (max-width: 1199px) {
+        @content;
+    }
+}
+@mixin ipads {
+    @media screen and (max-width: 870px) {
+        @content;
+    }
+}*/
+/*@mixin monitor {
+    @media screen and (max-width: 320px) {
+        @content;
+    }
+}*/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -437,7 +457,7 @@ h1, h2, h3, h4, h5, h6, p {
 .container {
   max-width: 940px;
   min-width: 320px;
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -672,7 +692,7 @@ h1, h2, h3, h4, h5, h6, p {
     .description__caption {
       text-align: center;
       font-size: 50px; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .description__caption {
       font-size: 46px; } }
 
@@ -683,7 +703,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .description__text {
       text-align: center; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .description__text {
       font-size: 18px; } }
 
@@ -736,7 +756,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .advantages__item {
       margin: 10px; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .advantages__item {
       margin: 0; } }
 
@@ -843,7 +863,7 @@ h1, h2, h3, h4, h5, h6, p {
     @media screen and (max-width: 768px) {
       .section-why-chocco::before {
         bottom: 50%; } }
-    @media screen and (min-width: 320px) and (max-width: 480px) {
+    @media screen and (max-width: 480px) {
       .section-why-chocco::before {
         content: ""; } }
   .section-why-chocco::after {
@@ -853,7 +873,7 @@ h1, h2, h3, h4, h5, h6, p {
     left: 0;
     bottom: -10%;
     z-index: 2; }
-    @media screen and (min-width: 320px) and (max-width: 480px) {
+    @media screen and (max-width: 480px) {
       .section-why-chocco::after {
         content: ""; } }
 
@@ -946,7 +966,7 @@ h1, h2, h3, h4, h5, h6, p {
     .information__item {
       width: 80%;
       margin-bottom: 20px; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .information__item {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
@@ -984,7 +1004,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .why-chocco-image {
       margin-bottom: 15px; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .why-chocco-image {
       margin-bottom: 0; } }
 
@@ -1003,7 +1023,7 @@ h1, h2, h3, h4, h5, h6, p {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .why-chocco-description {
       -webkit-box-align: start;
       -ms-flex-align: start;
@@ -1022,7 +1042,7 @@ h1, h2, h3, h4, h5, h6, p {
   font-size: 18px;
   color: #707070;
   text-align: center; }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .why-chocco-description__subtitle {
       text-align: left; } }
 
@@ -1393,7 +1413,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .team__list {
       width: 95%; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .team__list {
       width: 100%; } }
 
@@ -1415,7 +1435,7 @@ h1, h2, h3, h4, h5, h6, p {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
       flex: 1 1 50%; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .team__item {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
@@ -1426,7 +1446,7 @@ h1, h2, h3, h4, h5, h6, p {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center; }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .team-image {
       width: 64%;
       max-width: 140px; } }
@@ -1605,7 +1625,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .menu-description {
       width: 100%; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .menu-description {
       width: 100%; } }
 
@@ -1751,7 +1771,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .comments-text__title {
       margin-bottom: 15px; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .comments-text__title {
       text-align: center; } }
 
@@ -1762,7 +1782,7 @@ h1, h2, h3, h4, h5, h6, p {
     .comments-text__text {
       margin-bottom: 15px;
       text-align: center; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .comments-text__text {
       text-align: center; } }
 
@@ -1859,7 +1879,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .video {
       height: 90%; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .video {
       height: 100%; } }
   .video::before {
@@ -1903,7 +1923,7 @@ h1, h2, h3, h4, h5, h6, p {
     @media screen and (max-width: 768px) {
       .section-delivery::before {
         content: ""; } }
-    @media screen and (min-width: 320px) and (max-width: 480px) {
+    @media screen and (max-width: 480px) {
       .section-delivery::before {
         content: ""; } }
   .section-delivery::after {
@@ -1916,7 +1936,7 @@ h1, h2, h3, h4, h5, h6, p {
     @media screen and (max-width: 768px) {
       .section-delivery::after {
         content: ""; } }
-    @media screen and (min-width: 320px) and (max-width: 480px) {
+    @media screen and (max-width: 480px) {
       .section-delivery::after {
         content: ""; } }
 
@@ -1975,7 +1995,7 @@ h1, h2, h3, h4, h5, h6, p {
       -ms-flex-align: center;
       align-items: center;
       max-width: 460px; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .delivery-form {
       width: 95%; } }
 
@@ -1987,7 +2007,7 @@ h1, h2, h3, h4, h5, h6, p {
     .delivery-form__form-adress {
       margin: 0;
       width: 100%; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .delivery-form__form-adress {
       width: 100%; } }
 
@@ -2047,7 +2067,7 @@ h1, h2, h3, h4, h5, h6, p {
     .delivery-form__order-infornation {
       margin: 0;
       width: 100%; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .delivery-form__order-infornation {
       width: 100%; } }
 
@@ -2102,7 +2122,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .delivery-buttons > .button {
       margin-right: 0; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .delivery-buttons > .button {
       margin-right: 0; } }
 
@@ -2186,7 +2206,7 @@ h1, h2, h3, h4, h5, h6, p {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .contacts {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
@@ -2205,7 +2225,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .adress {
       margin-left: 5%; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .adress {
       margin-left: 0;
       margin-bottom: 1vmax; } }
@@ -2227,7 +2247,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 768px) {
     .socials {
       margin-right: 5%; } }
-  @media screen and (min-width: 320px) and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .socials {
       margin-left: 0;
       -webkit-box-orient: vertical;
