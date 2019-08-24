@@ -1,0 +1,130 @@
+.section-menu {
+    background: url(../img/menu_background.png) no-repeat left top;
+    background-size: cover;
+    color: #fff;
+}
+
+.container-menu {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 5%;
+}
+
+/*.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+}*/
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;  
+}
+
+.main-text__title {
+    max-width: inherit;  //вынести в отдельный файл
+}
+
+.main-text_menu {
+    margin: 0;
+
+    @include laptop {
+        margin-left: 5%;
+    }
+}
+
+.menu__list {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+
+    position: relative;
+}
+
+.menu__item {
+    display: flex;
+    align-items: flex-end;
+    min-width: 100px;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex: 0.15 1 0%;
+    min-width: 100px;
+    max-width: 100px;
+    cursor: pointer;
+}
+
+.bar-with-milk {
+    background: url(../img/bars-with-milk.png) no-repeat center center;
+    background-size: cover;
+    
+}
+
+.bar-with-calamondin {
+    background: url(../img/bars-with-calamondin.png) no-repeat center center;
+    background-size: cover;
+}
+
+.bar-with-berries {
+    background: url(../img/bars-with-berries.png) no-repeat center center;
+    background-size: cover;
+}
+
+.menu-bar__caption {
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    text-transform: uppercase;
+    font-size: 30px;
+    width: 33%;
+    margin-bottom: 20px;
+}
+
+.menu-description {
+    display: none;
+    background-color: rgba(47, 50, 52,0.7);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    z-index: 20;
+
+    @include laptop {
+        width: 100%;
+    }
+
+    @include tablets {
+        width: 100%;
+    }
+}
+
+.menu__description_visible {
+    display: flex;              //добавляется при переключении вкладок
+}
+
+.menu-description__text {
+    flex: .95;
+    margin: 20px;
+}
+
+.menu-description__image {
+    flex: .05;
+    margin: 20px 10px 0 0;
+}
+
+.menu-description__link {
+    display: block;
+}
+
+.menu-description__close-button {
+    max-width: 100%
+}

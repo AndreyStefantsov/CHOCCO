@@ -1,0 +1,27 @@
+
+
+.button {
+    border: none;
+    border-radius: 78px;
+    font-size: 19px;
+    padding: 19px 34px 18px 35px;
+    font-family: 'alegreya_sans_extraboldRg', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &_white-bg-green-text {
+        color: #0f5a47;
+        background-color: #fff;
+    }
+
+    &_green-bg-white-text {
+        color: #fff;
+        background-color: #0f5a47;
+    }
+
+    &_whitout-bg-green-text {
+        color: #0f5a47;
+        background: none;
+    }
+}
+

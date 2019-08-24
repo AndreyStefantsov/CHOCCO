@@ -1,0 +1,274 @@
+
+.section-bar-chocco {
+    background-color: #f8faf9;
+    background-size: cover;
+    color: #000;
+    overflow: visible;
+    
+    
+    &::after {
+        content: url(../img/blueberry.png);
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 77%;
+        z-index: 2;
+    }
+
+}
+
+.container-bar-chocco {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bar-chocco {
+    display: flex;
+    justify-content: center;
+    order: 2;
+    flex: 0.8;
+}
+
+.bar-chocco__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bar-chocco__item {
+    display: none;
+    flex-direction: row;
+
+    @include laptop {
+        flex-direction: column;
+    }
+}
+
+.bar-chocco__item_visible {
+    display: flex;
+
+    @include laptop {
+        align-items: center;
+    }
+}
+
+.bar-chocco-image {
+    width: 50%;
+    position: relative;
+    margin-right: 20px;
+
+    &__pic {
+        max-width: 100%
+    }
+
+    &::before {
+        content: url(../img/bar-leaf-left.png);
+        display: block;
+        position: absolute;
+        left: -18%;
+        top: 20%;
+        z-index: 2;
+    }
+
+    &::after {
+        content: url(../img/bar-leaf-right.png);
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -10%;
+        z-index: 2;
+    }
+}
+
+.bar-chocco-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    @include laptop {
+        width: 80%;
+        align-items: center;
+    }
+}
+
+.bar-composition {  
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    background: #00accf;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        
+        .bar-full-composition {
+            transition: all 0.1s;
+            opacity: 1;
+            left: 105%;
+            width: 300%;
+            visibility: visible;
+
+            @include laptop {
+                left: -305%;
+                z-index: 10;
+            }
+        }
+
+    }
+
+    @include laptop {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+    }
+}
+
+.bar-composition__pic {
+    width: 51px;
+    height: 51px;
+    fill: #fff;
+    margin-bottom: 5px;
+}
+
+.bar-composition__text {
+    color: #fff;
+}
+
+.bar-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include laptop {
+        align-items: center;
+    }
+}
+
+.bar-decription__title {
+    text-transform: uppercase;
+}
+
+.bar-decription__text {
+    color: #666666;
+
+    @include laptop {
+        text-align: center;
+    }
+}
+
+.bar-information {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.bar-calorific, .bar-weight {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.bar-title {
+    font-size: 15px; 
+}
+
+.bar-text {
+    text-transform: uppercase;
+}
+
+.bar-order {
+    display: flex;
+
+    @include laptop {
+        align-items: center;
+    }
+}
+
+.bar-order__price {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.bar-full-composition {
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+
+.bar-full-composition__list {
+    display: flex;
+    flex-direction: column;
+
+    .bar-full-composition__item {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-bottom: 15px;
+        align-items: center;
+
+        &:first-child {
+            padding-top: 25px;
+        }
+
+        &:last-child {
+            padding-bottom: 25px;
+        }
+    }
+}
+
+.bar-full-composition__pic {
+    width: 35px;
+    height: 35px;
+    flex: 0.3
+}
+
+.bar-full-composition__text {
+    flex: 0.5;
+}
+
+.bar-full-composition__weight {
+    flex: 0.2;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.bar-full-composition__text, .bar-full-composition__weight, .bar-full-composition__pic {
+    //padding-right: 20px;
+}
+
+.browsing {
+    flex: .1;
+
+    @include laptop {
+        width: 80%;
+        align-items: center;
+    }
+}
+
+.browsing_arrow-left {
+    order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.browsing_arrow-right {
+    order: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.arrow__link {display: block;}
+
+.arrow__pic {max-width: 100%;}
+ 
