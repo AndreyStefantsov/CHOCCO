@@ -55,8 +55,8 @@
 }
 
 .delivery-label {
-    font-size: 0.95rem;
-    margin-bottom: 10px;
+    font-size: rem(18);
+    margin-bottom: rem(10);
 
     &_without-margin {
         margin: 0;
@@ -66,7 +66,7 @@
 }
 
 .delivery-input {
-    height: 50px; 
+    height: rem(50); 
     border: none;
     
     &_name-width, &_tel-width, &_street-width, &_billing-adress {
@@ -76,7 +76,7 @@
 }
 
 .delivery-input:focus,  .delivery-textarea:focus {
-    outline: 2px solid  rgb(223, 217, 133);
+    outline: rem(2) solid  rgb(223, 217, 133);
 }
 
 .delivery-form {
@@ -87,7 +87,7 @@
         flex-direction: column;
         align-items: center;
 
-        max-width: 460px;
+        max-width: rem(460);
     };
 
     @include tablets {
@@ -97,8 +97,8 @@
 
 .delivery-form__form-adress {
     width: 50%;
-    margin-right: 10px;
-    margin-left: 20px;
+    margin-right: rem(10);
+
 
     @include laptop {
         margin: 0;
@@ -115,7 +115,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: rem(15);
 
 }
 
@@ -141,8 +141,7 @@
 
 .delivery-form__order-infornation {
     width: 50%; 
-    margin-right: 20px;
-    margin-left: 10px;
+    margin-left: rem(10);
 
     @include laptop {
         margin: 0;
@@ -155,55 +154,89 @@
 }
 
 .delivery-comment {
-    margin-bottom: 20px;
+    margin-bottom: rem(20);
+
+    @include laptop {
+        margin-bottom: rem(45);
+    }
+
+    @include tablets {
+        margin-bottom: rem(20);
+    }
 }
 
 .delivery-textarea {
     resize: none;
     border: none;
+    height: rem(180);
+
+    @include tablets {
+        height: rem(100);
+    }
+
 }
 
 .delivery-options, .delivery-call, .delivery-buttons {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: rem(15);
 
     @include laptop {
         justify-content: center;
     }
 }
 
+.delivery-options {
+
+    @include laptop {
+        margin-bottom: rem(25);
+    }
+
+    @include tablets {
+        margin-bottom: rem(15);
+    }
+}
+
+.delivery-call {
+
+    @include laptop {
+        margin-bottom: rem(40);
+    }
+
+    @include tablets {
+        margin-bottom: rem(30);
+    }
+}
+
 .delivery-options-radio {
     display: flex;
-    margin-right: 20px; 
+    margin-right: rem(20); 
     align-items: center;
 
     @include laptop {
+
         &:last-child {
             margin: 0;
         }
     }
 }
 
-.options-text {
-    margin-right: 20px;
-    color: #0f5a47;
-}
-
-.options-radio, .checkbox-call {
-    margin-right: 20px;
+.options-radio {
+    margin-right: rem(17);
     cursor: pointer;
 }
 
 .checkbox-call {
-    width: 20px;
-    height: 20px;
+    width: rem(20);
+    height: rem(20);
     background-color: #cfdeda;
+    margin-right: rem(11);
+    cursor: pointer;
 }
 
 
 .delivery-buttons > .button {
-    margin-right: 20px;
+    margin-right: rem(20);
 
     @include laptop {
         margin-right: 0;
@@ -218,20 +251,14 @@
     opacity: 0;
 }
 
-
-.delivery-options-radio, .delivery-call {
-    //position: relative;    
-}
-
-
 .options-radio +.delivery-label_without-margin {
 
     &::before {
     content: "";
     position: absolute;
-    left: -30px;
-    width: 20px;
-    height: 20px;
+    left: rem(-30);
+    width: rem(20);
+    height: rem(20);
     background: #fff;
     border-radius: 50%;
     top: -6%;
@@ -244,10 +271,10 @@
     &::after {
     content: "";
     position: absolute;
-    left: -25px;
-    top: 20%;
-    width: 10px;
-    height: 10px;
+    left: rem(-25);
+    top: 19%;
+    width: rem(10);
+    height: rem(10);
     background: #0f5a47;
     border-radius: 50%;
     }
@@ -259,9 +286,9 @@
     &::before {
     content: "";
     position: absolute;
-    left: -30px;
-    width: 20px;
-    height: 20px;
+    left: rem(-30);
+    width: rem(20);
+    height: rem(20);
     background: #fff;
     top: -6%;
     }
@@ -274,11 +301,10 @@
     content: "";
     position: absolute;
     top: 18%;
-    left: -25px;
-    width: 10px;
-    height: 10px;
+    left: rem(-25);
+    width: rem(10);
+    height: rem(10);
     background: #0f5a47;
-    clip-path: polygon(0 50%, 50% 0, 100% 100%)
     }
 
 }

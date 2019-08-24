@@ -42,46 +42,26 @@
     justify-content: center;
 }
 
-.main-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    @include laptop {
-        margin-bottom: 20px;
-    }
-
-}
-       
-
-.main-text__title {
-    max-width: 50%;
-}
-
-.title__text {
+    
+.subtitle-text {
+    max-width: 45%;
     text-align: center;
-    font-size: 48px;
-    padding-bottom: 28px;
-    font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-
-
-}
-
-            
-.main-text__subtitle {
-    max-width: 50%;
+    font-size: rem(18);
+    color: #707070;
 
     @include laptop {
         max-width: 70%;
     }
+
+    @include tablets {
+        max-width: 100%;
+    }
+
 }
 
-.subtitle__text {
-    text-align: center;
-    font-size: 18px;
-    color: #707070;
+.information {
+    position: relative;
+    z-index: 10;
 }
 
 .information__list {
@@ -104,14 +84,14 @@
     width: 30%;
 
     @include laptop {
-        width: 80%;
-        margin-bottom: 20px;
+        width: 65%;
+        margin-bottom: rem(20);
     }
 
     @include tablets {
         flex-direction: row;
         width: 95%;
-        margin-bottom: 30px;
+        margin-bottom: rem(30);
     }
 
     &::after {
@@ -135,15 +115,15 @@
 .why-chocco-image {
     background-color: #f2f5f4;
     border-radius: 50%;
-    width: 128px;
-    height: 128px;
+    width: rem(128);
+    height: rem(128);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 35px;
+    margin-bottom: rem(35);
 
     @include laptop {
-        margin-bottom: 15px;
+        margin-bottom: rem(15);
     }
 
     @include tablets {
@@ -170,18 +150,22 @@
 }
 
 .why-chocco-description__title {
-    font-size: 27px;
-    margin-bottom: 30px;
+    font-size: rem(27);
+    margin-bottom: rem(30);
     font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
 
     @include laptop {
-        margin-bottom: 15px;
+        margin-bottom: rem(15);
+    }
+
+    @include tablets {
+        margin-bottom: rem(20);
     }
 
 }
 
 .why-chocco-description__subtitle {
-    font-size: 18px;
+    font-size: rem(18);
     color: #707070;
     text-align: center;
 

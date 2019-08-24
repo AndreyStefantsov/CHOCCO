@@ -27,16 +27,9 @@
     justify-content: flex-end;  
 }
 
-.main-text__title {
-    max-width: inherit;  //вынести в отдельный файл
-}
 
 .main-text_menu {
     margin: 0;
-
-    @include laptop {
-        margin-left: 5%;
-    }
 }
 
 .menu__list {
@@ -50,7 +43,7 @@
 .menu__item {
     display: flex;
     align-items: flex-end;
-    min-width: 100px;
+    min-width: rem(100);
 }
 
 .menu-bar {
@@ -58,8 +51,8 @@
     justify-content: center;
     height: 100%;
     flex: 0.15 1 0%;
-    min-width: 100px;
-    max-width: 100px;
+    min-width: rem(100);
+    max-width: rem(100);
     cursor: pointer;
 }
 
@@ -83,9 +76,9 @@
     writing-mode: vertical-rl;
     transform: rotate(-180deg);
     text-transform: uppercase;
-    font-size: 30px;
-    width: 33%;
-    margin-bottom: 20px;
+    padding-top: rem(45);
+    font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
+    font-size: rem(48);
 }
 
 .menu-description {
@@ -107,18 +100,18 @@
     }
 }
 
-.menu__description_visible {
+.menu-description_visible {
     display: flex;              //добавляется при переключении вкладок
 }
 
 .menu-description__text {
     flex: .95;
-    margin: 20px;
+    margin: rem(20);
 }
 
 .menu-description__image {
     flex: .05;
-    margin: 20px 10px 0 0;
+    margin: rem(20) rem(10) 0 0;
 }
 
 .menu-description__link {

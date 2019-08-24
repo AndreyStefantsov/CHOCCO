@@ -1,0 +1,55 @@
+.caption {
+    text-transform: uppercase;
+    z-index: 10;
+    font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
+    line-height: 3.7rem;
+    font-size: rem(48);
+
+    &_white {
+        color: #fff;
+        margin-bottom: 10px;
+
+        @include laptop {
+            text-align: center;
+        }
+
+    }
+
+    &_black {
+        color: #000;
+        margin-bottom: 25px;
+
+        @include tablets {
+            margin-bottom: 20px;
+        }
+    }
+
+    &_green {
+        color: #0f5a47;
+        margin-bottom: 25px;
+    }
+
+    @include tablets {
+        font-size: rem(40);
+        text-align: center;
+    }
+    
+
+}
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @include laptop {
+        margin-bottom: 20px;
+    }
+
+    @include tablets {
+
+    }
+
+}

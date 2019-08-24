@@ -22,9 +22,11 @@
 }
 
 .video {
+    background: url(../img/frame.png) no-repeat center center;
+    background-size: cover;
     position: relative;
-    max-width: 660px;
-    max-height: 405px;
+    max-width: rem(660);
+    max-height: rem(405);
     width: 100%;
     height: 100%;
     z-index: 20;

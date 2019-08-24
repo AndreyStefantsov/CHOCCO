@@ -1,6 +1,6 @@
 .footer {
     background-color: #fff;
-    padding: 30px 0;
+    padding: rem(30) 0;
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -21,19 +21,19 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    font-size: rem(20.84);
 
-    @include laptop {
-        margin-left: 5%;
-    }
 
     @include tablets {
         margin-left: 0;
-        margin-bottom: 1vmax;
+        width: 100%;
+        align-items: center;
+        margin-bottom: rem(20);
     }
 }
 
 .full-adress {
-    margin-bottom: 10px;
+    margin-bottom: rem(10);
 }
 
 .phone__text_green {
@@ -45,14 +45,10 @@
     width: 50%;
     justify-content: flex-end;
 
-    @include laptop {
-        margin-right: 5%;
-    }
-
     @include tablets {
         margin-left: 0;
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }
 
@@ -62,7 +58,7 @@
 }
 
 .socials__item {
-    margin-right: 20px;
+    margin-right: rem(20);
 
     &:last-child {
         margin-right: 0;
@@ -74,8 +70,8 @@
 }
 
 .socials__pic {
-    width: 20px;
-    height: 20px;
+    width: rem(20);
+    height: rem(20);
     fill: #B3B3B3;
 
     &:hover {

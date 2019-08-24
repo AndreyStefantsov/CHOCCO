@@ -3,11 +3,11 @@
 .button {
     border: none;
     border-radius: 78px;
-    font-size: 19px;
+    font-size: rem(19);
     padding: 19px 34px 18px 35px;
     font-family: 'alegreya_sans_extraboldRg', Arial, Helvetica, sans-serif;
     text-transform: uppercase;
-    cursor: pointer;
+    cursor: pointer;    
 
     &_white-bg-green-text {
         color: #0f5a47;

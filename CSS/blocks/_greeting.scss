@@ -1,13 +1,17 @@
 .section-greeting {
-    background: url(../img/bg_1.png) left top no-repeat;
-    background-size: cover;
+    background: url(../img/greeting_bg_leaf.png) right bottom no-repeat #61c4d9;
+    //background-size: cover;
     color: #fff;  
     overflow: visible;
 
     @include laptop {
-       // background-position: center center;
-       //min-height: 800px;
+       background-position: right top;
     }
+
+    @include tablets {
+        background-position: right top;
+        background-size: 140%;
+     }
    
     
     &::after {
@@ -15,7 +19,7 @@
         display: block;
         position: absolute;
         left: 5%;
-        bottom: -70px;
+        bottom: -5%;
         z-index: 2;
 
         @include laptop {
@@ -28,7 +32,7 @@
         display: block;
         position: absolute;
         right: 5%;
-        bottom: -51px;
+        bottom: -4%;
         z-index: 2;
 
         @include laptop {
@@ -43,11 +47,6 @@
     justify-content: flex-end;
     position: relative;
     overflow: visible;
-    
-    /*@include laptop {
-        justify-content: center;
-    }*/
-
 
 }
 
@@ -58,9 +57,13 @@
     align-items: center;
     position: absolute;
     width: 100%;
-    top: 20px;   
+    top: rem(20);   
 
     @include laptop {
+        justify-content: space-between;    
+    }
+
+    @include tablets {
         justify-content: space-between;    
     }
 
@@ -69,7 +72,7 @@
 .header__logo {
             
     .logo__text {
-        font-size: 24px;
+        font-size: rem(24);
         font-family: 'museo_sans_cyrl500', Arial, Helvetica, sans-serif;
     }
 }
@@ -86,12 +89,12 @@
 }             
            
 .navigation__item {
-    margin-right: 10px;
+    margin-right: rem(10);
 }
 
 .navigation__link {
     color: #fff;
-    font-size: 18px;
+    font-size: rem(18);
     font-weight: normal;
 }               
 
@@ -101,8 +104,8 @@
 }
 
 .phone__iconed {
-    width: 13px;
-    height: 8px;
+    width: rem(13);
+    height: rem(8);
 }      
             
 .pnone__pic {
@@ -112,7 +115,7 @@
 
 .phone__text {
     position: relative;
-    font-size: 24px;
+    font-size: rem(24);
     color: #fff;
     
     &_white {
@@ -146,13 +149,19 @@
     flex-direction: column;
     align-items: flex-start;
     width: 50%;
+   
 
     @include laptop {
         order: 2;
         align-items: center;
         width: 65%;
-        margin-bottom: 20px;
+        margin-bottom: rem(20);
     }
+
+    @include tablets {
+        width: 80%;  
+    }
+
 }
 
 .choco {
@@ -162,7 +171,7 @@
     @include laptop {
         order: 1;
         position: relative;
-        margin-bottom: 50px;
+        margin-bottom: rem(50);
 
         &::after {
             content: url(../img/greeting_leaf.png);
@@ -171,7 +180,6 @@
             left: 0;
             bottom: 10%;
             z-index: 2;
-            transform: scale(0.7);
         }
     
         &::before {
@@ -181,43 +189,61 @@
             right: -25%;
             bottom: -15%;
             z-index: 2;
-            transform: scale(0.7);
+        } 
+
+    }
+
+    
+    @include tablets {
+        order: 1;
+        position: relative;
+        margin-bottom: 0;
+        width: 75%;
+
+        &::after {
+            content: url(../img/greeting_leaf.png);
+            display: block;
+            position: absolute;
+            left: -5%;
+            bottom: 0;
+            z-index: 2;
+            transform: scale(0.5);
+        }
+    
+        &::before {
+            content: url(../img/bg_1_berries.png);
+            display: block;
+            position: absolute;
+            right: -53%;
+            bottom: -30%;
+            z-index: 2;
+            transform: scale(0.5);
         } 
 
     }
 
 }
 
-
-.description__caption {
-    text-transform: uppercase;
-    font-size: 60px;
-    font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
-    line-height: 3.7rem;
-
-    @include laptop {
-        text-align: center;
-        font-size: 50px;
-    }
+.caption_white {
+    font-size: rem(60);
 
     @include tablets {
-        font-size: 46px;
+        font-size: rem(46);
+        line-height: 2.5rem;
     }
-
 }
 
 .description__text {
-    font-size: 21px;
-    padding-bottom: 35px;
-    padding-top: 10px;
+    font-size: rem(21);
+    margin-bottom: rem(35);
+
 
     @include laptop {
         text-align: center;
-        //font-size: 18px;
     }
 
     @include tablets {
-        font-size: 18px;
+        font-size: rem(18);
     }
 }
 
@@ -228,7 +254,9 @@
 
 
 .advantages {
-    margin-bottom: 20px;
+    margin-bottom: rem(20);
+    position: relative;
+    z-index: 10;
 }
 
 .advantages__list {
@@ -248,33 +276,39 @@
     justify-content: flex-start;
     align-items: center;
     flex: .15; 
-    margin-right: 20px;
+    margin-right: rem(20);
 
     &:last-child {
         margin-right: 0;
     }
 
     @include laptop {
-        margin: 10px;
+        margin: rem(10);
+        flex: 0.22;
     }
 
     @include tablets {
         margin: 0;
+        width: 33%;
+        margin-right: rem(10);
     }
  
 }
 
 .advantages__pic {
-    width: 50px;
-    max-height: 50px;
+    width: rem(50);
+    max-height: rem(50);
     fill: none;
     stroke: #aef4fe;
     align-self: flex-start;
 }
 
 .advantages__text {
-    //width: 40%;
-    padding-left: 10px;
+    padding-left: rem(10);
+
+    @include tablets {
+        font-size: rem(16);
+    }
 }
 
 
@@ -285,7 +319,7 @@
 
     @include laptop {
         position: absolute;
-        margin-right: 0px;
+        margin-right: 0;
         display: none;
         right: 5%;
         z-index: 20;
@@ -303,8 +337,8 @@
 
 .navigation__item {
     @include laptop {
-        margin: 0px;
-        padding: 10px;
+        margin: 0;
+        padding: rem(10);
         width: 100%;
         background-color: rgb(204, 204, 204);
         text-align: right;
@@ -314,7 +348,7 @@
 .navigation__link {
 
     @include laptop {
-        margin: 0px;
+        margin: 0;
         display: block;
 
         &:hover {
@@ -325,17 +359,17 @@
 
 .header__phone {
     @include laptop {
-        margin: 10px;
+        margin: rem(10);
         display: none;
     }
 }
 
 .line {
     content: '';
-    width: 20px;
-    height: 5px;
-    margin-bottom: 5px;
-    margin-right: 10px;
+    width: rem(20);
+    height: rem(5);
+    margin-bottom: rem(5);
+    margin-right: rem(10);
     background-color: #fff;
 
 }
@@ -364,7 +398,7 @@
 
 .burger-icon:checked ~ .header__navigation {
     display: flex;
-    right: 40px;
+    right: rem(40);
 }
 
 .burger-icon, .burger-label {

@@ -33,22 +33,35 @@
 
 .title__text {
     text-align: center;
-    font-size: 48px;
+    font-size: rem(48);
     font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
     text-transform: uppercase;
 }
 
 .comments-full {
-    background: url(../img/comments_bg.png) no-repeat center center;
-    background-size: cover;
-    padding: 52px 0 35px 46px;
-    margin-bottom: 20px;
-    z-index: 20;
+    background: url(../img/comments_bg.png) no-repeat top center #f8faf9;
+    padding: rem(50) 0 rem(35) rem(46);
+    margin-bottom: rem(20);
+    z-index: 20; 
+    position: relative;
 
+    &::after {
+        content: url(../img/comments_leaf.png);
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+    }
     @include laptop {
-        padding: 30px;
+        padding: rem(70) rem(25) rem(30) rem(25);
         width: 70%;
-        background: url(../img/comments_bg.png) no-repeat right top;
+        background-size: cover;
+    }
+
+    @include tablets {
+        padding: rem(45) rem(30) rem(20) rem(30);
+        width: 95%;
         background-size: cover;
     }
 
@@ -58,6 +71,8 @@
 .comments-full__list {
     display: flex;
     flex-direction: row;
+    position: relative;
+    z-index: 10;
 }
 
 .comments-full__item {
@@ -77,7 +92,7 @@
 
     @include laptop {
         width: 50%;
-        margin-bottom: 15px;
+        margin-bottom: rem(15);
     }
 }
 
@@ -92,7 +107,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    padding-left: 10px;
+    padding-left: rem(10);
 
     @include laptop {
         align-items: center;
@@ -102,12 +117,12 @@
 }
         
 .comments-text__title {
-    font-size: 29.96px;
+    font-size: rem(29.96);
     font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
     font-weight: normal;
 
     @include laptop {
-        margin-bottom: 15px;
+        margin-bottom: rem(15);
     }
 
     @include tablets {
@@ -116,11 +131,11 @@
 }
 
 .comments-text__text {
-    font-size: 17.98px;
+    font-size: rem(17.98);
     color: #666666;
 
     @include laptop {
-        margin-bottom: 15px;
+        margin-bottom: rem(15);
         text-align: center;
     }
 
@@ -130,13 +145,13 @@
 }
 
 .comments-text__name {
-    font-size: 17.98px;
+    font-size: rem(17.98);
     font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
     color: #666666;
-    margin-bottom: 26px;
+    margin-bottom: rem(26);
 
     @include laptop {
-        margin-bottom: 15px;
+        margin-bottom: rem(15);
     }
 }
 
@@ -158,15 +173,19 @@
 
 .peoples__item {
     align-self: center;
-    margin-right: 10px;
+    margin-right: rem(10);
+
+    &:last-child {
+        margin-right: 0;
+    }
 }
 
 .peoples__image {
-    width: 77px;
-    height: 77px;
+    width: rem(77);
+    height: rem(77);
     box-sizing: content-box;
     overflow: hidden;
-    border: 6px solid transparent;
+    border: rem(6) solid transparent;
     border-radius: 50%;
 
     &:hover {
@@ -184,6 +203,6 @@
 }
                         
 .peoples-is-active {
-    border: 6px solid #0f5947 !important; //костыль
+    border: rem(6) solid #0f5947 !important; //костыль
     border-radius: 50%;
 }

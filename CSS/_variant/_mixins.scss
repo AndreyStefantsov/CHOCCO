@@ -1,30 +1,30 @@
-/*@mixin monitor {
-    @media screen and (min-width: 1200px) {
-        @content;
-    }
-}
-@mixin desktop {
-    @media screen and (max-width: 1199px) {
-        @content;
-    }
-}
-@mixin ipads {
-    @media screen and (max-width: 870px) {
-        @content;
-    }
-}*/
+
+
+
 @mixin laptop {
     @media screen and (max-width: 768px) {
         @content;
     }
 }
+
 @mixin tablets {
     @media screen and (max-width: 480px) {
         @content;
     }
 }
-/*@mixin monitor {
-    @media screen and (max-width: 320px) {
+
+@mixin phones {
+    @media screen and (max-width: 414px) {
         @content;
     }
+}
+
+
+
+@function rem($px) {
+    @return $px/16+0rem;
+}
+
+/*@function percents($target, $context) {
+    @return $target/$context +0%;
 }*/
