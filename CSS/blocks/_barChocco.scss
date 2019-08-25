@@ -13,6 +13,18 @@
         right: 0;
         top: 77%;
         z-index: 2;
+
+        @include tablets_landscape {
+            transform: scale(0.5);
+            right: rem(-49);
+            top: rem(45);
+        }
+
+        @include phones {
+            transform: scale(0.5);
+            right: rem(-49);
+            top: rem(285);
+        }
     }
 
 }
@@ -43,6 +55,10 @@
 
     @include laptop {
         flex-direction: column;
+    }
+
+    @include tablets_landscape {
+        flex-direction: row;
     }
 }
 
@@ -87,6 +103,14 @@
         margin-right: 0;
         margin-bottom: rem(40);
     }
+
+    @include tablets_landscape {
+        margin-right: rem(5);
+    }
+
+    @include phones {
+        margin-bottom: rem(10);
+    }
 }
 
 .bar-chocco-content {
@@ -101,6 +125,7 @@
         width: 100%;
         align-items: center;
     }
+
 }
 
 .bar-composition {  
@@ -133,6 +158,15 @@
                 left: -205%;
             }
 
+            @include tablets_landscape {
+                width: 350%;
+                left: -355%;
+            }
+
+            @include phones {
+                width: 350%;
+                left: -355%;
+            }
 
         }
 
@@ -140,8 +174,17 @@
 
     @include laptop {
         position: absolute;
-        top: 5%;
-        right: 5%;
+        top: rem(24);
+        right: 0;
+    }
+
+    @include tablets_landscape {
+        padding: rem(10) rem(10);
+    }
+
+    @include phones {
+        padding: rem(10) rem(10);
+        right: rem(5)
     }
 }
 
@@ -150,6 +193,18 @@
     height: rem(51);
     fill: #fff;
     margin-bottom: rem(5);
+
+    @include tablets_landscape {
+        width: rem(25);
+        height: rem(25);
+        align-self: center;
+    }
+
+    @include phones {
+        width: rem(25);
+        height: rem(25);
+        align-self: center;
+    }
 }
 
 .bar-composition__text {
@@ -172,6 +227,15 @@
     @include tablets {
         margin-bottom: rem(25);
     }
+
+    @include tablets_landscape {
+        margin-bottom: rem(5);
+    }
+
+    @include phones {
+        margin-bottom: rem(5);
+    }
+    
 }
 
 .bar-decription__title {
@@ -187,6 +251,16 @@
     @include tablets {
         font-size: rem(30);
     }
+
+    @include tablets_landscape {
+        font-size: rem(20);
+        margin-bottom: rem(5);
+    }
+
+    @include phones {
+        font-size: rem(20);
+        margin-bottom: rem(5);
+    }
 }
 
 .bar-decription__text {
@@ -196,12 +270,26 @@
     @include laptop {
         text-align: center;
     }
+
+    @include tablets_landscape {
+        font-size: rem(16);
+        margin-bottom: rem(5);
+    }
+
+    @include phones {
+        font-size: rem(16);
+        margin-bottom: rem(5);
+    }
 }
 
 .bar-information {
     display: flex;
     flex-direction: row;
     margin-bottom: rem(25);
+
+    @include tablets_landscape {
+        margin-bottom: rem(10);
+    }
 
 }
 
@@ -226,12 +314,20 @@
     font-size: rem(18);
     color: #686868;
 
+    @include tablets_landscape {
+        font-size: rem(16);
+    }
+
 }
 
 .bar-text {
     text-transform: uppercase;
     font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
     font-size: rem(18);
+
+    @include tablets_landscape {
+        font-size: rem(16);
+    }
 }
 
 .bar-order {
@@ -244,6 +340,7 @@
 
     @include tablets {
         width: 100%;
+        justify-content: center;
     }
 }
 
@@ -254,6 +351,14 @@
 
     @include tablets {
         font-size: rem(50);
+    }
+
+    @include tablets_landscape {
+        font-size: rem(30);
+    }
+
+    @include phones {
+        font-size: rem(35);
     }
 }
 
@@ -280,18 +385,58 @@
 
         &:first-child {
             padding-top: rem(25);
+
+            @include tablets_landscape {
+                padding-top: rem(10);
+                margin-left: rem(5); 
+            }
         }
 
         &:last-child {
             padding-bottom: rem(25);
+
+            @include tablets_landscape {
+                padding-bottom: rem(10); 
+                margin-left: rem(5); 
+           }
         }
+
+        @include tablets_landscape {
+            font-size: rem(14);
+            padding-bottom: rem(5);
+            margin-left: rem(5); 
+        }
+
+        @include phones {
+            font-size: rem(14);
+            padding-bottom: rem(5);
+            margin-left: rem(5); 
+        }
+    }
+
+    @include tablets_landscape {
+        width: 100%;
+    }
+
+    @include phones {
+        width: 100%;
     }
 }
 
 .bar-full-composition__pic {
     width: rem(35);
     height: rem(35);
-    flex: 0.3
+    flex: 0.3;
+
+    @include tablets_landscape {
+        width: rem(20);
+        height: rem(20);
+    }
+
+    @include phones {
+        width: rem(20);
+        height: rem(20);
+    }
 }
 
 .bar-full-composition__text {

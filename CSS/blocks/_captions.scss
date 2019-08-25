@@ -7,7 +7,7 @@
 
     &_white {
         color: #fff;
-        margin-bottom: 10px;
+        margin-bottom: rem(10);
 
         @include laptop {
             text-align: center;
@@ -17,23 +17,47 @@
 
     &_black {
         color: #000;
-        margin-bottom: 25px;
+        margin-bottom: rem(25);
 
         @include tablets {
-            margin-bottom: 20px;
+            margin-bottom: rem(20);
         }
+
+        @include tablets_landscape {
+            margin-bottom: rem(10);
+            line-height: 1.5rem;
+        }
+
+        @include phones {
+            margin-bottom: rem(10);
+            line-height: 1.5rem;
+        }
+
     }
 
     &_green {
         color: #0f5a47;
-        margin-bottom: 25px;
+        margin-bottom: rem(25);
+
+        @include tablets_landscape {
+            margin-bottom: rem(10);
+            line-height: 1.5rem;
+        }
     }
 
     @include tablets {
         font-size: rem(40);
         text-align: center;
     }
-    
+
+    @include tablets_landscape {
+        font-size: rem(27);
+    }
+
+    @include phones {
+        font-size: rem(27);
+        line-height: 1.5rem;
+    }
 
 }
 
@@ -42,14 +66,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: rem(50);
 
     @include laptop {
-        margin-bottom: 20px;
+        margin-bottom: rem(20);
     }
 
-    @include tablets {
-
+    @include tablets_landscape {
+        margin-bottom: rem(10);
     }
 
 }

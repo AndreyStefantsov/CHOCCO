@@ -12,6 +12,10 @@
         background-position: right top;
         background-size: 140%;
      }
+
+     @include tablets_landscape {
+        background-size: 80%;
+    }
    
     
     &::after {
@@ -47,6 +51,10 @@
     justify-content: flex-end;
     position: relative;
     overflow: visible;
+
+    @include tablets_landscape {
+        justify-content: flex-start;
+    }
 
 }
 
@@ -142,6 +150,11 @@
         flex-direction: column;
         justify-content: center;
     }
+
+    @include tablets_landscape {
+        justify-content: flex-start;
+        flex: 0;    
+    }
 }  
     
 .description {
@@ -161,6 +174,12 @@
     @include tablets {
         width: 80%;  
     }
+
+    @include tablets_landscape {
+        width: 100%;
+        margin-bottom: rem(10);
+    }
+    
 
 }
 
@@ -222,6 +241,25 @@
 
     }
 
+    @include tablets_landscape {
+        margin-bottom: rem(5);
+        width: rem(135);
+
+        &::after {
+            transform: scale(0.5);
+            left: rem(-23);
+            bottom: 0;
+        }
+
+        &::before {          
+            transform: scale(0.4);
+            left: rem(-60);
+            top: rem(-45);
+            right: 0;
+            bottom: 0;
+        }
+    }
+
 }
 
 .caption_white {
@@ -231,6 +269,18 @@
         font-size: rem(46);
         line-height: 2.5rem;
     }
+
+    @include tablets_landscape {
+        width: 100%;
+        font-size: rem(27);  
+        line-height: 1.5rem;
+        margin-bottom: rem(5);
+    }
+
+    @include phones {
+        font-size: rem(40);
+    }
+
 }
 
 .description__text {
@@ -244,6 +294,16 @@
 
     @include tablets {
         font-size: rem(18);
+    }
+
+    @include tablets_landscape {
+        font-size: rem(16);  
+        line-height: 1.5rem;
+        margin-bottom: rem(5);
+    }
+
+    @include phones {
+        margin-bottom: rem(15);
     }
 }
 
@@ -292,6 +352,17 @@
         width: 33%;
         margin-right: rem(10);
     }
+
+    @include tablets_landscape {
+        margin: 0;
+        margin-right: rem(10);
+        flex: 0;
+    }
+
+    @include phones {
+        
+        margin-right: rem(10);
+    }
  
 }
 
@@ -301,13 +372,22 @@
     fill: none;
     stroke: #aef4fe;
     align-self: flex-start;
+
+    @include phones {
+        width: rem(40);
+    }
 }
 
 .advantages__text {
-    padding-left: rem(10);
+    margin-left: rem(10);
 
     @include tablets {
         font-size: rem(16);
+    }
+
+    @include phones {
+        margin-left: rem(5);
+        font-size: rem(14);
     }
 }
 

@@ -51,7 +51,7 @@
 
     @include laptop {
         justify-content: center;
-    };
+    }
 }
 
 .delivery-label {
@@ -63,6 +63,16 @@
         cursor: pointer;
         position: relative;
     }
+
+    @include tablets_landscape {
+        margin-bottom: rem(5);
+        font-size: rem(14);
+    }
+
+    @include phones {
+        margin-bottom: rem(5);
+        font-size: rem(16);
+    }
 }
 
 .delivery-input {
@@ -71,6 +81,15 @@
     
     &_name-width, &_tel-width, &_street-width, &_billing-adress {
         width: 100%;
+    }
+
+    @include tablets_landscape {
+        height: rem(30);
+        padding-left: 5px;
+    }
+
+    @include phones {
+        height: rem(30);
     }
 
 }
@@ -86,19 +105,23 @@
     @include laptop {
         flex-direction: column;
         align-items: center;
-
         max-width: rem(460);
     };
 
     @include tablets {
         width: 95%;
     }
+
+    @include tablets_landscape {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
 }
 
 .delivery-form__form-adress {
     width: 50%;
     margin-right: rem(10);
-
 
     @include laptop {
         margin: 0;
@@ -109,6 +132,10 @@
         width: 100%;
     }
 
+    @include tablets_landscape {
+        margin-right: rem(10);
+    }
+
 }
 
 .delivery__info {
@@ -116,6 +143,10 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: rem(15);
+
+    @include tablets_landscape {
+        margin-bottom: rem(10);
+    }
 
 }
 
@@ -139,7 +170,7 @@
     width: 21.9509%;
 }
 
-.delivery-form__order-infornation {
+.delivery-form__order-information {
     width: 50%; 
     margin-left: rem(10);
 
@@ -163,6 +194,10 @@
     @include tablets {
         margin-bottom: rem(20);
     }
+
+    @include tablets_landscape {
+        margin-bottom: rem(10);
+    }
 }
 
 .delivery-textarea {
@@ -172,6 +207,11 @@
 
     @include tablets {
         height: rem(100);
+    }
+
+    @include tablets_landscape {
+        height: rem(50);
+        padding-left: 5px;
     }
 
 }
@@ -195,6 +235,10 @@
     @include tablets {
         margin-bottom: rem(15);
     }
+
+    @include tablets_landscape {
+        margin-bottom: rem(10);
+    }
 }
 
 .delivery-call {
@@ -205,6 +249,14 @@
 
     @include tablets {
         margin-bottom: rem(30);
+    }
+
+    @include tablets_landscape {
+        margin-bottom: rem(20);
+    }
+
+    @include phones {
+        margin-bottom: rem(20);
     }
 }
 
