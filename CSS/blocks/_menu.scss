@@ -2,6 +2,7 @@
     background: url(../img/menu_background.png) no-repeat left top;
     background-size: cover;
     color: #fff;
+    justify-content: flex-end;
 }
 
 .container-menu {
@@ -15,60 +16,64 @@
     width: initial;
 }
 
-.menu {
+.caption-menu {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;  
+    top: 5%;
+    left: 5%;
 }
 
-
-.main-text_menu {
-    margin: 0;
-}
-
-.menu__list {
+.menu {
     display: flex;
-    width: 100%;
-    justify-content: flex-end;
-
-    position: relative;
+    z-index: 10;
 }
 
 .menu__item {
-    display: flex;
-    align-items: flex-end;
-    min-width: rem(100);
+    height: 100%;
+    background-color: rgba(47, 50, 52,0.7);
+    width: 6.25rem;
+    transition: width 1s;
 
-    @include tablets_landscape {
-        min-width: rem(50);
+    @include laptop {
+        z-index: 1;
+        /*position: absolute;
+        right: 0;
+        z-index: 1;*/
     }
 
-    @include phones {
-        min-width: rem(50);
+    @include tablets {
+        width: rem(50);
     }
 }
 
-.menu-bar {
+.menu__link {
     display: flex;
-    justify-content: center;
     height: 100%;
-    flex: 0.15 1 0%;
-    min-width: rem(100);
-    max-width: rem(100);
-    cursor: pointer;
+    align-items: flex-end;
+    width: 6.25rem;
+
+    @include tablets {
+        width: rem(50);
+    }
+}
+
+.menu__caption {
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 3rem;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    white-space: nowrap;
+    margin-bottom: rem(-30);
+    line-height: 2;
 
     @include tablets_landscape {
-        min-width: rem(50);
-        max-width: rem(50);
+        font-size: rem(20);
+        padding-top: rem(20);
     }
 
     @include phones {
-        min-width: rem(50);
-        max-width: rem(50);
+        font-size: rem(20);
+        padding-top: rem(20);
     }
 }
 
@@ -88,34 +93,14 @@
     background-size: cover;
 }
 
-.menu-bar__caption {
-    writing-mode: vertical-rl;
-    transform: rotate(-180deg);
-    text-transform: uppercase;
-    padding-top: rem(45);
-    font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
-    font-size: rem(48);
-
-    @include tablets_landscape {
-        font-size: rem(20);
-        padding-top: rem(20);
-    }
-
-    @include phones {
-        font-size: rem(20);
-        padding-top: rem(20);
-    }
-}
-
 .menu-description {
-    display: none;
-    background-color: rgba(47, 50, 52,0.7);
+    //width: 0;
+    //background-color: rgba(47, 50, 52,0.7);
     height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
+    display: none;   
     z-index: 20;
+    opacity: 0;
+    transition: opacity 1s;
 
     @include laptop {
         width: 100%;
@@ -124,10 +109,6 @@
     @include tablets {
         width: 100%;
     }
-}
-
-.menu-description_visible {
-    display: flex;              //добавляется при переключении вкладок
 }
 
 .menu-description__text {
@@ -151,3 +132,8 @@
 .menu-description__close-button {
     max-width: 100%
 }
+
+//////accordeon
+
+
+

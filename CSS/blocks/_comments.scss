@@ -261,7 +261,7 @@
 
     &:hover {
         border-color: #0f5947;
-
+        transition: border-color 0.5s;
     }
 
     @include tablets_landscape {
@@ -288,7 +288,7 @@
                         
 .peoples-is-active {
     border: rem(6) solid #0f5947;
-    border-radius: 50%;
+    transition: border-color 0.5s;
 
     @include tablets_landscape {
         border: rem(2) solid #0f5947;

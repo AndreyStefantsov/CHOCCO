@@ -78,14 +78,16 @@
 .delivery-input {
     height: rem(50); 
     border: none;
-    
+    padding: 0 rem(10);
+    border: rem(2) solid transparent;
+    outline: none;
+
     &_name-width, &_tel-width, &_street-width, &_billing-adress {
         width: 100%;
     }
 
     @include tablets_landscape {
         height: rem(30);
-        padding-left: 5px;
     }
 
     @include phones {
@@ -95,7 +97,7 @@
 }
 
 .delivery-input:focus,  .delivery-textarea:focus {
-    outline: rem(2) solid  rgb(223, 217, 133);
+    border: rem(2) solid  rgb(223, 217, 133);
 }
 
 .delivery-form {
@@ -204,6 +206,9 @@
     resize: none;
     border: none;
     height: rem(180);
+    padding: 0 rem(10);
+    border: rem(2) solid transparent;
+    outline: none;
 
     @include tablets {
         height: rem(100);
@@ -211,7 +216,6 @@
 
     @include tablets_landscape {
         height: rem(50);
-        padding-left: 5px;
     }
 
 }

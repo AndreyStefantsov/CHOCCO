@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM</title>
+</head>
+<style>
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.arrow {
+    font-size: 30px;
+}
+a, a:visited, a:active, a:focus {
+    color: #0091D9;
+    text-decoration: none;
+}
+.slider {
+    display: flex;
+    width: 300px;
+    overflow: hidden;
+    margin: 0px 10px;
+}
+.items {
+    display: flex;
+    position: relative;
+    color: #444;
+    font-size: 30px;
+}
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFEFD5;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #444;
+}
+</style>
+<body>
+    
+    <div class="slider-container">
+        <a class="arrow" id="left" href="#">←</a>
+        <div class="slider">
+            <div class="items" id="items">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+                <div class="item">7</div>
+                <div class="item">8</div>
+        </div>
+        </div>
+        <a class="arrow" id="right" href="#">→</a>
+        </div>
+
+</body>
+
+<script>
+
+//////////////// DOM task 1 /////////////
+
+var elem = document.createElement('div');
+elem.textContent = "Этот элемент создан при помощи DOM API";
+document.body.appendChild(elem);
+
+
+//////////////// DOM task 2 /////////////
+
+var elem2 = document.createElement('div');
+elem2.classList.add('inner');
+elem2.textContent = "Этот элемент тоже создан при помощи DOM API";
+elem.appendChild(elem2);
+
+
+//////////////// DOM task 3 /////////////
+
+elem2.style.color = 'red';
+
+
+//////////////// DOM task 4 /////////////
+
+elem.addEventListener('click', () => console.log('Этот текст говорит о том, что я всё сделал правильно'));
+
+
+//////////////// DOM task 5 /////////////
+
+var ref = document.createElement('a');
+ref.href = 'https://loftschool.com';
+ref.textContent='ссылка на loftschool';
+document.body.appendChild(ref);
+
+ref.addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log(`Я кликнул на ссылку ${ref.href}`)
+});
+
+
+////////////////просто br////////////
+var elem3 = document.createElement('br');
+document.body.appendChild(elem3);
+
+
+//////////////// DOM task 6 /////////////
+
+var input = document.createElement('input');
+var button = document.createElement('button');
+button.style.width = '100px';
+button.style.height = '30px';
+button.textContent = 'Кнопка';
+document.body.appendChild(input);
+document.body.appendChild(button);
+
+button.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (input.value == '') {
+        console.log('Поле пустое');
+    } else console.log(input.value);
+});
+
+//////////////// DOM task 7 /////////////
+
+const left = document.querySelector("#left");
+const right = document.querySelector("#right");
+const items = document.querySelector("#items");
+
+right.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if ((items.children.length -3)*100 != Math.abs(parseInt(getComputedStyle(items).left))) {
+    items.style.position='relative';
+    items.style.left=(parseInt(getComputedStyle(items).left) - 100)+'px';}
+
+});
+
+
+
+
+left.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (parseInt(getComputedStyle(items).left) != 0) {
+    items.style.position='relative';
+    items.style.left=(parseInt(getComputedStyle(items).left) + 100)+'px';
+    }
+    
+});
+
+
+</script>
+</html>

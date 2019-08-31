@@ -17,13 +17,13 @@
                         <div class="logo__text">CHO</div>
                         <div class="logo__text">CCO</div>
                     </div>
-                    <input type="checkbox" name="burger" id="burger" class="burger-icon">
-                    <label for="burger" class="burger-label">
+                    <a href="#" class="burger">
                         <div class="line"></div>
                         <div class="line"></div>
                         <div class="line"></div>
-                    </label>
-                    <nav class="header__navigation">
+                        
+                    </a> 
+                    <nav class="navigation">
                         <ul class="navigation__list">
                             <li class="navigation__item"><a href="#why-chocco" class="navigation__link">О нас</a></li>
                             <li class="navigation__item"><a href="#bar-chocco" class="navigation__link">Батончики</a></li>
@@ -73,6 +73,20 @@
                     </ul>
                 </div>
             </div>    
+            <div class="burger-menu-navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="#why-chocco" class="navigation__link">О нас</a></li>
+                    <li class="navigation__item"><a href="#bar-chocco" class="navigation__link">Батончики</a></li>
+                    <li class="navigation__item"><a href="#team" class="navigation__link">Команда</a></li>
+                    <li class="navigation__item"><a href="#menu" class="navigation__link">Меню</a></li>
+                    <li class="navigation__item"><a href="#comments" class="navigation__link">Отзывы</a></li>
+                    <li class="navigation__item"><a href="#how-we-are-working" class="navigation__link">Как мы работаем</a></li>
+                    <li class="navigation__item"><a href="#map" class="navigation__link">Контакты</a></li>
+                </ul>
+                <a class="close-lines">
+                    <img src="img/close.png" alt="" class="menu-description__close-button">
+                </a>
+            </div>
         </section>
         <section id="why-chocco" class="section section-why-chocco">
             <div class="container container-why-chocco">
@@ -121,19 +135,19 @@
         </section>
         <section id="bar-chocco" class="section section-bar-chocco">
                 <div class="container container-bar-chocco">
-                    <div class="browsing browsing_arrow-left">
-                        <a href="#" class="arrow__link">
+                    <div class="browsing browsing-arrow-left">
+                        <a href="#" class="arrow__link arrow__link-left">
                             <img src="img/arrow_left.png" alt="" class="arrow__pic">
                         </a>
                     </div>
-                    <div class="browsing browsing_arrow-right"> 
-                        <a href="#" class="arrow__link">
+                    <div class="browsing browsing-arrow-right"> 
+                        <a href="#" class="arrow__link arrow__link-right">
                             <img src="img/arrow_right.png" alt="" class="arrow__pic">
                         </a>
                     </div>
                     <div class="bar-chocco">
                         <ul class="bar-chocco__list">
-                            <li class="bar-chocco__item bar-chocco__item_visible">
+                            <li class="bar-chocco__item is-active">
                                 <div class="bar-chocco-image">
                                     <img src="img/bars-seaweed.png" alt="" class="bar-chocco-image__pic">
                                 </div>
@@ -218,7 +232,7 @@
                                   
                                 </div>
                             </li>
-                            <li class="bar-chocco__item">
+                            <li class="bar-chocco__item 2">
                                     <div class="bar-chocco-image">
                                         <img src="img/bars-grape.png" alt="" class="bar-chocco-image__pic">
                                     </div>
@@ -276,7 +290,7 @@
                                             </div>
                                         </div>
                                         <div class="bar-description">
-                                            <span class="bar-decription__title">Батончик "Морские водоросли"</span>
+                                            <span class="bar-decription__title">Батончик "Виноград"</span>
                                             <span class="bar-decription__text">Гранола из морских водорослей с овсом, миндалем и тыквенными семечками. В состав также входят сухое молоко, заменитель сахара и какао-бобы.</span>
                                         </div>
                                         <div class="bar-information">
@@ -291,11 +305,11 @@
                                         </div>
                                         <div class="bar-order">
                                             <span class="bar-order__price">140 &#8381</span>
-                                            <button class="description__order order-button_green-bg">Заказать</button>
+                                            <button class="button button_green-bg-white-text">Заказать</button>
                                         </div>
                                       
                                     </div>
-                                </li>
+                            </li>
                         </ul>
 
                     </div>
@@ -304,126 +318,128 @@
         <section id="team"  class="section section-team">
                 <div class="container container-team">
                     <span class="caption caption_black">Команда</span>
-                    <div class="team">
-                        <ul class="team__list">
-                            <li class="team__item">
-                                <div class="team-image">
-                                    <img src="img/team1.png" alt="" class="team-image__pic">
-                                </div>
-                                <div class="team-name team-name_visible">
-                                    <span class="team-name__full-name ">Борис Федорович</span>                                        
-                                </div>
-                                <div class="team-proffesion team-proffesion_visible">
-                                    <span class="team-proffesion__title">Оператор</span>
-                                    <span class="team-proffesion__text">С радостью поможет подобрать баточники и оформить заказ</span>
-                                </div>
-                            </li>
-                            <li class="team__item">
-                                <div class="team-image">
-                                    <img src="img/team2.png" alt="" class="team-image__pic">
-                                </div>
-                                <div class="team-name">
-                                    <span class="team-name__full-name">Борис Федорович</span>    
-                                </div>
-                                <div class="team-proffesion">
-                                    <span class="team-proffesion__title">Оператор</span>
-                                    <span class="team-proffesion__text">С радостью поможет подобрать баточники и оформить заказ</span>
-                                </div>
-                            </li>
-                            <li class="team__item">
-                                <div class="team-image">
-                                    <img src="img/team3.png" alt="" class="team-image__pic">
-                                </div>
-                                <div class="team-name">
-                                    <span class="team-name__full-name">Борис Федорович</span>    
-                                </div>
-                                <div class="team-proffesion">
-                                    <span class="team-proffesion__title">Оператор</span>
-                                    <span class="team-proffesion__text">С радостью поможет подобрать баточники и оформить заказ</span>
-                                </div>
-                            </li>
-                            <li class="team__item">
-                                <div class="team-image">
-                                    <img src="img/team4.png" alt="" class="team-image__pic">
-                                </div>
-                                <div class="team-name">
-                                    <span class="team-name__full-name">Борис Федорович</span>    
-                                </div>
-                                <div class="team-proffesion">
-                                    <span class="team-proffesion__title">Оператор</span>
-                                    <span class="team-proffesion__text">С радостью поможет подобрать баточники и оформить заказ</span>
-                                </div>
-                            </li>
-                        </ul>
-
-                    </div>
+                    <ul class="team">
+                        <li class="team__item">
+                            <div class="team-image">
+                                <img src="img/team1.png" alt="" class="team-image__pic">
+                            </div>
+                            <a href="" class="team-name">
+                                <span class="team-name__full-name">Борис Федорович</span>      
+                            </a>
+                            <div class="team-proffesion ">
+                                <span class="team-proffesion__title">Оператор</span>
+                                <span class="team-proffesion__text">С радостью поможет подобрать баточники и оформить заказ</span>
+                            </div>
+                        </li>
+                        <li class="team__item">
+                            <div class="team-image">
+                                <img src="img/team2.png" alt="" class="team-image__pic">
+                            </div>
+                            <a href="" class="team-name">
+                                <span class="team-name__full-name">Борис Федорович</span>      
+                            </a>
+                            <div class="team-proffesion">
+                                <span class="team-proffesion__title">Оператор</span>
+                                <span class="team-proffesion__text">С радостью поможет подобрать баточники и оформить заказ</span>
+                            </div>
+                        </li>
+                        <li class="team__item">
+                            <div class="team-image">
+                                <img src="img/team3.png" alt="" class="team-image__pic">
+                            </div>
+                            <a href="" class="team-name">
+                                <span class="team-name__full-name">Борис Федорович</span>      
+                            </a>
+                            <div class="team-proffesion">
+                                <span class="team-proffesion__title">Оператор</span>
+                                <span class="team-proffesion__text">С радостью поможет подобрать баточники и оформить заказ</span>
+                            </div>
+                        </li>
+                        <li class="team__item">
+                            <div class="team-image">
+                                <img src="img/team4.png" alt="" class="team-image__pic">
+                            </div>
+                            <a href="" class="team-name">
+                                <span class="team-name__full-name">Борис Федорович</span>      
+                            </a>
+                            <div class="team-proffesion">
+                                <span class="team-proffesion__title">Оператор</span>
+                                <span class="team-proffesion__text">С радостью поможет подобрать баточники и оформить заказ</span>
+                            </div>
+                        </li>
+                        <!--<li class="team__item">
+                            <div class="team-image">
+                                <img src="img/team4.png" alt="" class="team-image__pic">
+                            </div>
+                            <div class="team-name">
+                                <span class="team-name__full-name">Борис Федорович</span>    
+                            </div>
+                            <div class="team-proffesion">
+                                <span class="team-proffesion__title">Оператор</span>
+                                <span class="team-proffesion__text">С радостью поможет подобрать баточники и оформить заказ</span>
+                            </div>
+                        </li>-->
+                    </ul>
                 </div>    
         </section>    
         <section id="menu"  class="section section-menu">
                 <div class="container container-menu">
-                    <span class="caption caption_white">Меню</span>
+                    <span class="caption caption_white caption-menu">Меню</span>
                 </div>    
-                <div class="menu">
-                    <ul class="menu__list">
-                        <li class="menu__item ">
-                            <div class="menu-bar bar-with-milk">
-                                <span class="menu-bar__caption">Батончики с молоком</span>
-                            </div>
-                            <div class="menu-description menu-description_visible">
-                                <div class="menu-bar bar-with-milk">
-                                    <span class="menu-bar__caption">Батончики с молоком</span>
-                                </div>
-                                <span class="menu-description__text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolor aut nemo exercitationem mollitia alias fuga dolores, debitis non quasi! Velit magni esse debitis officiis quas aliquam non, libero rerum.
-                                </span>
-                                <span class="menu-description__image">
-                                    <img src="img/close.png" alt="" class="menu-description__close-button">
-                                </span>
-                            </div>
-                        </li>
+                    <ul class="menu">
                         <li class="menu__item">
-                            <div class="menu-bar bar-with-calamondin">
-                                <span class="menu-bar__caption">С мёдом и фруктами</span>
-                            </div>
+                            <a href="" class="menu__link bar-with-milk">
+                                <div class="menu__caption">Батончики с молоком</div>
+                           </a>
                             <div class="menu-description">
-                                <div class="menu-bar bar-with-calamondin">
-                                    <span class="menu-bar__caption">С мёдом и фруктами</span>
-                                </div>
                                 <span class="menu-description__text">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolor aut nemo exercitationem mollitia alias fuga dolores, debitis non quasi! Velit magni esse debitis officiis quas aliquam non, libero rerum.
                                 </span>
                                 <span class="menu-description__image">
-                                    <img src="img/close.png" alt="" class="menu-description__close-button">
-                                </span>
-                            </div>
-                        </li>
-                        <li class="menu__item">
-                            <div class="menu-bar bar-with-berries">
-                                <span class="menu-bar__caption">Дикие ягоды</span>
-                            </div>
-                            <div class="menu-description">
-                                <div class="menu-bar bar-with-berries">
-                                    <span class="menu-bar__caption">Дикие ягоды</span>
-                                </div>
-                                <span class="menu-description__text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolor aut nemo exercitationem mollitia alias fuga dolores, debitis non quasi! Velit magni esse debitis officiis quas aliquam non, libero rerum.
-                                </span>
-                                <span class="menu-description__image">
-                                    <a href="#" class="menu-description__link">
+                                    <a href="" class="menu-description__link">
                                         <img src="img/close.png" alt="" class="menu-description__close-button">
                                     </a>
                                 </span>
-                            </div>
+                            </div>   
+                        </li>
+                        <li class="menu__item ">
+                            <a href="" class="menu__link bar-with-calamondin">
+                                <div class="menu__caption">С мёдом и фруктами</div>
+                            </a>
+                            <div class="menu-description ">
+                                <span class="menu-description__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolor aut nemo exercitationem mollitia alias fuga dolores, debitis non quasi! Velit magni esse debitis officiis quas aliquam non, libero rerum.
+                                </span>
+                                <span class="menu-description__image">
+                                    <a href="" class="menu-description__link">
+                                        <img src="img/close.png" alt="" class="menu-description__close-button">
+                                    </a>
+                                </span>
+                            </div>   
+                        </li>
+                        <li class="menu__item ">
+                            <a href="" class="menu__link bar-with-berries">
+                                <div class="menu__caption">Дикие ягоды</div>
+                            </a>
+                            <div class="menu-description ">
+                                <span class="menu-description__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolor aut nemo exercitationem mollitia alias fuga dolores, debitis non quasi! Velit magni esse debitis officiis quas aliquam non, libero rerum.
+                                </span>
+                                <span class="menu-description__image">
+                                    <a href="" class="menu-description__link">
+                                        <img src="img/close.png" alt="" class="menu-description__close-button">
+                                    </a>
+                                </span>
+                            </div>   
                         </li>
                     </ul>
-                </div>
         </section>        
         <section id="comments"  class="section section-comments">
             <div class="container container-comments">
                 <span class="caption caption_black">Отзывы</span>
                 <div class="comments-full">
                     <ul class="comments-full__list">
-                        <li class="comments-full__item comments-full__item_visible">
+                        <li class="comments-full__item is-active">
                             <div class="comments-full__comments-image">
                                 <img src="img/girl1.png" alt="" class="comments-image__pic">
                             </div>
@@ -438,7 +454,7 @@
                                 <img src="img/girl1.png" alt="" class="comments-image__pic">
                             </div>
                             <article class="comments-full__comments-text">
-                                <span class="comments-text__title">Лучший перекус</span>
+                                <span class="comments-text__title">Худший перекус</span>
                                 <p class="comments-text__text">Я ем малыми порциями, но часто. Это повышает мою продуктивность в разы. В течении дня сижу за компьютером и часто отходить в кафе или на кухню просто не могу себе позволить. А батончик  -  он всегда под рукой. Это приятно и удобно</p>
                                 <span class="comments-text__name">Алёна Хмельницкая</span>
                             </article>
@@ -448,7 +464,7 @@
                                 <img src="img/girl1.png" alt="" class="comments-image__pic">
                             </div>
                             <article class="comments-full__comments-text">
-                                <span class="comments-text__title">Лучший перекус</span>
+                                <span class="comments-text__title">Средний перекус</span>
                                 <p class="comments-text__text">Я ем малыми порциями, но часто. Это повышает мою продуктивность в разы. В течении дня сижу за компьютером и часто отходить в кафе или на кухню просто не могу себе позволить. А батончик  -  он всегда под рукой. Это приятно и удобно</p>
                                 <span class="comments-text__name">Алёна Хмельницкая</span>
                             </article>
@@ -660,6 +676,6 @@
             </ul>
         </div>
     </div>
-    <script src="scripts/test1.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
 </html>
