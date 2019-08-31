@@ -495,27 +495,52 @@ arrowleft.addEventListener('click', function(event) {
 ///////////////burger новый ////////////////
 
 var burger = document.getElementsByClassName('burger')[0];
+var greetingContainer = document.getElementsByClassName('container-greeting')[0];
+var nav = document.getElementsByClassName('burger-menu-navigation')[0];
+//var burgerLines = document.getElementsByClassName('line');
+var burgerCloseLines = document.getElementsByClassName('close-lines')[0];
 
-function showBurger(event) {
+
+burger.addEventListener('click', function(event) {
+    event.preventDefault();
+
+        nav.style.display = "flex";
+        burgerCloseLines.style.display = 'block';
+        greetingContainer.style.display='none';
+});
+
+
+burgerCloseLines.addEventListener('click', function(event) {
+    event.preventDefault();
+
+        nav.style.display = "none";
+        burgerCloseLines.style.display = 'none';
+        greetingContainer.style.display='flex';
+});
+
+
+
+
+
+
+/*function showBurger(event) {
     if (event.cancelable) {
         event.preventDefault();
         
         //var nav = document.getElementsByClassName('navigation')[0];
         //var greetingSection = document.getElementById('greeting');
-        var greetingContainer = document.getElementsByClassName('container-greeting')[0];
+       
         //var greetingContainerChildren = greetingContainer.children;
-        var nav = document.getElementsByClassName('burger-menu-navigation')[0];
-        var burgerLines = document.getElementsByClassName('line');
-        var burgerCloseLines = document.getElementsByClassName('close-lines')[0];
-
+        
 
 
         if (burger.classList.contains('is-active')) {
             burger.classList.toggle('is-active');
-            nav.style.display = "";
+            nav.style.display = "flex";
             nav.style.right = "";
-            burgerCloseLines.style.display = 'none';
-            greetingContainer.style.display='flex';
+            burgerCloseLines.style.display = 'block';
+            greetingContainer.style.display='none';
+
             for (node of burgerLines) {
                 node.style.display = 'block';
             }
@@ -531,7 +556,6 @@ function showBurger(event) {
             for (node of burgerLines) {
                 node.style.display = 'none';
             }
-
             burgerCloseLines.style.display = 'block';
             //greetingSection.style.backgroundColor = 'lightgreen';
 
@@ -549,12 +573,54 @@ function showBurger(event) {
             //greetingContainer.style.opacity = '0';
             /*setTimeout(() => nav.style.right = "30px", 10);
             setTimeout(() => nav.style.pointerEvents = "auto", 1000);*/
-        }
+     /*   }
 
     } else
     return;
 }
 
+burger.addEventListener('click', showBurger);*/
+
+
+
+////////////////////// Burger старый//////////////////////
+/*var burger = document.getElementsByClassName('burger')[0];
+
+function showBurger(event) {
+    if (event.cancelable) {
+        event.preventDefault();
+    
+        var nav = document.getElementsByClassName('navigation')[0];
+        
+        if (burger.classList.contains('is-active')) {
+            burger.classList.toggle('is-active');
+            nav.style.display = "";
+            nav.style.right = "";
+            nav.style.pointerEvents = "";
+        }   else {
+            burger.classList.toggle('is-active', true);
+            nav.style.display = "flex"; 
+            /*setTimeout(() => nav.style.right = "30px", 10);
+            setTimeout(() => nav.style.pointerEvents = "auto", 1000);*/
+      /*  }
+
+    } else
+    return;
+}
+*/
+
+/*function closeAll() { 
+    var nav = document.getElementsByClassName('navigation')[0];
+    burger.classList.toggle('is-active');
+    nav.style.display = "";
+    nav.style.right = "";
+    nav.style.pointerEvents = "";
+
+}
+
 burger.addEventListener('click', showBurger);
+//burger.addEventListener('focus', showBurger);
+burger.addEventListener('blur', closeAll);
+//document.addEventListener('click', closeAll);*/
 
-
+////////////////////// Конец burger ////////////////////////////

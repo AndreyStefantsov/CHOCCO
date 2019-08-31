@@ -74,11 +74,11 @@
     transition: height 1s;
 
     @include laptop {
-       //flex: 1 1 50%;
+       //width: 110px;
     }
 
     @include tablets {
-        //flex: 1 1 50%;
+        width: 45%;
     }
 
     @include tablets_landscape {
@@ -102,11 +102,17 @@
         max-width: rem(140);
         margin-bottom: rem(15);
     }
+    
 
     @include tablets_landscape {
         margin-bottom: rem(5);
         width: 60%;
     }
+
+    @include phones {
+        margin-bottom: rem(5);
+    }
+
 }
 
 .team-image__pic {
@@ -130,14 +136,26 @@
         align-items: center;
         margin-top: rem(1);
 
+        @include tablets {
+            margin-top: rem(-1);
+        }
+
         @include tablets_landscape {
             //right: rem(-20);
+        }
+
+        @include phones {
+            margin-left: rem(5);
         }
     }
 
     @include tablets_landscape {
         margin-bottom: rem(5);
         width: 60%;
+    }
+
+    @include phones {
+        margin-bottom: rem(5);
     }
 }
 
@@ -154,6 +172,10 @@
     font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
     font-size: rem(21);
 
+    @include tablets {
+        font-size: rem(16);
+    }
+
     @include tablets_landscape {
         font-size: rem(16);
     }
@@ -168,10 +190,19 @@
     position: absolute;
     width: 100%;
     left: 0px;
+    bottom: rem(-83);
 
+    
     @include laptop {
-        position: relative;
+    //position: relative;
+    bottom: rem(-65);
     }
+
+    @include phones {
+        position: relative;
+        bottom: rem(0);
+    }
+
 }
 
 .team-proffesion_visible {
@@ -185,6 +216,11 @@
     @include tablets_landscape {
         font-size: rem(16);
     }
+
+    @include phones {
+        font-size: rem(16);
+    }
+
 
 }
 
