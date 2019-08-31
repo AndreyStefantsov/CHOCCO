@@ -100,6 +100,8 @@ burger.addEventListener('click', function(event) {
         nav.style.display = "flex";
         burgerCloseLines.style.display = 'block';
         greetingContainer.style.display='none';
+        document.body.style.overflow = 'hidden'
+
 });
 
 
@@ -109,6 +111,7 @@ burgerCloseLines.addEventListener('click', function(event) {
         nav.style.display = "none";
         burgerCloseLines.style.display = 'none';
         greetingContainer.style.display='flex';
+        document.body.style.overflow = '';
 });
 
 (function() {
@@ -118,6 +121,7 @@ burgerCloseLines.addEventListener('click', function(event) {
                 nav.style.display = "none";
                 burgerCloseLines.style.display = 'none';
                 greetingContainer.style.display='flex';
+                document.body.style.overflow = '';
         });
     }
     
