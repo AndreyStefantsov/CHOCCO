@@ -345,6 +345,8 @@
 
     @include tablets {
         font-size: rem(50);
+        margin-right: 10px;
+
     }
 
     @include tablets_landscape {

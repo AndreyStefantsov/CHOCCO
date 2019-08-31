@@ -1657,7 +1657,8 @@ h1, h2, h3, h4, h5, h6, p {
   font-family: 'alegreya_sans_lightregular', Arial, Helvetica, sans-serif; }
   @media screen and (max-width: 480px) {
     .bar-order__price {
-      font-size: 3.125rem; } }
+      font-size: 3.125rem;
+      margin-right: 10px; } }
   @media screen and (max-height: 480px) {
     .bar-order__price {
       font-size: 1.875rem; } }
