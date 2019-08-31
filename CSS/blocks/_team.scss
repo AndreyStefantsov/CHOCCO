@@ -151,7 +151,7 @@
 
     @include tablets_landscape {
         margin-bottom: rem(5);
-        width: 60%;
+        width: 82%;
     }
 
     @include phones {
@@ -196,6 +196,11 @@
     @include laptop {
     //position: relative;
     bottom: rem(-65);
+    }
+
+    @include tablets {
+        position: relative;
+        bottom: rem(0);
     }
 
     @include phones {

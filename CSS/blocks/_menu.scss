@@ -71,6 +71,11 @@
         padding-top: rem(20);
     }
 
+    @include tablets {
+        font-size: rem(25);
+        //padding-bottom: rem(5);
+    }
+
     @include phones {
         font-size: rem(20);
         margin-bottom: rem(5);

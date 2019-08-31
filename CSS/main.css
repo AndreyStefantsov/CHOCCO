@@ -1947,7 +1947,7 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-height: 480px) {
     .team-name {
       margin-bottom: 0.3125rem;
-      width: 60%; } }
+      width: 82%; } }
   @media screen and (max-width: 400px) {
     .team-name {
       margin-bottom: 0.3125rem; } }
@@ -1988,6 +1988,10 @@ h1, h2, h3, h4, h5, h6, p {
   @media screen and (max-width: 900px) {
     .team-proffesion {
       bottom: -4.0625rem; } }
+  @media screen and (max-width: 480px) {
+    .team-proffesion {
+      position: relative;
+      bottom: 0rem; } }
   @media screen and (max-width: 400px) {
     .team-proffesion {
       position: relative;
@@ -2102,6 +2106,9 @@ h1, h2, h3, h4, h5, h6, p {
     .menu__caption {
       font-size: 1.25rem;
       padding-top: 1.25rem; } }
+  @media screen and (max-width: 480px) {
+    .menu__caption {
+      font-size: 1.5625rem; } }
   @media screen and (max-width: 400px) {
     .menu__caption {
       font-size: 1.25rem;
