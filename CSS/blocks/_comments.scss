@@ -279,7 +279,19 @@
 
 .peoples__link {
     display: block;
+    color: transparent;
+    user-select: none;
+
+    &:active {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        text-decoration: none;
+        color: transparent;
+    }
 }
+
+
 
 .peoples__pic {
     max-width: 100%;

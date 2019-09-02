@@ -2435,7 +2435,18 @@ h1, h2, h3, h4, h5, h6, p {
       border: 0.125rem solid transparent; } }
 
 .peoples__link {
-  display: block; }
+  display: block;
+  color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .peoples__link:active {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-decoration: none;
+    color: transparent; }
 
 .peoples__pic {
   max-width: 100%;
