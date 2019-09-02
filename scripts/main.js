@@ -3,8 +3,7 @@ var team = document.getElementsByClassName('team-name');
 var closeButton = document.getElementsByClassName('menu-description__link');
 var peoples = document.getElementsByClassName('peoples__link');
 var comment = document.getElementsByClassName('comments-full__item');
-var arrowleft = document.getElementsByClassName('arrow__link-left')[0];
-var arrowRight = document.getElementsByClassName('arrow__link-right')[0];
+
 
 //if (document.documentElement.clientWidth > 768) ? showMenu(menu, 'width', '650px') : showMenu(menu, 'width', '350px')
 
@@ -12,6 +11,7 @@ if (parseInt(document.documentElement.clientWidth) > 900) {
     console.log(document.documentElement.clientWidth);
     showMenu(menu, 'width', '650px');
 } else {
+    //не работает на phones 320px+
     console.log(document.documentElement.clientWidth);
     showMenu(menu, 'width', parseInt(document.documentElement.clientWidth)-200+'px');
     //showMenu(menu, 'width', '100%');
@@ -80,52 +80,55 @@ function closeMenu(closeButton) {
                 parentItem.style.width="";
          });
     }
-    return;
 }
 
 ////////////////////// Конец функции //////////////////////////// 
 
-////////////////////// Burger //////////////////////
-var burger = document.getElementsByClassName('burger')[0];
 
-function showBurger(event) {
-    if (event.cancelable) {
-        event.preventDefault();
+////////////////////// Меню //////////////////////
+
+const burger = document.getElementsByClassName('burger')[0];
+const greetingContainer = document.getElementsByClassName('container-greeting')[0];
+const nav = document.getElementsByClassName('burger-menu-navigation')[0];
+const burgerCloseLines = document.getElementsByClassName('close-lines')[0];
+
+var navigationList = document.getElementsByClassName('fullscreen')[0]
+
+burger.addEventListener('click', function(event) {
+    event.preventDefault();
+
+        nav.style.display = "flex";
+        burgerCloseLines.style.display = 'block';
+        greetingContainer.style.display='none';
+        document.body.style.overflow = 'hidden'
+
+});
+
+
+burgerCloseLines.addEventListener('click', function(event) {
+    event.preventDefault();
+
+        nav.style.display = "none";
+        burgerCloseLines.style.display = 'none';
+        greetingContainer.style.display='flex';
+        document.body.style.overflow = '';
+});
+
+(function() {
+    for (node of navigationList.children) {
+        node.addEventListener('click', function() {
+       
+                nav.style.display = "none";
+                burgerCloseLines.style.display = 'none';
+                greetingContainer.style.display='flex';
+                document.body.style.overflow = '';
+        });
+    }
     
-        var nav = document.getElementsByClassName('navigation')[0];
-        
-        if (burger.classList.contains('is-active')) {
-            burger.classList.toggle('is-active');
-            nav.style.display = "";
-            nav.style.right = "";
-            nav.style.pointerEvents = "";
-        }   else {
-            burger.classList.toggle('is-active', true);
-            nav.style.display = "flex"; 
-            /*setTimeout(() => nav.style.right = "30px", 10);
-            setTimeout(() => nav.style.pointerEvents = "auto", 1000);*/
-        }
-
-    } else
-    return;
-}
+})();
 
 
-function closeAll() { 
-    var nav = document.getElementsByClassName('navigation')[0];
-    burger.classList.toggle('is-active');
-    nav.style.display = "";
-    nav.style.right = "";
-    nav.style.pointerEvents = "";
-
-}
-
-burger.addEventListener('click', showBurger);
-//burger.addEventListener('focus', showBurger);
-burger.addEventListener('blur', closeAll);
-//document.addEventListener('click', closeAll);
-
-////////////////////// Конец burger ////////////////////////////
+////////////////////// Конец функции //////////////////////////// 
 
 
 
@@ -164,7 +167,8 @@ function showComment (item, comment) {
 ////////////////////// Конец функции //////////////////////////// 
 
 ///////////////////////////////// Слайдер с батончиками ///////////////////////////////////////////////////
-
+const arrowleft = document.getElementsByClassName('arrow__link-left')[0];
+const arrowRight = document.getElementsByClassName('arrow__link-right')[0];
 
 arrowRight.addEventListener('click', function(event) {
     event.preventDefault();

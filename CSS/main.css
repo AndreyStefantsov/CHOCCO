@@ -455,7 +455,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .container {
   max-width: 940px;
-  min-width: 320px;
+  min-width: 300px;
   width: 95%;
   margin: 0 auto;
   display: -webkit-box;
@@ -827,6 +827,23 @@ h1, h2, h3, h4, h5, h6, p {
         top: -2.8125rem;
         right: 0;
         bottom: 0; } }
+  @media screen and (max-width: 400px) {
+    .choco {
+      width: 60%; }
+      .choco::after {
+        -webkit-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        transform: scale(0.5);
+        left: -1.4375rem;
+        bottom: 0; }
+      .choco::before {
+        -webkit-transform: scale(0.4);
+        -ms-transform: scale(0.4);
+        transform: scale(0.4);
+        left: -10px;
+        top: 0;
+        right: 0;
+        bottom: 0; } }
 
 .caption_white {
   font-size: 3.75rem; }
@@ -967,10 +984,15 @@ h1, h2, h3, h4, h5, h6, p {
 @media screen and (max-width: 900px) {
   .navigation__item {
     margin: 0;
-    padding: 0.625rem;
+    padding: 1.5625rem;
     width: 100%;
-    background-color: #cccccc;
-    text-align: center; } }
+    background-color: #303436;
+    text-align: center;
+    font-size: 2.25rem; } }
+
+@media screen and (max-height: 480px) {
+  .navigation__item {
+    padding: 0.625rem; } }
 
 @media screen and (max-width: 900px) {
   .navigation__link {
@@ -1045,7 +1067,7 @@ h1, h2, h3, h4, h5, h6, p {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: lightgreen; }
+  background-color: #303436; }
 
 .section-why-chocco {
   background-color: #fff;
@@ -1635,7 +1657,8 @@ h1, h2, h3, h4, h5, h6, p {
   font-family: 'alegreya_sans_lightregular', Arial, Helvetica, sans-serif; }
   @media screen and (max-width: 480px) {
     .bar-order__price {
-      font-size: 3.125rem; } }
+      font-size: 3.125rem;
+      margin-right: 10px; } }
   @media screen and (max-height: 480px) {
     .bar-order__price {
       font-size: 1.875rem; } }
@@ -1861,6 +1884,9 @@ h1, h2, h3, h4, h5, h6, p {
   -webkit-transition: height 1s;
   -o-transition: height 1s;
   transition: height 1s; }
+  @media screen and (max-width: 480px) {
+    .team__item {
+      width: 45%; } }
   @media screen and (max-height: 480px) {
     .team__item {
       width: 25%;
@@ -1885,6 +1911,9 @@ h1, h2, h3, h4, h5, h6, p {
     .team-image {
       margin-bottom: 0.3125rem;
       width: 60%; } }
+  @media screen and (max-width: 400px) {
+    .team-image {
+      margin-bottom: 0.3125rem; } }
 
 .team-image__pic {
   max-width: 100%; }
@@ -1910,10 +1939,19 @@ h1, h2, h3, h4, h5, h6, p {
     -ms-flex-align: center;
     align-items: center;
     margin-top: 0.0625rem; }
+    @media screen and (max-width: 480px) {
+      .team-name::after {
+        margin-top: -0.0625rem; } }
+    @media screen and (max-width: 400px) {
+      .team-name::after {
+        margin-left: 0.3125rem; } }
   @media screen and (max-height: 480px) {
     .team-name {
       margin-bottom: 0.3125rem;
-      width: 60%; } }
+      width: 82%; } }
+  @media screen and (max-width: 400px) {
+    .team-name {
+      margin-bottom: 0.3125rem; } }
 
 .is-active > .team-name::after {
   -webkit-transform: rotate(180deg);
@@ -1924,6 +1962,9 @@ h1, h2, h3, h4, h5, h6, p {
   cursor: pointer;
   font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
   font-size: 1.3125rem; }
+  @media screen and (max-width: 480px) {
+    .team-name__full-name {
+      font-size: 1rem; } }
   @media screen and (max-height: 480px) {
     .team-name__full-name {
       font-size: 1rem; } }
@@ -1943,10 +1984,19 @@ h1, h2, h3, h4, h5, h6, p {
   transition: opacity 0.5s;
   position: absolute;
   width: 100%;
-  left: 0px; }
+  left: 0px;
+  bottom: -5.1875rem; }
   @media screen and (max-width: 900px) {
     .team-proffesion {
-      position: relative; } }
+      bottom: -4.0625rem; } }
+  @media screen and (max-width: 480px) {
+    .team-proffesion {
+      position: relative;
+      bottom: 0rem; } }
+  @media screen and (max-width: 400px) {
+    .team-proffesion {
+      position: relative;
+      bottom: 0rem; } }
 
 .team-proffesion_visible {
   display: -webkit-box;
@@ -1957,6 +2007,9 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 0.3125rem;
   font-size: 1.125rem; }
   @media screen and (max-height: 480px) {
+    .team-proffesion__title {
+      font-size: 1rem; } }
+  @media screen and (max-width: 400px) {
     .team-proffesion__title {
       font-size: 1rem; } }
 
@@ -2054,10 +2107,13 @@ h1, h2, h3, h4, h5, h6, p {
     .menu__caption {
       font-size: 1.25rem;
       padding-top: 1.25rem; } }
+  @media screen and (max-width: 480px) {
+    .menu__caption {
+      font-size: 1.5625rem; } }
   @media screen and (max-width: 400px) {
     .menu__caption {
       font-size: 1.25rem;
-      padding-top: 1.25rem; } }
+      margin-bottom: 0.3125rem; } }
 
 .bar-with-milk {
   background: url(../img/bars-with-milk.png) no-repeat center center;

@@ -260,6 +260,24 @@
         }
     }
 
+    @include phones {
+        width: 60%;
+
+        &::after {
+            transform: scale(0.5);
+            left: rem(-23);
+            bottom: 0;
+        }
+
+        &::before {          
+            transform: scale(0.4);
+            left: -10px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
 }
 
 .caption_white {
@@ -421,12 +439,19 @@
 }
 
 .navigation__item {
+
     @include laptop {
         margin: 0;
-        padding: rem(10);
+        padding: rem(25);
         width: 100%;
-        background-color: rgb(204, 204, 204);
+        background-color: #303436;
         text-align: center;
+        font-size: rem(36);
+    }
+
+    @include tablets_landscape {
+        padding: rem(10);
+
     }
 }
 
@@ -506,5 +531,5 @@
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: lightgreen;
+    background-color: #303436;
 }
