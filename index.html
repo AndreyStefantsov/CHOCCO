@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
     <title>CHOCCO</title>
 </head>
 <body>
@@ -322,8 +321,8 @@
                             <div class="team-image">
                                 <img src="img/team1.png" alt="" class="team-image__pic">
                             </div>
-                            <a href="" class="team-name">
-                                <span class="team-name__full-name">Борис Федорович</span>      
+                            <a href="" class="team-name">Борис Федорович
+                                <!--<span class="team-name__full-name">Борис Федорович</span>-->      
                             </a>
                             <div class="team-proffesion ">
                                 <span class="team-proffesion__title">Оператор</span>
@@ -334,8 +333,8 @@
                             <div class="team-image">
                                 <img src="img/team2.png" alt="" class="team-image__pic">
                             </div>
-                            <a href="" class="team-name">
-                                <span class="team-name__full-name">Борис Федорович</span>      
+                            <a href="" class="team-name">Борис Федорович
+                                      
                             </a>
                             <div class="team-proffesion">
                                 <span class="team-proffesion__title">Оператор</span>
@@ -347,7 +346,7 @@
                                 <img src="img/team3.png" alt="" class="team-image__pic">
                             </div>
                             <a href="" class="team-name">
-                                <span class="team-name__full-name">Борис Федорович</span>      
+                                Борис Федорович      
                             </a>
                             <div class="team-proffesion">
                                 <span class="team-proffesion__title">Оператор</span>
@@ -359,7 +358,7 @@
                                 <img src="img/team4.png" alt="" class="team-image__pic">
                             </div>
                             <a href="" class="team-name">
-                                <span class="team-name__full-name">Борис Федорович</span>      
+                                Борис Федорович     
                             </a>
                             <div class="team-proffesion">
                                 <span class="team-proffesion__title">Оператор</span>
@@ -511,47 +510,47 @@
                 <div class="container container-delivery">
                     <span class="caption caption_green">Закажите доставку</span>
                     <div class="delivery">
-                        <form action="" method="POST" class="delivery-form">
+                        <form class="delivery-form" id="deliveryForm">
                             <div class="delivery-form__form-adress">
                                 <div class="delivery__info">
                                     <div class="delivery-name">
                                         <label for="name" class="delivery-label">Имя</label>
-                                        <input id="name" type="text" name="input-name" class="delivery-input delivery-input_name-width">
+                                        <input id="name" type="text" name="name" class="delivery-input delivery-input_name-width">
                                     </div>
                                     <div class="delivery-phone">
                                         <label for="phone" class="delivery-label">Телефон</label>
-                                        <input id="phone" type="tel" name="input-phone" pattern="\+7[0-9]{10}|8[0-9]{10}" class="delivery-input delivery-input_tel-width">
+                                        <input id="phone" type="tel" name="phone" class="delivery-input delivery-input_tel-width"> <!--pattern="\+7[0-9]{10}|8[0-9]{10}"-->
                                     </div>
                                 </div>
                                 <div class="delivery__info ">
                                     <div class="delivery-street">
                                         <label for="street" class="delivery-label">Улица</label>
-                                        <input id="street" type="text" name="input-street" class="delivery-input delivery-input_street-width">
+                                        <input id="street" type="text" name="street" class="delivery-input delivery-input_street-width">
                                     </div>
                                 </div>
                                 <div class="delivery__info">
                                     <div class="delivery-billing-adress">
                                         <label for="home" class="delivery-label">Дом</label>
-                                        <input id="home" type="text" name="input-home" class="delivery-input delivery-input_billing-adress">
+                                        <input id="home" type="text" name="home" class="delivery-input delivery-input_billing-adress">
                                     </div>
                                     <div class="delivery-billing-adress">
                                         <label for="housing" class="delivery-label">Корпус</label>
-                                        <input id="housing" type="text" name="input-housing" class="delivery-input delivery-input_billing-adress">
+                                        <input id="housing" type="text" name="housing" class="delivery-input delivery-input_billing-adress">
                                     </div>
                                     <div class="delivery-billing-adress">
                                         <label for="flat-number" class="delivery-label">Квартира</label>
-                                        <input id="flat-number" type="text" name="input-flat-number" class="delivery-input delivery-input_billing-adress">
+                                        <input id="flat-number" type="text" name="flat-number" class="delivery-input delivery-input_billing-adress">
                                     </div>
                                     <div class="delivery-billing-adress">
                                         <label for="floor" class="delivery-label">Этаж</label>
-                                        <input id="floor" type="text" name="input-floor" class="delivery-input delivery-input_billing-adress">
+                                        <input id="floor" type="text" name="floor" class="delivery-input delivery-input_billing-adress">
                                     </div>
                                 </div>
                             </div>
                             <div class="delivery-form__order-information">
                                 <div class="delivery-comment">
-                                    <label for="textarea" class="delivery-label">Комментарий</label>
-                                    <textarea name="textarea" id="textarea" class="delivery-textarea"></textarea>
+                                    <label for="comment" class="delivery-label">Комментарий</label>
+                                    <textarea name="comment" id="comment" class="delivery-textarea"></textarea>
                                 </div>
                                 <div class="delivery-options">
                                     <div class="delivery-options-radio">
@@ -568,12 +567,13 @@
                                     <label for="call" class="delivery-label delivery-label_without-margin">Не перезванивать</label>
                                 </div>
                                 <div class="delivery-buttons">
-                                    <button type="submit" class="button button_green-bg-white-text">Заказать</button>
+                                    <button id="submitButtom"  class="button button_green-bg-white-text">Заказать</button>
                                     <button type="reset" class="button button_whitout-bg-green-text">Очистить</button>
                                 </div>
                             </div>
                         </form>
                     </div>
+                    <div class="modal-window-message">Отправка не удалась</div>
                 </div>    
         </section>   
         <section id="map"  class="section section-map">

@@ -97,7 +97,7 @@
 }
 
 .delivery-input:focus,  .delivery-textarea:focus {
-    border: rem(2) solid  rgb(223, 217, 133);
+    border: rem(2) solid  #ded886;
 }
 
 .delivery-form {
@@ -363,4 +363,31 @@
     background: #0f5a47;
     }
 
+}
+
+
+.modal-window-message {
+    //width: 200px;
+    //height: 50px;
+    color: #000;
+    font-size: rem(20);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 50;
+    border-radius: 25px;
+    background-color: #69dbbf;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.alert-text {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: red;
+    font-size: rem(12);
 }

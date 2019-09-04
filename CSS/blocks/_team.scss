@@ -129,6 +129,10 @@
     color: #000;
     cursor: pointer;
 
+    font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
+    font-size: rem(21);
+
+
     &::after {
         content: url(../img/arrow_down.png);
         margin-left: rem(10);
@@ -138,6 +142,7 @@
 
         @include tablets {
             margin-top: rem(-1);
+            font-size: rem(16);
         }
 
         @include tablets_landscape {
@@ -152,6 +157,7 @@
     @include tablets_landscape {
         margin-bottom: rem(5);
         width: 82%;
+        font-size: rem(16);
     }
 
     @include phones {
@@ -159,7 +165,7 @@
     }
 }
 
-.is-active > .team-name {
+.team-name-is-active {
 
     &::after {
         transform: rotate(180deg);
@@ -242,4 +248,10 @@
     @include phones {
         font-size: rem(14);
     }
+}
+
+
+.team-is-active {
+    display: flex;
+    opacity: 1;
 }

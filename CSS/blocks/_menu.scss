@@ -51,6 +51,7 @@
     align-items: flex-end;
     width: 6.25rem;
 
+
     @include tablets {
         width: rem(50);
     }
@@ -99,13 +100,14 @@
 }
 
 .menu-description {
-    //width: 0;
+    width: 0;
     //background-color: rgba(47, 50, 52,0.7);
     height: 100%;
     display: none;   
     z-index: 20;
     opacity: 0;
     transition: opacity 1s;
+    transition: width 1s;
 
     @include laptop {
         width: 100%;
@@ -140,5 +142,9 @@
 
 //////accordeon
 
-
+.menu-description-is-active {
+    display: flex;
+    opacity: 1;
+    width: rem(650);
+}
 

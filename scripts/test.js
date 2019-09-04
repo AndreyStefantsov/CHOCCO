@@ -624,3 +624,434 @@ burger.addEventListener('blur', closeAll);
 //document.addEventListener('click', closeAll);*/
 
 ////////////////////// Конец burger ////////////////////////////
+
+
+var sections = document.getElementsByClassName('section');
+var count = sections.length;
+
+var anchors = [].slice.call(sections);
+
+anchors.forEach(el => {
+    el.addEventListener('scroll', function() {
+        console.log(pageYOffset);   
+        //window.scrollBy(0, section[0].clientHeight);
+    });    
+});
+
+
+
+
+
+
+
+
+
+window.innerHeight
+
+for (var i =0; i<count-1; i++)
+(function() {
+    document.documentElement.scrollTo(0, section[i].clientHeight)
+})();
+
+
+    var bottom = document.documentElement.getBoundingClientRect().bottom
+
+
+        if (document.documentElement.clientHeight == bottom) {
+            document.documentElement.scrollBy(0, document.documentElement.clientHeight);
+            bottom +=  document.documentElement.clientHeight;
+            
+        } else {
+                bottom +=  -document.documentElement.clientHeight;
+                document.documentElement.scrollBy(0, document.documentElement.clientHeight);
+        }
+
+   var count= 0;
+section[0].addEventListener('scroll', function(e) {
+    return count++
+});
+    
+
+f = true; 
+
+function scroll() {
+    while (f) {
+        
+    }
+
+}
+
+
+
+
+/*// собираем все якоря; устанавливаем время анимации и количество кадров
+const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
+      animationTime = 300,
+      framesCount = 20;
+
+anchors.forEach(function(item) {
+  // каждому якорю присваиваем обработчик события
+  item.addEventListener('click', function(e) {
+    // убираем стандартное поведение
+    e.preventDefault();
+    
+    // для каждого якоря берем соответствующий ему элемент и определяем его координату Y
+    let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top;
+    
+    // запускаем интервал, в котором
+    let scroller = setInterval(function() {
+      // считаем на сколько скроллить за 1 такт
+      let scrollBy = coordY / framesCount;
+      
+      // если к-во пикселей для скролла за 1 такт больше расстояния до элемента
+      // и дно страницы не достигнуто
+      if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+        // то скроллим на к-во пикселей, которое соответствует одному такту
+        window.scrollBy(0, scrollBy);
+      } else {
+        // иначе добираемся до элемента и выходим из интервала
+        window.scrollTo(0, coordY);
+        clearInterval(scroller);
+      }
+    // время интервала равняется частному от времени анимации и к-ва кадров
+    }, animationTime / framesCount);
+  });
+});*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////// form /////////////////////
+
+
+var submitButtom = document.querySelector('submitButtom');
+
+/*submitButtom.addEventListener('click', () => {
+
+    var xhr = new XMLHttpRequest();
+
+   // xhr.open('POST', 'путь к файлу который нужно загрузить/куда отправить')
+   xhr.send();    //отправка асинхронного запроса;
+
+   xhr.addEventListener('load', () => {     //reject вешается на еще 2 события - error, abort  -  ('error', reject)
+
+   });
+
+   if (xhr.status >= 400) {
+    //загрузка не удалась
+   } else //загрузка удалась, выполнить код
+
+   JSON.stringify(name: 'AAA')  //превращение объекта в строку
+   JSON.parse('asdasda')                //обратная операция (=> js-массив)
+ });
+
+//promise - способ организации асинхронного кода*/
+
+
+submitButtom.addEventListener('click', () => {
+    fetch(url) 
+    .then((value) => {
+        console.log('ответ получен')
+    })
+    .catch(() => {
+        console.log('ответ не получен')
+    })
+   
+});
+
+//fetch встроен в браузер, возвращает промис, есть 2 метода - text и json, возварщают новый промис
+
+//
+function fetch(url) {
+    return new Promise(resolve, reject) => {
+
+
+        if (xhr.status >= 400) {
+            reject();
+           } else 
+           resolve(value);  //передается в then
+    }
+}
+
+
+///////////////////////// Рабочий вариант запроса ///////////////////
+
+const url = 'https://webdev-api.loftschool.com/sendmail';
+//const fail = 'https://webdev-api.loftschool.com/sendmail/fail'
+var deliveryForm = document.querySelector('#deliveryForm');
+var submitButtom = document.querySelector('#submitButtom');
+
+submitButtom.addEventListener('click', (e) => {
+    e.preventDefault();
+    var formData = new FormData(deliveryForm);
+    formData.append('to', 'sapsanno@gmail.com')
+
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'json';
+    xhr.open('POST', url);
+    //xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.send(formData);
+    
+    xhr.addEventListener('load', () => showModalMessage(xhr.response));
+    
+});
+
+function showModalMessage (messageObj) {
+    var div = document.getElementsByClassName('modal-window-message')[0];
+    if (messageObj.status === 1) {
+        div.textContent = messageObj.message;
+        //document.body.style.overflow = 'hidden';
+        div.classList.add('is-active');
+        setTimeout(deleteModalMessage, 	2000);
+        
+    } else {
+            div.textContent = messageObj.message;
+           //document.body.style.overflow = 'hidden';
+            div.classList.add('is-active');
+            setTimeout(deleteModalMessage, 	2000);
+        }
+
+    function deleteModalMessage() {
+        div.classList.remove('is-active');
+        div.textContent = '';
+        document.body.style.overflow = '';
+    }
+}
+
+
+////////////////////// Конец функции //////////////////////////// 
+
+
+
+//////////////////// через промисы ////////////////////
+
+
+const url = 'https://webdev-api.loftschool.com/sendmail';
+var deliveryForm = document.querySelector('#deliveryForm');
+var submitButtom = document.querySelector('#submitButtom');
+const alertMessage = 'Произошел сбой при отправке заказа';
+
+function sendData(url) {
+    return new Promise((resolve, reject) => {
+    var formData = new FormData(deliveryForm);
+    formData.append('to', 'sapsanno@gmail.com');
+
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'json';
+
+    xhr.open('POST', url);
+    //xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.send(formData);
+    
+        xhr.addEventListener('load', () => {
+            if (xhr.status <= 400) {             
+                resolve(xhr.response.message);
+                
+            } else {
+                reject(xhr.response);                                                      
+                }
+        });
+
+    });
+};
+
+function showModalMessage (messageObj) {
+    var div = document.getElementsByClassName('modal-window-message')[0];
+        div.textContent = (!messageObj) ? alertMessage : messageObj;
+        div.classList.add('is-active');
+        setTimeout(deleteModalMessage, 	2000);
+
+    function deleteModalMessage() {
+        div.classList.remove('is-active');
+        div.textContent = '';
+    }
+};
+
+/*submitButtom.addEventListener('click', (e) => {
+    e.preventDefault();
+        sendData(url)
+        .then(value => showModalMessage(value))
+        .catch(value => showModalMessage(value));
+
+});
+*/
+////////////////////// Конец функции //////////////////////////// 
+
+
+var submitButtom = document.querySelector('#submitButtom');
+
+var dataObj = [
+    document.querySelector('#name'),
+    document.querySelector('#phone'),
+    document.querySelector('#comment')
+]
+var flag;
+
+/*function checkSpace(input) {
+
+    input.forEach(function(el) {
+        
+        if (el.value == '') {
+            var div = createAlert();
+            el.parentElement.style.position = 'relative'; 
+            el.parentElement.appendChild(div);
+            el.style.borderColor = 'red';
+
+            (function () {
+                setTimeout(() => {
+                    div.remove();
+                    el.style.borderColor = '';
+                    el.parentElement.style.position = ''; 
+                }, 1500);
+            })();   
+            console.log('false');
+            return flag = false;
+            
+        } else 
+            console.log('true');
+            return flag = true;
+            
+    }); 
+
+}*/
+
+function showAlert(el) {
+    var div = createAlert();
+    el.parentElement.style.position = 'relative'; 
+    el.parentElement.appendChild(div);
+    el.style.borderColor = 'red';
+
+    (function () {
+        setTimeout(() => {
+            div.remove();
+            el.style.borderColor = '';
+            el.parentElement.style.position = ''; 
+        }, 1500);
+    })();   
+}
+
+function checkSpace(input) {
+    flag = true;
+    return new Promise((resolve) => {
+
+        input.forEach(function(el) {
+            if (el.value == '') {
+                flag = false;
+                resolve(el);
+            }  else ;
+        });
+    });
+}
+
+
+function createAlert() {
+    var div = document.createElement('div');
+    div.classList.add('alert-text');
+    div.textContent = 'Это поле дожно быть заполнено';
+    return div;
+}
+
+function sendMessage(event) {
+    if (event.cancelable) {
+        event.preventDefault();
+    } 
+    checkSpace(dataObj)
+    .then((el) => showAlert(el));
+    if (flag) {
+        sendData(url)
+        .then(value => showModalMessage(value))
+        .catch(value => showModalMessage(value));
+    }
+}
+
+submitButtom.addEventListener('click', sendMessage);
+
+
+
+
+
+
+/////////////////////////////// фильтры  /////////////////////////////////
+var inputTextContent = [
+    document.querySelector('#name'),
+]
+
+var inputDigitContent = [
+    document.querySelector('#phone'), 
+    document.querySelector('#home'), 
+    document.querySelector('#housing'), 
+    document.querySelector('#flat-number'), 
+    document.querySelector('#floor'), 
+]
+
+
+deliveryForm
+
+
+////////////////////////////// команда слайдер //////////////////////////
+
+var teamList = document.querySelector('.team');
+
+function showTeam(event) {
+    if(event.cancelable) {
+        event.preventDefault(); 
+    }
+
+    var target = event.target;
+    if (target.tagName != 'A') return;
+    var currentDiv = target.nextElementSibling;
+
+    target.classList.toggle('team-name-is-active');
+    currentDiv.classList.toggle('team-is-active');
+}
+
+teamList.addEventListener('click', showTeam);
+
+
+
+
+/////////////////////////////// меню слайдер ///////////////////////////////
+
+var menuList = document.querySelector('.menu');
+
+function showMenu(event) {
+    if(event.cancelable) {
+        event.preventDefault(); 
+    }
+
+    var target = event.target//.closest('a');
+    if (target.tagName != 'A') {return; }
+
+    //console.log(target);
+    var item = event.target.closest('li');
+    //console.log(item);
+    var currentDiv = item.querySelector('.menu-description');
+    //console.log(currentDiv);
+    //var currentDiv = target.nextElementSibling;
+
+    item.classList.toggle('menu-description-is-active');
+    currentDiv.classList.toggle('menu-description-is-active');
+    
+    /*setTimeout(() => { 
+        currentDiv.classList.toggle('menu-description-is-active');
+     }, 1100);*/
+}
+
+menuList.addEventListener('click', showMenu);
