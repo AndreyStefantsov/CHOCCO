@@ -25,25 +25,23 @@
 .menu {
     display: flex;
     z-index: 10;
-
-    
 }
 
 .menu__item {
     height: 100%;
     background-color: rgba(47, 50, 52,0.7);
     width: 6.25rem; 
-    //display: flex;
     transition: width 1s;
 
     @include laptop {
         z-index: 1;
-        /*position: absolute;
-        right: 0;
-        z-index: 1;*/
     }
 
     @include tablets {
+        width: rem(50);
+    }
+
+    @include tablets_landscape {
         width: rem(50);
     }
 }
@@ -55,6 +53,10 @@
     width: 6.25rem;
 
     @include tablets {
+        width: rem(50);
+    }
+
+    @include tablets_landscape {
         width: rem(50);
     }
 }
@@ -69,16 +71,15 @@
     margin-bottom: rem(-30);
     line-height: 2;
 
-    @include tablets_landscape {
-        font-size: rem(20);
-        padding-top: rem(20);
-    }
-
     @include tablets {
         font-size: rem(25);
-        //padding-bottom: rem(5);
     }
 
+    @include tablets_landscape {
+        font-size: rem(20);
+        padding-top: rem(3);
+    }
+ 
     @include phones {
         font-size: rem(20);
         margin-bottom: rem(5);

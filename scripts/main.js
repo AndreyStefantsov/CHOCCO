@@ -1,124 +1,3 @@
-////////////////////////////// команда слайдер //////////////////////////
-
-var teamList = document.querySelector('.team');
-
-function showTeam(event) {
-    if(event.cancelable) {
-        event.preventDefault(); 
-    }
-
-    var target = event.target;
-    if (target.tagName != 'A') return;
-    var currentDiv = target.nextElementSibling;
-
-    target.classList.toggle('team-name-is-active');
-    currentDiv.classList.toggle('team-is-active');
-}
-
-teamList.addEventListener('click', showTeam);
-
-////////////////////// Конец функции //////////////////////////// 
-
-
-//////////////////////////////// меню аккордеон ///////////////////
-
-var menuList = document.querySelector('.menu');
-var previousTarget = null;
-const maxWidth = 650;  
-var itemsCount = menuList.children.length;
-
-var f=true;
-
-function showMenu(event) {
-    if (event.cancelable) {
-        event.preventDefault(); 
-    }
-
-    var target = event.target;
-    if (target.nodeName !== 'A') {
-        event.stopPropagation();
-    } 
-
-    if (previousTarget === null) {
-        previousTarget = target;
-    }
-
-    if (previousTarget !== target) {
-        closeTarget(previousTarget);  
-        previousTarget = target;
-        openTarget(target);
-
-    }  else {
-        toggleTarget(previousTarget);
-
-    }
-
-    if (target === link) {
-        closeTarget(target);
-    }
-
-}
-
-function toggleTarget(target) {
-
-    var item = target.closest('li');
-    var description = item.querySelector('.menu-description-wrapper');
-    var text = item.querySelector('.menu-description');
-    
-    item.classList.toggle('menu-description-is-active');
-    description.classList.toggle('menu-description-is-active');
-    var requireWidth = window.innerWidth - menuList.children[0].offsetWidth*(itemsCount-1);
-    if ( requireWidth > maxWidth) {
-        item.style.width = maxWidth + 'px';
-        description.style.width = maxWidth + 'px';
-    }  else {
-        item.style.width = requireWidth + 'px';
-        description.style.width = requireWidth + 'px';
-    }  
-
-    setTimeout(() => text.classList.toggle('text-visible'), 1100);
-    return link = item.querySelector('.menu-description__link');
-    
-}
-
-function openTarget(target) {
-    var item = target.closest('li');
-    var description = item.querySelector('.menu-description-wrapper');
-    var text = item.querySelector('.menu-description');
-    item.classList.add('menu-description-is-active');
-    description.classList.add('menu-description-is-active');
-    var requireWidth = window.innerWidth - menuList.children[0].offsetWidth*(itemsCount-1);
-    if ( requireWidth > maxWidth) {
-        item.style.width = maxWidth + 'px';
-        description.style.width = maxWidth + 'px';
-    }  else {
-        item.style.width = requireWidth + 'px';
-        description.style.width = requireWidth + 'px';
-    }  
-
-    setTimeout(() => text.classList.toggle('text-visible'), 1100);
-    
-    return link = item.querySelector('.menu-description__link');
-}
-
-function closeTarget(previousTarget) {
-    var item = previousTarget.closest('li');
-    var description = item.querySelector('.menu-description-wrapper');
-    var text = item.querySelector('.menu-description');
-    item.classList.remove('menu-description-is-active');
-    item.style.width = '';
-    description.style.width = '';
-    description.classList.remove('menu-description-is-active');
-
-    text.classList.remove('text-visible');
-    return link = item.querySelector('.menu-description__link');
-}
-
-menuList.addEventListener('click', showMenu);
-
-
-////////////////////// Конец функции //////////////////////////// 
-
 
 
 ////////////////////// Меню скрытое//////////////////////
@@ -168,40 +47,6 @@ burgerCloseLines.addEventListener('click', function(event) {
 
 
 
-///////////////////////////////// отзывы ///////////////////////////////////////////////////
-
-function showComment (item, comment) {
- 
-    for (var i = 0; i<item.length; i++) {
-        
-        item[i].addEventListener('click', function(event) {
-            event.preventDefault();
-
-            var index = i;
-            var j = 0;
-            var k = 0;
-
-            for (node of item) { 
-                if (index == k) {
-                    node.parentElement.classList.add('peoples-is-active');
-                } else node.parentElement.classList.remove('peoples-is-active');
-                k++;
-            }
-
-            for (node of comment) { 
-                if (index == j) {
-                    node.classList.add('is-active');
-                } else node.classList.remove('is-active');
-                j++;
-            }
-                        
-        });
-    }
-
-} 
-
-////////////////////// Конец функции //////////////////////////// 
-
 ///////////////////////////////// Слайдер с батончиками ///////////////////////////////////////////////////
 const arrowleft = document.getElementsByClassName('arrow__link-left')[0];
 const arrowRight = document.getElementsByClassName('arrow__link-right')[0];
@@ -248,6 +93,86 @@ arrowleft.addEventListener('click', function(event) {
 ////////////////////// Конец функции //////////////////////////// 
 
 
+
+////////////////////////////// команда слайдер //////////////////////////
+
+var teamList = document.querySelector('.team');
+
+function showTeam(event) {
+    if(event.cancelable) {
+        event.preventDefault(); 
+    }
+
+    var target = event.target;
+    if (target.tagName != 'A') return;
+    var currentDiv = target.nextElementSibling;
+
+    target.classList.toggle('team-name-is-active');
+    currentDiv.classList.toggle('team-is-active');
+}
+
+teamList.addEventListener('click', showTeam);
+
+////////////////////// Конец функции //////////////////////////// 
+
+
+//////////////////////////////// меню аккордеон ///////////////////
+
+var menuList = document.querySelector('.menu');
+var itemsCount = menuList.children.length;
+var requireWidth = window.innerWidth - menuList.children[0].offsetWidth*(itemsCount-1);
+
+menuList.addEventListener('click', showMenu);
+
+function showMenu(event) {
+    if (event.cancelable) {
+        event.preventDefault(); 
+    }
+    
+    var target = event.target;
+
+    if (target.nodeName !== 'A') {
+        event.stopPropagation();
+    }  
+    var items = document.querySelectorAll('.menu__item');
+    var item = target.closest('li');
+    var texts = document.querySelectorAll('.menu-description');
+    var text = item.querySelector('.menu-description');
+    var descriptions = document.querySelectorAll('.menu-description-wrapper');
+    var description = item.querySelector('.menu-description-wrapper');
+    const maxWidth = 650;  
+    
+
+    if (!item.classList.contains('menu-description-is-active')) {
+        for (let i = 0; i<items.length; i++) {
+            items[i].classList.remove('menu-description-is-active');
+            descriptions[i].classList.remove('menu-description-is-active');
+            texts[i].classList.remove('text-visible');
+            items[i].style.width = '';
+            descriptions[i].style.width = '';
+        }
+        item.classList.add('menu-description-is-active');
+        description.classList.add('menu-description-is-active');
+        setTimeout(() => text.classList.add('text-visible'), 1100);
+        
+        if (requireWidth > maxWidth) {
+            item.style.width = maxWidth + 'px';
+            description.style.width = maxWidth + 'px';
+        }  else {
+            item.style.width = requireWidth + 'px';
+            description.style.width = requireWidth + 'px';
+        }  
+    } else {
+        item.classList.remove('menu-description-is-active');
+        description.classList.remove('menu-description-is-active');
+        text.classList.remove('text-visible');
+        item.style.width = '';
+        description.style.width = '';
+    }
+
+}
+
+////////////////////// Конец функции //////////////////////////// 
 
 
 

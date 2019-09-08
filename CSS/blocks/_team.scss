@@ -63,7 +63,6 @@
 .team__item {
     display: flex;
     flex-direction: column;
-   // flex: 1 1 25%;
     margin-bottom: rem(10);
     z-index: 20;
     
@@ -71,7 +70,6 @@
     width: 220px;
     margin-right: 15px;
     position: relative;
-    transition: height 1s;
 
     @include laptop {
        //width: 110px;
@@ -79,11 +77,12 @@
 
     @include tablets {
         width: 45%;
+        margin-right: 0;
     }
 
     @include tablets_landscape {
         width: 25%;
-        margin-right: rem(5);
+        margin-right: 0;
         align-items: center;
     }
 
@@ -135,32 +134,36 @@
 
     &::after {
         content: url(../img/arrow_down.png);
-        margin-left: rem(10);
+        /*margin-left: rem(10);
         display: flex;
         align-items: center;
-        margin-top: rem(1);
+        margin-top: rem(1);*/
+        position: absolute;
+        right: rem(-20);
+        top: 0;
+        translate: transformY(-50%);
 
         @include tablets {
-            margin-top: rem(-1);
-            font-size: rem(16);
+            right: rem(-15);
         }
 
         @include tablets_landscape {
-            //right: rem(-20);
+            right: rem(-15);
         }
 
         @include phones {
-            margin-left: rem(5);
+            right: rem(-10);
         }
     }
 
     @include tablets_landscape {
         margin-bottom: rem(5);
-        width: 82%;
         font-size: rem(16);
+       // width: 80%;
     }
 
     @include phones {
+        font-size: rem(16);
         margin-bottom: rem(5);
     }
 }
@@ -198,9 +201,8 @@
     left: 0px;
     bottom: rem(-83);
 
-    
+
     @include laptop {
-    //position: relative;
     bottom: rem(-65);
     }
 
@@ -209,10 +211,16 @@
         bottom: rem(0);
     }
 
+    @include tablets_landscape {
+        bottom: rem(-50);
+    }
+
     @include phones {
         position: relative;
         bottom: rem(0);
     }
+
+
 
 }
 
@@ -253,5 +261,5 @@
 
 .team-is-active {
     display: flex;
-    opacity: 1;
+    opacity: 1;   
 }
