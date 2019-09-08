@@ -2137,42 +2137,54 @@ h1, h2, h3, h4, h5, h6, p {
   background: url(../img/bars-with-berries.png) no-repeat center center;
   background-size: cover; }
 
-.menu-description {
+.menu-description-wrapper {
   width: 0;
   height: 100%;
   display: none;
   z-index: 20;
+  -webkit-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+  /*@include laptop {
+        width: 100%;
+    }*/
+  /*@include tablets {
+        width: 100%;
+    }*/ }
+
+.menu-description {
   opacity: 0;
   -webkit-transition: opacity 1s;
   -o-transition: opacity 1s;
   transition: opacity 1s;
-  -webkit-transition: width 1s;
-  -o-transition: width 1s;
-  transition: width 1s; }
-  @media screen and (max-width: 900px) {
-    .menu-description {
-      width: 100%; } }
-  @media screen and (max-width: 480px) {
-    .menu-description {
-      width: 100%; } }
+  display: none;
+  position: relative; }
 
 .menu-description__text {
-  -webkit-box-flex: .95;
-  -ms-flex: .95;
-  flex: .95;
-  margin: 1.25rem; }
+  margin: 1.25rem;
+  padding-right: 20px;
+  /*opacity: 0;
+    transition: opacity 1s;*/ }
   @media screen and (max-height: 480px) {
     .menu-description__text {
       font-size: 1rem; } }
 
-.menu-description__image {
-  -webkit-box-flex: .05;
-  -ms-flex: .05;
-  flex: .05;
-  margin: 1.25rem 0.625rem 0 0; }
+/*.menu-description__image {
+    flex: .05;
+    margin: rem(20) rem(10) 0 0;
 
+    /*opacity: 0;
+    transition: opacity 1s;
+}*/
 .menu-description__link {
-  display: block; }
+  margin: 1.25rem 0.625rem 0 0;
+  background: url(../img/close.png) no-repeat top center;
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 20px;
+  height: 20px; }
 
 .menu-description__close-button {
   max-width: 100%; }
@@ -2180,9 +2192,13 @@ h1, h2, h3, h4, h5, h6, p {
 .menu-description-is-active {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: flex; }
+
+.text-visible {
   opacity: 1;
-  width: 40.625rem; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
 
 .section-comments {
   background-color: #fff;

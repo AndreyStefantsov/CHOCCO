@@ -1,89 +1,127 @@
-var menu = document.getElementsByClassName('menu__link');                                //получение коллекции ссылок <a>
-var team = document.getElementsByClassName('team-name');
-var closeButton = document.getElementsByClassName('menu-description__link');
-var peoples = document.getElementsByClassName('peoples__link');
-var comment = document.getElementsByClassName('comments-full__item');
+////////////////////////////// команда слайдер //////////////////////////
 
+var teamList = document.querySelector('.team');
 
-//if (document.documentElement.clientWidth > 768) ? showMenu(menu, 'width', '650px') : showMenu(menu, 'width', '350px')
+function showTeam(event) {
+    if(event.cancelable) {
+        event.preventDefault(); 
+    }
 
-if (parseInt(document.documentElement.clientWidth) > 900) {
-    showMenu(menu, 'width', '650px');
-} else {
-    //не работает на phones 320px+
-    showMenu(menu, 'width', parseInt(document.documentElement.clientWidth)-200+'px');
-    //showMenu(menu, 'width', '100%');
+    var target = event.target;
+    if (target.tagName != 'A') return;
+    var currentDiv = target.nextElementSibling;
+
+    target.classList.toggle('team-name-is-active');
+    currentDiv.classList.toggle('team-is-active');
 }
 
+teamList.addEventListener('click', showTeam);
 
-//showMenu(menu, 'width', '650px');
-
-showMenu(team, 'height', '90');
-closeMenu(closeButton);
-showComment(peoples, comment);  
+////////////////////// Конец функции //////////////////////////// 
 
 
+//////////////////////////////// меню аккордеон ///////////////////
 
-/////////////////////  Закрытие и открытие вкладок на секциях "Команда" и "Меню"   ////////////////////
-function showMenu(item, param, value) {
+var menuList = document.querySelector('.menu');
+var previousTarget = null;
+const maxWidth = 650;  
+var itemsCount = menuList.children.length;
+
+var f=true;
+
+function showMenu(event) {
+    if (event.cancelable) {
+        event.preventDefault(); 
+    }
+
+    var target = event.target;
+    if (target.nodeName !== 'A') {
+        event.stopPropagation();
+    } 
+
+    if (previousTarget === null) {
+        previousTarget = target;
+    }
+
+    if (previousTarget !== target) {
+        closeTarget(previousTarget);  
+        previousTarget = target;
+        openTarget(target);
+
+    }  else {
+        toggleTarget(previousTarget);
+
+    }
+
+    if (target === link) {
+        closeTarget(target);
+    }
+
+}
+
+function toggleTarget(target) {
+
+    var item = target.closest('li');
+    var description = item.querySelector('.menu-description-wrapper');
+    var text = item.querySelector('.menu-description');
     
-    for (node of item) {                                                                //перебор всех <a> в <ul>
-        node.addEventListener('click', function(event) {
-            event.preventDefault();
+    item.classList.toggle('menu-description-is-active');
+    description.classList.toggle('menu-description-is-active');
+    var requireWidth = window.innerWidth - menuList.children[0].offsetWidth*(itemsCount-1);
+    if ( requireWidth > maxWidth) {
+        item.style.width = maxWidth + 'px';
+        description.style.width = maxWidth + 'px';
+    }  else {
+        item.style.width = requireWidth + 'px';
+        description.style.width = requireWidth + 'px';
+    }  
 
-            if (this.parentElement.classList.contains('is-active')) {          //проверка на существование класса и его удаление 
-                this.parentElement.classList.toggle('is-active');                        
-                this.nextElementSibling.style.display="none";
-                this.nextElementSibling.style.opacity="0";     
-                this.parentElement.style.width="";                           //скрытие div с текстом меню
-            } else {
-
-                if (param == 'width') {
-                    for (node of item) {
-                        node.parentElement.classList.toggle('is-active',false);        //перебор и полное скрытие всех li в случае, если открыты 
-                        node.parentElement.style.width="";                                               
-                        node.nextElementSibling.style.display="none";
-                        node.nextElementSibling.style.opacity="0"; 
-                    }  
-                    this.parentElement.style.width=value;                           //ширина раскрытия меню
-                    this.parentElement.classList.toggle('is-active', true);        //добавление класса    
-                    setTimeout(() => this.nextElementSibling.style.display="flex", 1000);     //показ div с текстом меню  
-                    setTimeout(() => this.nextElementSibling.style.opacity="1", 1100);
-                }  else {
-                    this.parentElement.classList.toggle('is-active', true);        //добавление класса    
-                    setTimeout(() => this.nextElementSibling.style.display="flex", 1);     //показ div с текстом меню  
-                    setTimeout(() => this.nextElementSibling.style.opacity="1", 300);
-                    //this.parentElement.style.height=value+this.parentElement.clientHeight;
-                }    
-            }
-
-        });
-    }
-}
-////////////////////// Конец функции //////////////////////////// 
-
-/////////////////// Закрытие вкладок на секции "Меню" по крестику   ////////////////
-
-function closeMenu(closeButton) {
-        
-    for (node of closeButton) {
-
-        node.addEventListener('click', function(event) {
-            event.preventDefault();
-            var parentItem = this.parentElement.parentElement.parentElement;
-            var parentDiv = this.parentElement.parentElement;
-                parentItem.classList.toggle('is-active', false);                        
-                parentDiv.style.display="none";
-                parentDiv.style.opacity="0";     
-                parentItem.style.width="";
-         });
-    }
+    setTimeout(() => text.classList.toggle('text-visible'), 1100);
+    return link = item.querySelector('.menu-description__link');
+    
 }
 
+function openTarget(target) {
+    var item = target.closest('li');
+    var description = item.querySelector('.menu-description-wrapper');
+    var text = item.querySelector('.menu-description');
+    item.classList.add('menu-description-is-active');
+    description.classList.add('menu-description-is-active');
+    var requireWidth = window.innerWidth - menuList.children[0].offsetWidth*(itemsCount-1);
+    if ( requireWidth > maxWidth) {
+        item.style.width = maxWidth + 'px';
+        description.style.width = maxWidth + 'px';
+    }  else {
+        item.style.width = requireWidth + 'px';
+        description.style.width = requireWidth + 'px';
+    }  
+
+    setTimeout(() => text.classList.toggle('text-visible'), 1100);
+    
+    return link = item.querySelector('.menu-description__link');
+}
+
+function closeTarget(previousTarget) {
+    var item = previousTarget.closest('li');
+    var description = item.querySelector('.menu-description-wrapper');
+    var text = item.querySelector('.menu-description');
+    item.classList.remove('menu-description-is-active');
+    item.style.width = '';
+    description.style.width = '';
+    description.classList.remove('menu-description-is-active');
+
+    text.classList.remove('text-visible');
+    return link = item.querySelector('.menu-description__link');
+}
+
+menuList.addEventListener('click', showMenu);
+
+
 ////////////////////// Конец функции //////////////////////////// 
 
 
-////////////////////// Меню //////////////////////
+
+////////////////////// Меню скрытое//////////////////////
 
 const burger = document.getElementsByClassName('burger')[0];
 const greetingContainer = document.getElementsByClassName('container-greeting')[0];
@@ -179,13 +217,11 @@ arrowRight.addEventListener('click', function(event) {
             activeItem.classList.toggle('is-active', false);
             activeItem = activeItem.nextElementSibling;
             activeItem.classList.toggle('is-active', true);
-            console.log(activeItem)
 
         } else {
             activeItem.classList.toggle('is-active', false);
             activeItem = firstItem; 
             activeItem.classList.toggle('is-active', true);
-            console.log(activeItem)
         }
 });
 
@@ -280,7 +316,7 @@ function showAlert(el) {                                                        
             el.parentElement.style.position = ''; 
         }, 1500);
     })();   
-} 
+}
 
 function checkSpace(input) {                                                            //проверка на пустое поле
     flag = true;                                                                        //флаг для определения, все ли поля заполнены
@@ -318,5 +354,115 @@ function sendMessage(event) {                                                   
 submitButtom.addEventListener('click', sendMessage);
 
 ////////////////////// Конец функции //////////////////////////// 
+
+
+
+
+
+////////////////////slideshow
+
+
+var animation = true;
+//var firstStart = true;
+var prevIndex = 0;
+var index;
+
+window.onload = () => startSlideshow(animation);
+
+function startSlideshow(animation) {
+    var images = [].slice.call(document.getElementsByClassName('peoples__image'));
+    var comment = [].slice.call(document.getElementsByClassName('comments-full__item'));
+    var links = [].slice.call(document.getElementsByClassName('peoples__link'));
+    var peoplesList = document.querySelector('.peoples__list');
+
+    var delay = 4000;
+
+    /*if (firstStart) {
+        delay = 10;       
+        firstStart = false;
+    } else {
+        delay = 4000;
+    }*/
+
+    const commentLength = images.length;
+
+    var timer = setInterval(() => {
+        if (animation) {
+                peoplesSlideshow();
+                commentSlideshow();
+                console.log('прокрутка идет');
+            }
+            else {
+                clearInterval(timer);
+                console.log('прокрутка остановлена');
+                return false;
+            };
+                }, commentLength*delay);
+
+    function peoplesSlideshow() {
+
+        function setBorder(link) {
+            link.classList.add('peoples-is-active');
+        }
+        
+        function removeBorder(link) {
+            link.classList.remove('peoples-is-active');
+        }
+
+        images.forEach(function(element, i) {                   
+            setTimeout(() => setBorder(element), delay * ++i);
+            setTimeout(() => removeBorder(element), delay * ++i);
+        });
+    }
+
+    function commentSlideshow() {
+        function showComment(comment) {
+            comment.classList.add('is-active');
+        }
+        
+        function hideComment(comment) {
+            comment.classList.remove('is-active');
+        }
+
+        comment.forEach(function(element, i) {                   
+            setTimeout(() => showComment(element), delay * ++i);
+            setTimeout(() => hideComment(element), delay * ++i);
+        });
+    };
+
+   
+    peoplesList.addEventListener('click', showCommentOnClick)
+
+    function showCommentOnClick(event) {
+
+        if (event.cancelable) {
+            event.preventDefault();
+        }
+       // animation = false;
+
+        var target = event.target;
+        if (target.nodeName !== 'A') {
+            event.stopPropagation();
+            target = event.target.closest('a');
+        } 
+
+        index = links.indexOf(target)
+
+        if ((index >= 0) && (prevIndex !== index)) {
+            changeCommentAndMan(prevIndex, index);
+            prevIndex = index;            
+        } 
+        return (index, prevIndex);
+
+    }
+
+    function changeCommentAndMan(prevIndex, index) {
+        comment[index].classList.add('is-active');
+        comment[prevIndex].classList.remove('is-active');
+        images[index].classList.add('peoples-is-active');
+        images[prevIndex].classList.remove('peoples-is-active');
+    }
+
+}
 
 

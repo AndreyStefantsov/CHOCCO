@@ -276,7 +276,6 @@ function showComment (item, comment) {
             event.preventDefault();
 
             let index = i;
-            //console.log(index);
             let j = 0;
             let k = 0;
 
@@ -285,7 +284,6 @@ function showComment (item, comment) {
                     node.parentElement.classList.add('peoples-is-active');
                 } else node.parentElement.classList.remove('peoples-is-active');
                 k++;
-               // console.log(j);
             }
 
             for (node of comment) { 
@@ -293,7 +291,6 @@ function showComment (item, comment) {
                     node.classList.add('is-active');
                 } else node.classList.remove('is-active');
                 j++;
-               // console.log(j);
             }
                         
         });
@@ -684,112 +681,6 @@ function scroll() {
 
 
 
-/*// собираем все якоря; устанавливаем время анимации и количество кадров
-const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
-      animationTime = 300,
-      framesCount = 20;
-
-anchors.forEach(function(item) {
-  // каждому якорю присваиваем обработчик события
-  item.addEventListener('click', function(e) {
-    // убираем стандартное поведение
-    e.preventDefault();
-    
-    // для каждого якоря берем соответствующий ему элемент и определяем его координату Y
-    let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top;
-    
-    // запускаем интервал, в котором
-    let scroller = setInterval(function() {
-      // считаем на сколько скроллить за 1 такт
-      let scrollBy = coordY / framesCount;
-      
-      // если к-во пикселей для скролла за 1 такт больше расстояния до элемента
-      // и дно страницы не достигнуто
-      if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
-        // то скроллим на к-во пикселей, которое соответствует одному такту
-        window.scrollBy(0, scrollBy);
-      } else {
-        // иначе добираемся до элемента и выходим из интервала
-        window.scrollTo(0, coordY);
-        clearInterval(scroller);
-      }
-    // время интервала равняется частному от времени анимации и к-ва кадров
-    }, animationTime / framesCount);
-  });
-});*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///////////////////// form /////////////////////
-
-
-var submitButtom = document.querySelector('submitButtom');
-
-/*submitButtom.addEventListener('click', () => {
-
-    var xhr = new XMLHttpRequest();
-
-   // xhr.open('POST', 'путь к файлу который нужно загрузить/куда отправить')
-   xhr.send();    //отправка асинхронного запроса;
-
-   xhr.addEventListener('load', () => {     //reject вешается на еще 2 события - error, abort  -  ('error', reject)
-
-   });
-
-   if (xhr.status >= 400) {
-    //загрузка не удалась
-   } else //загрузка удалась, выполнить код
-
-   JSON.stringify(name: 'AAA')  //превращение объекта в строку
-   JSON.parse('asdasda')                //обратная операция (=> js-массив)
- });
-
-//promise - способ организации асинхронного кода*/
-
-
-submitButtom.addEventListener('click', () => {
-    fetch(url) 
-    .then((value) => {
-        console.log('ответ получен')
-    })
-    .catch(() => {
-        console.log('ответ не получен')
-    })
-   
-});
-
-//fetch встроен в браузер, возвращает промис, есть 2 метода - text и json, возварщают новый промис
-
-//
-function fetch(url) {
-    return new Promise(resolve, reject) => {
-
-
-        if (xhr.status >= 400) {
-            reject();
-           } else 
-           resolve(value);  //передается в then
-    }
-}
-
 
 ///////////////////////// Рабочий вариант запроса ///////////////////
 
@@ -1001,9 +892,28 @@ var inputDigitContent = [
     document.querySelector('#floor'), 
 ]
 
+var deliveryForm = document.querySelector('#deliveryForm');
 
-deliveryForm
+deliveryForm.addEventListener('click', filters)
 
+function filters(event) {
+
+    target = event.target;
+    console.log(target);
+
+    target.addEventListener('keydown', () => {
+        
+    });
+    for (i = 0; i < inputDigitContent.lenght; i++) {
+        if (target === inputDigitContent[i]) {
+            console.log('hi there')
+        } else {
+            console.log('hi outhere');
+        }
+        
+    }
+    
+}
 
 ////////////////////////////// команда слайдер //////////////////////////
 
@@ -1030,28 +940,630 @@ teamList.addEventListener('click', showTeam);
 /////////////////////////////// меню слайдер ///////////////////////////////
 
 var menuList = document.querySelector('.menu');
+var previousTarget = null;
+const maxWidth = 650;  
+var itemsCount = menuList.children.length;
+
+var f=true;
 
 function showMenu(event) {
-    if(event.cancelable) {
+    if (event.cancelable) {
         event.preventDefault(); 
     }
-
-    var target = event.target//.closest('a');
-    if (target.tagName != 'A') {return; }
-
-    //console.log(target);
-    var item = event.target.closest('li');
-    //console.log(item);
-    var currentDiv = item.querySelector('.menu-description');
-    //console.log(currentDiv);
-    //var currentDiv = target.nextElementSibling;
-
-    item.classList.toggle('menu-description-is-active');
-    currentDiv.classList.toggle('menu-description-is-active');
     
-    /*setTimeout(() => { 
-        currentDiv.classList.toggle('menu-description-is-active');
-     }, 1100);*/
+    var target = event.target//.closest('a');
+    //console.log(event.relatedTarget);
+    if (target.nodeName !== 'A') {
+        event.stopPropagation();
+        //target = event.target.closest('a');
+        
+    //return; 
+    } 
+
+    /*if ((previousTarget != null) && (previousTarget !== target)) {
+        toggleTarget(previousTarget);
+    previousTarget = target;
+    toggleTarget(target);
+        console.log('if')
+    } else { 
+        console.log('else');
+        toggleTarget(target);
+        previousTarget = target;
+    }*/
+
+    if (previousTarget === null) {
+        
+        previousTarget = target;
+    }
+
+    if (previousTarget !== target) {
+
+        closeTarget(previousTarget);  
+        previousTarget = target;
+        openTarget(target);
+
+
+    }  else {
+        toggleTarget(previousTarget);
+
+    }
+
+    if (target === link) {
+        closeTarget(target);
+    }
+
 }
 
+/*function variables (target){
+    
+    return (item, description, text)
+};*/
+
+function toggleTarget(target) {
+
+    var item = target.closest('li');
+    var description = item.querySelector('.menu-description-wrapper');
+    var text = item.querySelector('.menu-description');
+    
+    item.classList.toggle('menu-description-is-active');
+    description.classList.toggle('menu-description-is-active');
+    var requireWidth = window.innerWidth - menuList.children[0].offsetWidth*(itemsCount-1);
+    if ( requireWidth > maxWidth) {
+        item.style.width = maxWidth + 'px';
+        description.style.width = maxWidth + 'px';
+    }  else {
+        item.style.width = requireWidth + 'px';
+        description.style.width = requireWidth + 'px';
+    }  
+
+    /*if (f) {
+        elemWidth(item, description);
+        f = false;
+    } else { 
+        item.style.width = '';
+        description.style.width = '';
+        f = true;
+    }*/
+
+    setTimeout(() => text.classList.toggle('text-visible'), 1100);
+    return link = item.querySelector('.menu-description__link');
+    
+}
+
+function openTarget(target) {
+    var item = target.closest('li');
+    var description = item.querySelector('.menu-description-wrapper');
+    var text = item.querySelector('.menu-description');
+    item.classList.add('menu-description-is-active');
+    description.classList.add('menu-description-is-active');
+    var requireWidth = window.innerWidth - menuList.children[0].offsetWidth*(itemsCount-1);
+    if ( requireWidth > maxWidth) {
+        item.style.width = maxWidth + 'px';
+        description.style.width = maxWidth + 'px';
+    }  else {
+        item.style.width = requireWidth + 'px';
+        description.style.width = requireWidth + 'px';
+    }  
+
+    //elemWidth(item, description);
+
+
+    setTimeout(() => text.classList.toggle('text-visible'), 1100);
+    
+    return link = item.querySelector('.menu-description__link');
+}
+
+function closeTarget(previousTarget) {
+    var item = previousTarget.closest('li');
+    var description = item.querySelector('.menu-description-wrapper');
+    var text = item.querySelector('.menu-description');
+    item.classList.remove('menu-description-is-active');
+    item.style.width = '';
+    description.style.width = '';
+    description.classList.remove('menu-description-is-active');
+
+    text.classList.remove('text-visible');
+    return link = item.querySelector('.menu-description__link');
+}
+
+
+/*function elemWidth(item, description) {
+if (bodyWidth > 768) {
+    item.style.width = maxWidth + 'px';
+    description.style.width = maxWidth + 'px';
+    }
+}*/
+
 menuList.addEventListener('click', showMenu);
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+
+
+
+
+                                     //для размеров экрана >= 768px;
+
+
+
+////вариант меню не работающий
+
+var menuList = document.querySelector('.menu');
+var items = document.querySelectorAll('.menu__item');
+var descriptions = document.querySelectorAll('.menu-description-wrapper');
+
+
+var texts = document.querySelectorAll('.menu-description');
+
+
+menuList.addEventListener('click', showMenu);
+
+function showMenu(event) {
+    if (event.cancelable) {
+        event.preventDefault(); 
+    }
+    
+    var target = event.target;
+
+    if (target.nodeName !== 'A') {
+        event.stopPropagation();
+    }  
+    
+    var item = target.closest('li');
+    var text = item.querySelector('.menu-description');
+    var description = item.querySelector('.menu-description-wrapper');
+
+    if (item.classList.contains('menu__item')) {
+        for (let i = 0; i<items.length; i++) {
+            items[i].classList.remove('menu-description-is-active');
+            descriptions[i].classList.remove('menu-description-is-active');
+            texts[i].classList.remove('text-visible');
+        }
+        item.classList.add('menu-description-is-active');
+        description.classList.add('menu-description-is-active');
+        text.classList.add('text-visible');
+    } else {
+        item.classList.remove('menu-description-is-active');
+        description.classList.remove('menu-description-is-active');
+        text.classList.remove('text-visible');
+    }
+
+}
+
+
+
+////////////////////////////////////// отзывы старое ///////////////////////////////
+
+
+function chow(e) {
+    if (e.cancelable) {
+        e.preventDefault();
+    }
+    showComment();
+}
+
+function showComment (e) {
+    if (e.cancelable) {
+        e.preventDefault();
+    }
+
+    var item = document.getElementsByClassName('peoples__link');
+    var comment = document.getElementsByClassName('comments-full__item');
+    for (let i = 0; i<item.length; i++) {
+      
+            let index = i;
+            //console.log(index);
+            let j = 0;
+            let k = 0;
+
+            for (node of item) { 
+                if (index == k) {
+                    node.parentElement.classList.add('peoples-is-active');
+                } else node.parentElement.classList.remove('peoples-is-active');
+                k++;
+
+            }
+
+            for (node of comment) { 
+                if (index == j) {
+                    node.classList.add('is-active');
+                } else node.classList.remove('is-active');
+                j++;
+
+            }
+
+    }
+
+} 
+
+peoplesList.addEventListener('click', showComment);
+
+
+////////////
+
+peoplesList = document.querySelector('.peoples__list');
+commentList = document.querySelector('.comments-full__list')
+
+var links = document.getElementsByClassName('peoples__image');
+var comment = document.getElementsByClassName('comments-full__item');
+
+
+(function changePeoples(links){
+    
+    
+    let i = 0;
+    
+    function repeat(i) {
+        
+        while (i < links.lenght) {
+            
+            if (i != 0) {
+                links[i].classList.add('peoples-is-active');
+                links[i-1].classList.remove('peoples-is-active');
+            } else {
+                links[i].classList.add('peoples-is-active');
+            }
+            console.log(i); 
+            setTimeout(() => {
+                i++;
+                console.log(i);
+            }, 3000);       
+        }
+        
+    }
+    setTimeout(() => {repeat(i++)}, 1000);
+        
+    
+    
+})(links);
+
+
+/*function setBorder(i) {
+    if (i >= links.length) {
+        i = 0;
+
+    } else 
+        if (i != 0) {
+            links[i].classList.add('peoples-is-active');
+            links[i-1].classList.remove('peoples-is-active');
+        } else {
+            links[links.length-1].classList.remove('peoples-is-active');
+            links[i].classList.add('peoples-is-active');
+        }
+    
+    return i;
+}*/
+
+function setBorder(link) {
+    link.classList.add('peoples-is-active');
+
+}
+
+function removeBorder(link) {
+    link.classList.remove('peoples-is-active');
+}
+
+/*var i = 0
+setBorder(i);
+
+//while (i<links.lenght) {
+    setTimeout(() => {
+        setborder(i)
+    }, 3000);
+    ++i;
+   
+//} */
+
+/*links.forEach(function(element, i){                   //работает добаление
+    setTimeout(function(){
+        setBorder(element);
+    }, 5000 * ++i);
+  
+});*/
+
+
+/////////////////////////////// слайдшоу работающее ///////////////////////////////
+var links = [].slice.call(document.getElementsByClassName('peoples__image'));
+var comment = [].slice.call(document.getElementsByClassName('comments-full__item'));
+
+const delay = 4000;
+const commentLength = links.length;
+
+window.onload = () => {
+    setInterval(() => {
+        peoplesSlideshow();
+        commentSlideshow();
+    }, commentLength*delay);
+}
+
+function peoplesSlideshow() {
+
+    function setBorder(link) {
+        link.classList.add('peoples-is-active');
+    }
+    
+    function removeBorder(link) {
+        link.classList.remove('peoples-is-active');
+    }
+
+    links.forEach(function(element, i){                   //работает добаление
+        setTimeout(() => setBorder(element), delay * ++i);
+        setTimeout(() => removeBorder(element), delay * ++i);
+    });
+}
+
+function commentSlideshow() {
+    function showComment(comment) {
+        comment.classList.add('is-active');
+    }
+    
+    function hideComment(comment) {
+        comment.classList.remove('is-active');
+    }
+
+    comment.forEach(function(element, i){                   //работает добаление
+        setTimeout(() => showComment(element), delay * ++i);
+        setTimeout(() => hideComment(element), delay * ++i);
+    });
+}
+
+////////////////////////// конец функции /////////////////////////////////////
+
+
+/*(function changePeoples(links){
+    let i = 0;
+    
+        console.log(i);
+        while (i < links.lenght) {
+
+            (function act(i){
+            if (i != 0) {
+                links[i].classList.add('peoples-is-active');
+                link[i-1].classList.remove('peoples-is-active');
+            } else {
+                links[i].classList.add('peoples-is-active');
+            }
+            console.log(i);
+            setTimeout(function() {act(i+1)}, 1000);
+            
+             })(i);
+        }
+  
+    
+    
+})(links);*/
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+var animation = true;
+
+window.onload = () => startSlideshow;
+
+
+var startSlideshow = (function(animation){
+    var links = [].slice.call(document.getElementsByClassName('peoples__image'));
+    var comment = [].slice.call(document.getElementsByClassName('comments-full__item'));
+
+    const delay = 4000;
+    const commentLength = links.length;
+
+    var timer = setInterval(() => {
+                peoplesSlideshow();
+                commentSlideshow();
+                }, commentLength*delay);
+
+    if (animation) {
+        timer;
+        return false;
+    } else {
+        clearInterval(timer);
+    };
+
+
+function peoplesSlideshow() {
+
+    function setBorder(link) {
+        link.classList.add('peoples-is-active');
+    }
+    
+    function removeBorder(link) {
+        link.classList.remove('peoples-is-active');
+    }
+
+    links.forEach(function(element, i){                   //работает добаление
+        setTimeout(() => setBorder(element), delay * ++i);
+        setTimeout(() => removeBorder(element), delay * ++i);
+    });
+}
+
+function commentSlideshow() {
+    function showComment(comment) {
+        comment.classList.add('is-active');
+    }
+    
+    function hideComment(comment) {
+        comment.classList.remove('is-active');
+    }
+
+    comment.forEach(function(element, i){                   //работает добаление
+        setTimeout(() => showComment(element), delay * ++i);
+        setTimeout(() => hideComment(element), delay * ++i);
+    });
+}
+})(animation);
+
+
+
+
+
+///////////////////////////////////////////// почти рабочий комплекс слайдшоу + выбор
+
+var animation = true;
+var firstStart = true;
+var prevIndex = 0;
+var index;
+
+window.onload = () => startSlideshow(animation);
+
+function startSlideshow(animation) {
+    var images = [].slice.call(document.getElementsByClassName('peoples__image'));
+    var comment = [].slice.call(document.getElementsByClassName('comments-full__item'));
+    var links = [].slice.call(document.getElementsByClassName('peoples__link'));
+    var peoplesList = document.querySelector('.peoples__list');
+
+    var delay = 4000;
+
+    /*if (firstStart) {
+        delay = 10;       
+        firstStart = false;
+    } else {
+        delay = 4000;
+    }*/
+
+    const commentLength = images.length;
+
+    var timer = setInterval(() => {
+        if (animation) {
+                peoplesSlideshow();
+                commentSlideshow();
+                console.log('прокрутка идет');
+            }
+            else {
+                clearInterval(timer);
+                console.log('прокрутка остановлена');
+                return false;
+            };
+                }, commentLength*delay);
+
+    function peoplesSlideshow() {
+
+        function setBorder(link) {
+            link.classList.add('peoples-is-active');
+        }
+        
+        function removeBorder(link) {
+            link.classList.remove('peoples-is-active');
+        }
+
+        images.forEach(function(element, i) {                   
+            setTimeout(() => setBorder(element), delay * ++i);
+            setTimeout(() => removeBorder(element), delay * ++i);
+        });
+    }
+
+    function commentSlideshow() {
+        function showComment(comment) {
+            comment.classList.add('is-active');
+        }
+        
+        function hideComment(comment) {
+            comment.classList.remove('is-active');
+        }
+
+        comment.forEach(function(element, i) {                   
+            setTimeout(() => showComment(element), delay * ++i);
+            setTimeout(() => hideComment(element), delay * ++i);
+        });
+    };
+
+   
+    peoplesList.addEventListener('click', showCommentOnClick)
+
+    function showCommentOnClick(event) {
+
+        if (event.cancelable) {
+            event.preventDefault();
+        }
+       // animation = false;
+
+        var target = event.target;
+        if (target.nodeName !== 'A') {
+            event.stopPropagation();
+            target = event.target.closest('a');
+        } 
+
+        index = links.indexOf(target)
+
+        if ((index >= 0) && (prevIndex !== index)) {
+            changeCommentAndMan(prevIndex, index);
+            prevIndex = index;            
+        } 
+        return (index, prevIndex);
+
+    }
+    console.log(index);
+    console.log(prevIndex);
+
+    function changeCommentAndMan(prevIndex, index) {
+        comment[index].classList.add('is-active');
+        comment[prevIndex].classList.remove('is-active');
+        images[index].classList.add('peoples-is-active');
+        images[prevIndex].classList.remove('peoples-is-active');
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function showCommentOnClick (item, comment) {
+ 
+    for (let i = 0; i<item.length; i++) {
+        
+        item[i].addEventListener('click', function(event) {
+            event.preventDefault();
+
+            let index = i;
+            let j = 0;
+            let k = 0;
+
+            for (node of item) { 
+                if (index == k) {
+                    node.parentElement.classList.add('peoples-is-active');
+                } else node.parentElement.classList.remove('peoples-is-active');
+                k++;
+            }
+
+            for (node of comment) { 
+                if (index == j) {
+                    node.classList.add('is-active');
+                } else node.classList.remove('is-active');
+                j++;
+            }
+                        
+        });
+    }
+
+} 
+
+showComment(peoples, comment); 
+*/
+
+
+
+
+
+
+
