@@ -623,6 +623,10 @@ burger.addEventListener('blur', closeAll);
 ////////////////////// Конец burger ////////////////////////////
 
 
+
+
+
+
 var sections = document.getElementsByClassName('section');
 var count = sections.length;
 
@@ -678,6 +682,100 @@ function scroll() {
 
 }
 
+/////////////////////////////////////////
+(function() {
+    var wrapper = document.querySelector('.wrapper');
+    var windowTop = 0;
+    var lock = false;
+    wrapper.onwheel = function(e) {
+        //if (lock) return;
+        console.log(e.deltaY);
+        console.log(e.deltaMode);
+        var count = document.getElementsByTagName('section').length;
+        var clientHeight = document.documentElement.clientHeight;
+        var maxHeight = clientHeight*count;
+        var windowTop = document.documentElement.getBoundingClientRect().top;
+
+        /*if (windowTop < maxHeight) {
+            windowTop += clientHeight;
+            document.documentElement.scrollBy(0, clientHeight);
+            console.log(`значение top ${top}`);
+            console.log(`Высота документа ${maxHeight}`);
+            console.log(`Высота окна ${clientHeight}`);
+        }*/
+    }
+
+    //lock = true;
+
+    /*function sectionDetection() {
+        var currentSection;
+        if (windowTop != 0) {
+        currentSection =   Math.abs(windowTop)/maxHeight;
+        } else currentSection = 1;
+         console.log
+         (currentSection)
+    }*/
+})();
+
+
+//////////////////////////////// ops работающий //////////////////////////////
+
+(function() {
+    
+    var ops = document.querySelector('.ops-container');
+    var sections = [].slice.call(document.getElementsByTagName('section'));
+    var lock = false;
+    ops.addEventListener('wheel', scrolling);
+   // ops.addEventListener('keydown', scrolling);
+    
+    
+    function scrolling(e) {
+
+        var percents;
+        var index = sectionDetection();
+        if (lock) return;
+        if (e.deltaY < 0)  {
+            if (index == 0) return;
+            percents = -(index-1)*100+'%'
+            sections[index].classList.remove('is-visible');
+            sections[index].style.transform = '';
+            sections[index-1].style.transform = `translateY(${percents})`;
+            sections[index-1].classList.add('is-visible');
+            sectionLock();
+            
+
+        } else if (e.deltaY > 0)  {
+            if (index == sections.length-1) return
+            percents = -(index+1)*100+'%'
+            sections[index+1].style.transform = `translateY(${percents})`;
+            sections[index+1].classList.add('is-visible');
+            sections[index].classList.remove('is-visible');
+            sections[index].style.transform = '';
+            sectionLock();
+            
+        }
+
+        function sectionDetection() {
+            var index;
+            sections.forEach(function(el){
+                if (el.classList.contains('is-visible')) {
+                    index = el.dataset.index;
+                }
+            });
+            return parseInt(index);
+        };
+
+        function sectionLock() {
+            lock = true;
+            setTimeout(() => lock = false, 1000);
+        }
+
+    }
+
+})();
+
+
+////////////////////// Конец функции //////////////////////////// 
 
 
 
@@ -1575,6 +1673,313 @@ showComment(peoples, comment);
 
 
 
+//////////слайдер меню /посленяя версия //////////////////////////
 
+var menuList = document.querySelector('.menu');
+    var itemsCount = menuList.children.length;
+    var requireWidth = window.innerWidth - menuList.children[0].offsetWidth*(itemsCount-1);
+    
+    menuList.addEventListener('click', showCloseMenu);
+    
+    function showCloseMenu(event) {
+        event.preventDefault(); 
+
+        var target = event.target;
+        
+        if (target.tagName !== 'A') {
+            target = target.closest('a');
+            if (!target) return;
+        } 
+
+        
+        var items = document.querySelectorAll('.menu__item');
+        var item = target.closest('li');
+        var texts = document.querySelectorAll('.menu-description');
+        var text = item.querySelector('.menu-description');
+        var descriptions = document.querySelectorAll('.menu-description-wrapper');
+        var description = item.querySelector('.menu-description-wrapper');
+        const maxWidth = 650;  
+        
+        if (!item.classList.contains('menu-description-is-active')) {
+            for (var i = 0; i<items.length; i++) {
+                items[i].classList.remove('menu-description-is-active');
+                descriptions[i].classList.remove('menu-description-is-active');
+                texts[i].classList.remove('text-visible');
+                items[i].style.width = '';
+                descriptions[i].style.width = '';
+            }
+            item.classList.add('menu-description-is-active');
+            description.classList.add('menu-description-is-active');
+            setTimeout(() => text.classList.add('text-visible'), 1100);
+            
+            if (requireWidth > maxWidth) {
+                item.style.width = maxWidth + 'px';
+                description.style.width = maxWidth + 'px';
+            }  else {
+                item.style.width = requireWidth + 'px';
+                description.style.width = requireWidth + 'px';
+            }  
+
+        } else {
+            item.classList.remove('menu-description-is-active');
+            description.classList.remove('menu-description-is-active');
+            text.classList.remove('text-visible');
+            item.style.width = '';
+            description.style.width = '';
+        }
+
+    }
+
+
+
+
+/////////////////////// ссылки по дата-атрибуту /////////////////////////////////
+
+(function() {
+
+    var navList = document.querySelector('.navigation__list');
+    var navListFullscreen = document.querySelector('.navigation__list.fullscreen');
+    var paginationList = document.querySelector('.pagination__list');
+    var sections = [].slice.call(document.getElementsByTagName('section'));
+    var links = [].slice.call(document.querySelectorAll('.pagination__link'));
+    var dots = [].slice.call(document.querySelectorAll('.pagination__dot-filled'));
+
+    navList.addEventListener('click', anchorsTo);
+    navListFullscreen.addEventListener('click', anchorsTo);
+    paginationList.addEventListener('click', anchorsTo);
+
+
+    function anchorsTo(e) {
+        e.preventDefault();
+
+        target = e.target;
+        
+        if (target.nodeName !== 'A') {
+            target = target.closest('a');
+            if (!target) return;
+        }   
+
+        
+
+        index = parseInt(target.dataset.index);
+        currentSection = sectionDetection();
+
+        if (target.className == 'pagination__link') {
+            links.forEach(el => el.classList.remove('active-section'));
+            links[index].classList.add('active-section'); 
+
+            
+        } 
+
+        percents = -(index)*100+'%'
+        sections[index].style.transform = `translateY(${percents})`;
+        sections[index].classList.add('is-visible');
+        sections[currentSection].classList.remove('is-visible');
+        sections[currentSection].style.transform = '';
+
+        switchDotsColor(index);
+
+    }
+
+    function sectionDetection() {
+        var index;
+        sections.forEach(function(el){
+            if (el.classList.contains('is-visible')) {
+                index = el.dataset.index;
+            }
+        });
+        return parseInt(index);
+    };
+
+    function switchDotsColor(currentSection) {
+        switch (currentSection) {
+                
+            case 0: case 4: case 7: 
+                paginationList.classList.remove('pagination__list_black');
+                paginationList.classList.add('pagination__list_white');
+                dots.forEach(function(el) {
+                    el.classList.remove('pagination__dot-filled_black');
+                    el.classList.add('pagination__dot-filled_white');
+                });
+            break;
+
+            case 1: case 2: case 3: case 5: case 6: case 8:
+                paginationList.classList.remove('pagination__list_white');
+                paginationList.classList.add('pagination__list_black');
+                dots.forEach(function(el) {
+                    el.classList.remove('pagination__dot-filled_white');
+                    el.classList.add('pagination__dot-filled_black');
+                });
+            break;
+        }
+    }
+    
+})();
+
+
+
+
+
+//////////////////// состав по mouseenter/mouseleave ////////////////////
+(function() {
+    var item = document.querySelector('.bar-chocco__item.is-active')
+    var composition = item.querySelector('.bar-composition');
+    var fullComposition = document.querySelector('.bar-full-composition');
+
+    composition.addEventListener('mouseenter', onMouseEnter);
+
+    function onMouseEnter(e) {
+        fullComposition.classList.add('on-touch');
+    }
+
+    composition.addEventListener('mouseleave', onMouseleave);
+
+    function onMouseleave(e) {
+        fullComposition.classList.remove('on-touch');
+    }
+})();
+
+
+
+
+
+
+
+
+///////////////////////////////////// ops и ссылки комплекс //////////////////////////////
+(function() {
+    
+    var ops = document.querySelector('.ops-container');
+    var sections = [].slice.call(document.getElementsByTagName('section'));
+    var lock = false;
+    var paginationList = document.querySelector('.pagination__list');
+    var links = [].slice.call(document.querySelectorAll('.pagination__link'));
+    var dots = [].slice.call(document.querySelectorAll('.pagination__dot-filled'));
+
+    ops.addEventListener('wheel', scrolling);
+   // ops.addEventListener('keydown', scrolling);
+    
+    function scrolling(e) {
+
+        var percents;
+        var index = sectionDetection();
+        if (lock) return;
+        if (e.deltaY < 0)  {
+            if (index == 0) return;
+            changeSection(index, index-1);
+            /*percents = -(index-1)*100+'%'
+            sections[index-1].style.transform = `translateY(${percents})`;
+            sections[index-1].classList.add('is-visible');
+            sections[index].classList.remove('is-visible');
+            sections[index].style.transform = '';*/
+            
+
+            sectionLock();
+            switchDotsColor(index-1);
+            setActiveDot(index-1);
+
+        } else if (e.deltaY > 0)  {
+            if (index == sections.length-1) return;
+
+            changeSection(index, index+1);
+            /*percents = -(index+1)*100+'%'
+            sections[index+1].style.transform = `translateY(${percents})`;
+            sections[index+1].classList.add('is-visible');
+            sections[index].classList.remove('is-visible');
+            sections[index].style.transform = '';*/
+
+            sectionLock();
+            switchDotsColor(index+1);
+            setActiveDot(index+1);
+        }
+
+    }
+
+    var navList = document.querySelector('.navigation__list');
+    var navListFullscreen = document.querySelector('.navigation__list.fullscreen');
+
+    navList.addEventListener('click', anchorsTo);
+    navListFullscreen.addEventListener('click', anchorsTo);
+    paginationList.addEventListener('click', anchorsTo);
+
+
+    function anchorsTo(e) {
+        e.preventDefault();
+
+        target = e.target;
+        
+        if (target.nodeName !== 'A') {
+            target = target.closest('a');
+            if (!target) return;
+        }   
+
+        index = parseInt(target.dataset.index);                           //индекс активной секции
+        currentSection = sectionDetection();
+
+        setActiveDot(index);
+        changeSection(currentSection, index)
+        /*percents = -(index)*100+'%'                                        //
+        sections[index].style.transform = `translateY(${percents})`;       //      
+        sections[index].classList.add('is-visible');                       //   переключение секций
+        sections[currentSection].classList.remove('is-visible');           //
+        sections[currentSection].style.transform = '';*/                     //
+
+        switchDotsColor(index);                                 
+
+    }
+
+
+    function changeSection(oldSection, newSection) {      
+        percents = -(newSection)*100+'%'                                           //переключение секций
+        sections[newSection].style.transform = `translateY(${percents})`;       //      
+        sections[newSection].classList.add('is-visible');                       //   переключение секций
+        sections[oldSection].classList.remove('is-visible');           //
+        sections[oldSection].style.transform = ''; 
+    }
+
+    function sectionDetection() {                                       //определение активной секции
+        var index;
+        sections.forEach(function(el){
+            if (el.classList.contains('is-visible')) {
+                index = el.dataset.index;
+            }
+        });
+        return parseInt(index);
+    };
+
+    function sectionLock() {                                            //блокировка прокрутки 
+        lock = true;
+        setTimeout(() => lock = false, 1000);
+    }
+
+
+    function switchDotsColor(currentSection) {                                                                                                                      //изменение цвета активной секции у списка с "точками"  
+        switch (currentSection) {
+                
+            case 0: case 4: case 7:
+                addAndRemoveClasses('pagination__list_black', 'pagination__list_white', 'pagination__dot-filled_black', 'pagination__dot-filled_white');   
+            break;
+
+            case 1: case 2: case 3: case 5: case 6: case 8:       
+            addAndRemoveClasses('pagination__list_white', 'pagination__list_black', 'pagination__dot-filled_white', 'pagination__dot-filled_black');                       
+            break;
+        }
+
+        function addAndRemoveClasses(listRemove, listAdd, dotRemove, dotAdd) {
+            paginationList.classList.remove(listRemove);
+            paginationList.classList.add(listAdd);
+            dots.forEach(function(el) {
+                el.classList.remove(dotRemove);
+                el.classList.add(dotAdd);
+            });
+        }
+    }
+
+    function setActiveDot(index) {                                                              //добавление обводки на активной секции у списка с "точками"
+        links.forEach(el => el.classList.remove('active-section'));
+        links[index].classList.add('active-section');
+    }
+
+})();
 
 

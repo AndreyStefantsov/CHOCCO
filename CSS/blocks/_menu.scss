@@ -105,21 +105,11 @@
 
 .menu-description-wrapper {
     width: 0;
-    //background-color: rgba(47, 50, 52,0.7);
     height: 100%;
     display: none;   
     z-index: 20;
-    //opacity: 0;
-    //transition: opacity 1s;
     transition: width 1s;
-
-    /*@include laptop {
-        width: 100%;
-    }*/
-
-    /*@include tablets {
-        width: 100%;
-    }*/
+    
 }
 
 .menu-description {
@@ -127,28 +117,19 @@
     transition: opacity 1s;
     display: none;
     position: relative;
+    
 }
 
 
 .menu-description__text {
     margin: rem(20);
     padding-right: 20px;
-
-   /*opacity: 0;
-    transition: opacity 1s;*/
+    pointer-events: none;
 
     @include tablets_landscape {
         font-size: rem(16);
     }
 }
-
-/*.menu-description__image {
-    flex: .05;
-    margin: rem(20) rem(10) 0 0;
-
-    /*opacity: 0;
-    transition: opacity 1s;
-}*/
 
 .menu-description__link {
     margin: rem(20) rem(10) 0 0;
@@ -169,10 +150,6 @@
 
 .menu-description-is-active {
     display: flex;
-    //opacity: 1;
-    //width: rem(550);
-
-
 }
 
 .text-visible {

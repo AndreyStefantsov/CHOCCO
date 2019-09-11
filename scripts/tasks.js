@@ -82,3 +82,51 @@ function hello(human) {
 
 console.log(hello (o));
 
+
+
+
+
+
+
+////////////////////////////задачи обработка ошибок /////////////////////
+
+
+function filter(input, than) {
+
+    // напишите здесь код, который возвращает новый массив
+    // в котором содержатся те элементы input, которые больше than
+    let arr = [];
+    try {
+
+        if (input.length === 0) {
+            throw new SyntaxError('Передан пустой массив');
+        } 
+
+        for (let i = 0; i < input.length; i++) {
+            if ((isNaN(input[i])) || (input[i] < 0)) {
+                throw new SyntaxError('В массиве должны быть только положительные числа');  
+            } 
+        }     
+        
+        for (let i = 0; i < input.length; i++) {
+            if (input[i] > than) {
+                arr.push(input[i]);
+            } 
+        }    
+        
+    } catch(err) {
+        console.log(err.message);
+    }
+
+    return arr;
+}
+
+   
+var array = [12, 100, 34, 65, 10];
+var result = filter(array, 60);
+    
+console.log(result); // [100, 65];
+    
+result = filter(array, 20);
+console.log(result); // [100, 34, 65];
+    
