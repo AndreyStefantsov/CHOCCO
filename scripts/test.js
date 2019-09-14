@@ -984,7 +984,6 @@ var inputTextContent = [
 
 var inputDigitContent = [
     document.querySelector('#phone'), 
-    document.querySelector('#home'), 
     document.querySelector('#housing'), 
     document.querySelector('#flat-number'), 
     document.querySelector('#floor'), 
@@ -992,25 +991,40 @@ var inputDigitContent = [
 
 var deliveryForm = document.querySelector('#deliveryForm');
 
-deliveryForm.addEventListener('click', filters)
+deliveryForm.addEventListener('keydown', filters)
 
 function filters(event) {
 
     target = event.target;
-    console.log(target);
 
-    target.addEventListener('keydown', () => {
+    /*target.addEventListener('keydown', () => {
         
+    });*/
+
+    inputDigitContent.forEach(el => {
+        if (target === el) {
+            digitFilter();
+        } 
     });
-    for (i = 0; i < inputDigitContent.lenght; i++) {
-        if (target === inputDigitContent[i]) {
-            console.log('hi there')
-        } else {
-            console.log('hi outhere');
-        }
-        
+
+    function digitFilter() {
+        //.+7.+\d{3}.+\s\d{3}.+\d{2}.+\d{2} +7(xxx) xxx-xx-xx
+        /*var regPhone = /^(.+7|8)\d{9}$/  //+7xxxxxxxxxx/8xxxxxxxxx
+        if (!regPhone.test(target.value)) {
+            console.log(regPhone.test(target.value))
+        } else console.log(regPhone.test(target.value))*/
+        //console.log(target.value.charCodeAt(event.key))  
+        /*if (event.key >= '0' && event.key <= '9') {
+            console.log('ddd')
+        } else return false;*/
+        var number = String.charCodeAt(event.key);
+        console.log(event.key)
+        if (number < 48 || number > 57)  {
+            event.preventDefault();
+        };
+       console.log(String.charCodeAt(event.key))
     }
-    
+    //|| (number != 66) || (number != 70) || (number != 65)
 }
 
 ////////////////////////////// команда слайдер //////////////////////////
@@ -1982,4 +1996,17 @@ var menuList = document.querySelector('.menu');
 
 })();
 
-
+ymaps.ready(init);
+function init(){ 
+    // Создание карты.    
+    var myMap = new ymaps.Map("map", {
+        // Координаты центра карты.
+        // Порядок по умолчанию: «широта, долгота».
+        // Чтобы не определять координаты центра карты вручную,
+        // воспользуйтесь инструментом Определение координат.
+        center: [55.76, 37.64],
+        // Уровень масштабирования. Допустимые значения:
+        // от 0 (весь мир) до 19.
+        zoom: 7;
+    });
+}

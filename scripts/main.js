@@ -451,21 +451,20 @@ var animation = true;
 var prevIndex = 0;
 var index;
 
-window.onload = () => startSlideshow(animation);
+var images = [].slice.call(document.getElementsByClassName('peoples__image'));
+var commentList = [].slice.call(document.getElementsByClassName('comments-full__item'));
+
+//window.onload = () => startSlideshow(animation);
 
 function startSlideshow(animation) {
-    var images = [].slice.call(document.getElementsByClassName('peoples__image'));
-    var comment = [].slice.call(document.getElementsByClassName('comments-full__item'));
-    var links = [].slice.call(document.getElementsByClassName('peoples__link'));
-    var peoplesList = document.querySelector('.peoples__list');
-
-    var delay = 4000;
+   
+   var delay = 4000;
 
     /*if (firstStart) {
-        delay = 10;       
+        intervalDelay = 100;       
         firstStart = false;
     } else {
-        delay = 4000;
+        intervalDelay = delay;
     }*/
 
     const commentLength = images.length;
@@ -485,6 +484,11 @@ function startSlideshow(animation) {
 
     function peoplesSlideshow() {
 
+        images.forEach(function(element, i) {                   
+            setTimeout(() => setBorder(element), delay * ++i);
+            setTimeout(() => removeBorder(element), delay * ++i);
+        });
+
         function setBorder(link) {
             link.classList.add('peoples-is-active');
         }
@@ -493,13 +497,15 @@ function startSlideshow(animation) {
             link.classList.remove('peoples-is-active');
         }
 
-        images.forEach(function(element, i) {                   
-            setTimeout(() => setBorder(element), delay * ++i);
-            setTimeout(() => removeBorder(element), delay * ++i);
-        });
     }
 
     function commentSlideshow() {
+
+        commentList.forEach(function(element, i) {                   
+           setTimeout(() => showComment(element), delay * ++i);
+           setTimeout(() => hideComment(element), delay * ++i);
+        });
+        
         function showComment(comment) {
             comment.classList.add('is-active');
         }
@@ -507,24 +513,23 @@ function startSlideshow(animation) {
         function hideComment(comment) {
             comment.classList.remove('is-active');
         }
-
-        comment.forEach(function(element, i) {                   
-            setTimeout(() => showComment(element), delay * ++i);
-            setTimeout(() => hideComment(element), delay * ++i);
-        });
     };
+  
+}
 
-   
-    peoplesList.addEventListener('click', showCommentOnClick)
+
+var links = [].slice.call(document.getElementsByClassName('peoples__link'));
+var peoplesList = document.querySelector('.peoples__list');
+
+peoplesList.addEventListener('click', showCommentOnClick)
 
     function showCommentOnClick(event) {
 
             event.preventDefault();
-       // animation = false;
+            //animation = false;
 
         var target = event.target;
         if (target.nodeName !== 'A') {
-            event.stopPropagation();
             target = event.target.closest('a');
         } 
 
@@ -534,17 +539,168 @@ function startSlideshow(animation) {
             changeCommentAndMan(prevIndex, index);
             prevIndex = index;            
         } 
-        return (index, prevIndex);
 
     }
 
     function changeCommentAndMan(prevIndex, index) {
-        comment[index].classList.add('is-active');
-        comment[prevIndex].classList.remove('is-active');
+        commentList[index].classList.add('is-active');
+        commentList[prevIndex].classList.remove('is-active');
         images[index].classList.add('peoples-is-active');
         images[prevIndex].classList.remove('peoples-is-active');
     }
 
+
+
+////////////////////////////карта
+
+ymaps.ready(init);
+
+var placemarks = [
+    {
+        latitude: 55.7498,        //широта
+        longitude: 37.6034,    //долгота
+        hintContent: '<Большой Знаменский пер., 23 ',        //хинт
+        balloonContent: [       
+
+        ]
+    },
+    {
+        latitude: 55.7438,        //широта
+        longitude: 37.5818,    //долгота
+        hintContent: 'Ружейный пер., 23/25',        //хинт
+        balloonContent: [       
+
+        ]
+    },
+    {
+        latitude: 55.7579,        //широта
+        longitude: 37.5831,    //долгота
+        hintContent: 'Кудринский пер., 31',        //хинт
+        balloonContent: [       
+
+        ]
+    },
+    {
+        latitude: 55.7584,        //широта
+        longitude: 37.6219,    //долгота
+        hintContent: 'Театральный проезд, 2',        //хинт
+        balloonContent: [       
+
+        ]
+    }
+];
+
+function init(){ 
+
+    var map = new ymaps.Map("yandex-map", {
+        center: [55.7532, 37.6025],
+        zoom: 14,
+        behaviors: ['drag']
+    });
+
+    placemarks.forEach(el => {
+        var mark = new ymaps.Placemark([el.latitude, el.longitude], {
+            hintContent: el.hintContent,
+            balloonContent: el.balloonContent.join('')
+        },
+        {
+            iconLayout: 'default#image',
+            iconImageHref: 'img/placemark.png',
+            iconImageSize: [46, 57],
+            iconImageOffset: [-23, -57]
+        });
+        
+        map.geoObjects.add(mark);
+        
+    });
+   
 }
 
+
+////////////////// конец карты //////////////////////
+
+
+///////////////// плеер  ////////////////////
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    var video = document.querySelector('#video__video-player');
+    var duration = document.getElementById('duration');
+    var sound = document.getElementById('sound');
+    var play = document.querySelector('.controls__pic_play')
+    var muteButton = document.querySelector('.controls__pic_sound')
+    var durationStep;
+    var currentSound;
+    
+    duration.min = 0;
+    duration.value = 0;
+    sound.min = 0;
+    sound.max = 10;
+
+
+    video.addEventListener('click', videoPlayPause)
+    play.addEventListener('click', videoPlayPause)
+    duration.addEventListener('mousedown', stopDurationMovement);
+    duration.addEventListener('mouseup', setNewVideoTime);
+    sound.addEventListener('mouseup', setNewSoundLevel);
+    muteButton.addEventListener('click', muteUnmute);
+
+    function videoPlayPause() {
+        
+        hideShowPlayButton();
+        
+        duration.max = video.duration;
+
+        if (video.paused) {
+            video.play();
+            durationStep = setInterval(durationMovement, 1000/66);
+        } else {
+            stopDurationMovement();
+        }
+    }
+
+    function hideShowPlayButton() {
+        var playButton = document.querySelector('.video__img_play-button');
+        playButton.classList.toggle('play-button-hidden');
+    }
+
+    function durationMovement() {
+        duration.value = video.currentTime;
+    }
+
+    function stopDurationMovement() {
+        video.pause();
+        clearInterval(durationStep);
+    }
+
+    function setNewVideoTime() {
+        video.currentTime = duration.value;
+        durationStep = setInterval(durationMovement, 1000/66);
+
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    function setNewSoundLevel() {
+        video.volume = sound.value/10;
+    }
+
+    function muteUnmute() {
+        
+
+        if (video.volume === 0) { 
+            video.volume = currentSound;
+            sound.value = currentSound*10;
+
+        } else {
+            currentSound = video.volume;
+            video.volume = 0;
+            sound.value = 0;
+        }
+    }
+
+});
 

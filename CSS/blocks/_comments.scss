@@ -147,7 +147,7 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
     padding-left: rem(10);
 
@@ -168,6 +168,7 @@
     font-size: rem(29.96);
     font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
     font-weight: normal;
+    margin-bottom: rem(15);
 
     @include laptop {
         margin-bottom: rem(15);
@@ -188,7 +189,7 @@
 .comments-text__text {
     font-size: rem(17.98);
     color: #666666;
-
+    margin-bottom: rem(15);
 
     @include laptop {
         margin-bottom: rem(15);
@@ -217,7 +218,6 @@
     font-size: rem(17.98);
     font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
     color: #666666;
-    margin-bottom: rem(26);
 
     @include laptop {
         margin-bottom: rem(15);

@@ -148,7 +148,7 @@
         }
 
         @include tablets_landscape {
-            right: rem(-15);
+            right: rem(-10);
         }
 
         @include phones {
@@ -212,7 +212,7 @@
     }
 
     @include tablets_landscape {
-        bottom: rem(-50);
+        //bottom: rem(-50);
     }
 
     @include phones {
