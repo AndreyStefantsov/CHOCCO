@@ -25,11 +25,12 @@
     });*/
     
     function scrolling(e) {                                             //прокрутка колесом
-
+    
+        var direction = e.deltaY < 0 ? "up" : "down"
         var index = sectionDetection();
 
         if (lock) return;
-        if (e.deltaY < 0)  {
+        if (direction==="up")  {
 
             if (index == 0) return;
 
@@ -38,7 +39,7 @@
             switchDotsColor(index-1);
             setActiveDot(index-1);
 
-        } else if (e.deltaY > 0)  {
+        } else if (direction==="down")  {
             if (index == sections.length-1) return;
 
             changeSection(index, index+1);
@@ -46,6 +47,7 @@
             switchDotsColor(index+1);
             setActiveDot(index+1);
         }
+ 
     }
 
     function anchorsTo(e) {                                             //переход по ссылкам навигации
@@ -121,8 +123,8 @@
 
     if (defUserAgent) {
         $(window).swipe({
-            swipe: function(event) {
-                scrolling(event);
+            swipe: function(event, direction) {
+                scrolling(direction);
             }
         });
     }
