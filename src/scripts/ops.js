@@ -2,7 +2,7 @@
     
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-        var userAgent = true;
+        var defUserAgent = true;
     } 
     //one page scroll, ссылки-якоря
 
@@ -122,10 +122,10 @@
         links[index].classList.add('active-section');
     }
 
-    if (userAgent) {
+    if (defUserAgent) {
         $(window).swipe( {
-            swipe: function() {
-                scrolling();
+            swipe: function(event) {
+                scrolling(event);
             }
         });
     }
