@@ -54,7 +54,7 @@ task ('styles', () => {
         overrideBrowserslist: ['last 2 versions'],
         cascade: false
       })))
-    .pipe(gulpif(env === 'prod', gcmq()))
+    //.pipe(gulpif(env === 'prod', gcmq()))
     .pipe(gulpif(env === 'prod', cleanCSS()))
     .pipe(gulpif(env === 'dev', sourcemaps.write()))
     .pipe(dest(`${DIST_PATH}/styles`))
