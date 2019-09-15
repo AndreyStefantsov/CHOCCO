@@ -15,22 +15,25 @@
     var navList = document.querySelector('.navigation__list');
     var navListFullscreen = document.querySelector('.navigation__list.fullscreen');
 
-    ops.addEventListener('wheel', scrolling);
+    ops.addEventListener('wheel', (e) => {
+        var direction = e.originalEvent.deltaY < 0 ? "down" : "up";
+        scrolling(direction)
+    });
    // ops.addEventListener('keydown', scrolling);
     navList.addEventListener('click', anchorsTo);
     navListFullscreen.addEventListener('click', anchorsTo);
     paginationList.addEventListener('click', anchorsTo);
-    /*ops.addEventListener("touchmove", e=> {
+    ops.addEventListener("touchmove", e=> {
         e.preventDefault();
-    });*/
+    });
     
-    function scrolling(e) {                                             //прокрутка колесом
+    function scrolling(direction) {                                             //прокрутка колесом
     
-        var direction = e.deltaY < 0 ? "up" : "down"
+        
         var index = sectionDetection();
 
         if (lock) return;
-        if (direction==="up")  {
+        if (direction==="down")  {
 
             if (index == 0) return;
 
@@ -39,7 +42,7 @@
             switchDotsColor(index-1);
             setActiveDot(index-1);
 
-        } else if (direction==="down")  {
+        } else if (direction==="up")  {
             if (index == sections.length-1) return;
 
             changeSection(index, index+1);
