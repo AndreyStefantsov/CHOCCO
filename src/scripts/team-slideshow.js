@@ -6,12 +6,16 @@
     var commentList = [].slice.call(document.getElementsByClassName('comments-full__item'));
     var links = [].slice.call(document.getElementsByClassName('peoples__link'));
     var peoplesList = document.querySelector('.peoples__list');
+    var prevIndex = 0;
+    var index;
+
+
     
     peoplesList.addEventListener('click', showCommentOnClick)
     
         function showCommentOnClick(event) {
     
-                event.preventDefault();
+             event.preventDefault();
     
             var target = event.target;
             if (target.nodeName !== 'A') {

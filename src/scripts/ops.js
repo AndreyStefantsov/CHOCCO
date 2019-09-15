@@ -46,9 +46,6 @@
             switchDotsColor(index+1);
             setActiveDot(index+1);
         }
-
-        
-
     }
 
     function anchorsTo(e) {                                             //переход по ссылкам навигации
@@ -123,7 +120,7 @@
     }
 
     if (defUserAgent) {
-        $(window).swipe( {
+        $(window).swipe({
             swipe: function(event) {
                 scrolling(event);
             }
