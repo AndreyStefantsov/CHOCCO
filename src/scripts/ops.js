@@ -16,7 +16,7 @@
     var navListFullscreen = document.querySelector('.navigation__list.fullscreen');
 
     ops.addEventListener('wheel', (e) => {
-        var direction = e.originalEvent.deltaY < 0 ? "down" : "up";
+        var direction = ( e.deltaY || e.originalEvent.deltaY) < 0 ? "down" : "up";
         scrolling(direction)
     });
    // ops.addEventListener('keydown', scrolling);
