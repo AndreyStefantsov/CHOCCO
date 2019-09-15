@@ -20,9 +20,9 @@
     navList.addEventListener('click', anchorsTo);
     navListFullscreen.addEventListener('click', anchorsTo);
     paginationList.addEventListener('click', anchorsTo);
-    ops.addEventListener("touchmove", e=> {
+    /*ops.addEventListener("touchmove", e=> {
         e.preventDefault();
-    });
+    });*/
     
     function scrolling(e) {                                             //прокрутка колесом
 
