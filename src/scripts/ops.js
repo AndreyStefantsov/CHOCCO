@@ -42,6 +42,7 @@
             switchDotsColor(index-1);
             setActiveDot(index-1);
 
+
         } else if (direction==="up")  {
             if (index == sections.length-1) return;
 
@@ -50,6 +51,8 @@
             switchDotsColor(index+1);
             setActiveDot(index+1);
         }
+
+        //if (index == 5) closeComments();
  
     }
 
@@ -91,6 +94,11 @@
         });
         return parseInt(index);
     };
+
+    function sectionLock() {                                            //блокировка прокрутки 
+        lock = true;
+        setTimeout(() => lock = false, 1000);
+    }
 
     function sectionLock() {                                            //блокировка прокрутки 
         lock = true;
