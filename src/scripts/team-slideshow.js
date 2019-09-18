@@ -7,7 +7,7 @@
     var links = [].slice.call(document.getElementsByClassName('peoples__link'));
     var peoplesList = document.querySelector('.peoples__list');
     var prevIndex = 0;
-    var index;
+    var index = 0;
     var fullItem = [];
 
     document.addEventListener("DOMContentLoaded", () => {

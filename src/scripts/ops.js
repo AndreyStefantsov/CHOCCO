@@ -14,6 +14,10 @@
     var dots = [].slice.call(document.querySelectorAll('.pagination__dot-filled'));
     var navList = document.querySelector('.navigation__list');
     var navListFullscreen = document.querySelector('.navigation__list.fullscreen');
+    var buttonAnchors = [].slice.call(document.querySelectorAll('.button-anchors'));
+    buttonAnchors.forEach(el => el.addEventListener('click', transitionToOrder));
+
+
 
     ops.addEventListener('wheel', (e) => {
         var direction = ( e.deltaY || e.originalEvent.deltaY) < 0 ? "down" : "up";
@@ -74,6 +78,21 @@
         sectionLock();
         switchDotsColor(index);                                 
 
+    }
+
+
+    function transitionToOrder(e) {
+        e.preventDefault(); 
+
+        var deliverySection = document.getElementById('bar-delivery');
+
+        index = parseInt(deliverySection.dataset.index);                           //индекс активной секции
+        currentSection = sectionDetection();
+
+        setActiveDot(index);
+        changeSection(currentSection, index);
+        sectionLock();
+        switchDotsColor(index);        
     }
 
     function changeSection(oldSection, newSection) {                            //переключение секций
