@@ -1,0 +1,232 @@
+
+.section-why-chocco {
+    background-color: #fff;
+    background-size: cover;
+    color: #000;
+    overflow: visible;
+    
+    &::before {
+        content: url(../img/whychocco-leaf.png);
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 25%;
+        z-index: 2;
+
+        @include laptop {
+            bottom: 50%;
+        }
+
+        @include tablets {
+            content: "";
+        }
+
+        @include tablets_landscape {
+            content: "";
+        }
+    }
+
+    &::after {
+        content: url(../img/whychocco-raspberry.png);
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -10%;
+        z-index: 2;
+
+        @include tablets {
+            content: "";
+        }
+
+        @include tablets_landscape {
+            content: "";
+        }
+    }
+
+}
+
+.container-why-chocco {
+    flex-direction: column;
+    justify-content: center;
+}
+
+    
+.subtitle-text {
+    max-width: 45%;
+    text-align: center;
+    font-size: rem(18);
+    color: #707070;
+
+    @include laptop {
+        max-width: 70%;
+    }
+
+    @include tablets {
+        max-width: 100%;
+    }
+
+    @include tablets_landscape {
+        width: 100%;
+        font-size: rem(16);
+    }
+
+}
+
+.information {
+    position: relative;
+    z-index: 10;
+}
+
+.information__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include laptop {
+        flex-direction: column;
+    }
+
+    @include tablets_landscape {
+        flex-direction: row;
+    }
+}
+
+.information__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 30%;
+
+    @include laptop {
+        width: 65%;
+        margin-bottom: rem(20);
+    }
+
+    @include tablets {
+        flex-direction: row;
+        width: 95%;
+        margin-bottom: rem(30);
+    }
+
+    @include tablets_landscape {
+        width: 33%;
+        margin-bottom: rem(5);
+    }
+
+    &::after {
+        content: url(../img/dots.png);
+        display: block;
+        position: absolute;
+        top: 17%;
+        right: -20%;
+
+        @include laptop {
+            content: "";
+        }
+    }
+   
+    &:last-child::after {
+        content: "";
+    }
+    
+}
+
+.why-chocco-image {
+    background-color: #f2f5f4;
+    border-radius: 50%;
+    width: rem(128);
+    height: rem(128);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: rem(35);
+
+    @include laptop {
+        margin-bottom: rem(15);
+    }
+
+    @include tablets {
+        margin-bottom: 0;
+    }
+
+    @include tablets_landscape {
+        width: 33%;
+        width: rem(80);
+        height: rem(80);
+        margin-bottom: 0
+    }
+
+    @include phones {
+        width: rem(100);
+        height: rem(100);
+        margin-right: rem(10);
+    }
+
+}
+
+.why-chocco-image__pic {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.why-chocco-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablets {
+        align-items: flex-start;
+        width: 60%;
+    }
+
+    @include phones {
+        align-items: flex-start;
+        width: 65%;
+    }
+}
+
+.why-chocco-description__title {
+    font-size: rem(27);
+    margin-bottom: rem(30);
+    font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
+
+    @include laptop {
+        margin-bottom: rem(15);
+    }
+
+    @include tablets {
+        margin-bottom: rem(20);
+    }
+
+    @include tablets_landscape {
+        margin-bottom: 0
+    }
+
+    @include phones {
+        margin-bottom: rem(10);
+        font-size: rem(24);
+    }
+
+}
+
+.why-chocco-description__subtitle {
+    font-size: rem(18);
+    color: #707070;
+    text-align: center;
+
+    @include tablets {
+        text-align: left;
+    }
+
+    @include tablets_landscape {
+        font-size: rem(16);
+    }
+
+    @include phones {
+        font-size: rem(16);
+    }
+}
+

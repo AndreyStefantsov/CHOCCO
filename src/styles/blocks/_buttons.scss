@@ -1,0 +1,37 @@
+
+
+.button {
+    border: none;
+    outline: none;
+    border-radius: rem(78);
+    font-size: rem(19);
+    padding: rem(19) rem(34) rem(18) rem(35);
+    font-family: 'alegreya_sans_extraboldRg', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &_white-bg-green-text {
+        color: #0f5a47;
+        background-color: #fff;
+    }
+
+    &_green-bg-white-text {
+        color: #fff;
+        background-color: #0f5a47;
+    }
+
+    &_whitout-bg-green-text {
+        color: #0f5a47;
+        background: none;
+
+        @include phones {
+            padding: rem(10) rem(20) rem(10) rem(20);
+        }
+    }
+
+    @include tablets_landscape {
+        font-size: rem(16);
+        padding: rem(10) rem(20) rem(10) rem(20);
+    }
+}
+

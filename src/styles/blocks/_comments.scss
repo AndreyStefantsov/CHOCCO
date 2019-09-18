@@ -1,0 +1,357 @@
+.section-comments {
+    background-color: #fff;
+    background-size: cover;
+    color: #000;
+    
+    
+    
+    &::after {
+        content: url(../img/rew_rasp-left-comb.png);
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -18%;
+        z-index: 2;
+
+        @include tablets_landscape {
+           content: "";
+        }
+
+        @include phones {
+            content: "";
+        }
+    }
+
+    &::before {
+        content: url(../img/rew_strawberry.png);
+        display: block;
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        z-index: 2;
+
+        @include tablets_landscape {
+            content: "";
+        }
+
+        @include phones {
+            content: "";
+        }
+    }
+
+}
+
+.container-comments {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title__text {
+    text-align: center;
+    font-size: rem(48);
+    font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+.comments-full {
+    background: url(../img/comments_bg.png) no-repeat top center #f8faf9;
+    padding: rem(50) 0 rem(35) rem(46);
+    margin-bottom: rem(20);
+    z-index: 20; 
+    position: relative;
+
+    &::after {
+        content: url(../img/comments_leaf.png);
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        @include tablets_landscape {
+           transform: scale(0.5);
+           right: rem(-32);
+           top: rem(-42);
+        }
+    }
+
+    @include laptop {
+        padding: rem(70) rem(25) rem(30) rem(25);
+        width: 70%;
+        background-size: cover;
+    }
+
+    @include tablets {
+        padding: rem(45) rem(30) rem(20) rem(30);
+        width: 95%;
+        background-size: cover;
+    }
+
+    @include tablets_landscape {
+        padding: rem(25) rem(15) rem(10) rem(15);
+        width: 95%;
+        background-size: cover;
+        margin-bottom: rem(10);
+    }
+
+    @include phones {
+        margin-bottom: rem(10);
+    }
+
+
+}
+
+.comments-full__list {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 10;
+}
+
+.comments-full__item {
+    display: flex;
+    flex-direction: row;
+    display: none;
+    width: 100%;
+
+    @include laptop {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @include tablets_landscape {
+        flex-direction: row;
+    }
+}
+
+.comments-full__comments-image {
+    width: 30%;
+
+    @include laptop {
+        width: 50%;
+        margin-bottom: rem(15);
+    }
+
+    @include tablets_landscape {
+        margin-right: rem(10); 
+        width: 30%;
+    }
+}
+
+.comments-image__pic {
+    max-width: 100%;
+}
+
+        
+.comments-full__comments-text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: rem(10);
+
+    @include laptop {
+        align-items: center;
+        width: 100%;
+        padding-left: 0;
+        max-height: rem(210);
+    }
+
+    @include tablets_landscape {
+        align-items: flex-start;
+    }
+
+}
+        
+.comments-text__title {
+    font-size: rem(29.96);
+    font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    margin-bottom: rem(15);
+
+    @include laptop {
+        margin-bottom: rem(15);
+        line-height: 1em;
+    }
+
+    @include tablets {
+        text-align: center;
+        margin-bottom: rem(5);
+    }
+    
+    @include tablets_landscape {
+        font-size: rem(20);
+        margin-bottom: rem(10);
+    }
+}
+
+.comments-text__text {
+    font-size: rem(17.98);
+    color: #666666;
+    margin-bottom: rem(15);
+    max-height: 105px;
+    position: relative;
+
+    @include laptop {
+        margin-bottom: rem(15);
+        text-align: center;
+    }
+
+    @include tablets {
+        text-align: center;
+        margin-bottom: rem(5);
+    }
+
+    @include tablets_landscape {
+        text-align: left;
+        font-size: rem(16);
+        margin-bottom: rem(10);
+    }
+
+    @include phones {
+        font-size: rem(16);
+    }
+}
+
+.comments-text__name {
+    font-size: rem(17.98);
+    font-family: 'alegreya_sans_mediumregular', Arial, Helvetica, sans-serif;
+    color: #666666;
+
+    @include laptop {
+        margin-bottom: rem(15);
+    }
+
+    @include tablets_landscape {
+        font-size: rem(18);
+        margin-bottom: 0;
+    }
+
+    @include phones {
+        margin-bottom: 0;
+    }
+}
+
+.comments-full__item_visible {
+    display: flex;
+}
+
+.peoples {
+    z-index: 20;
+}
+
+.peoples__list {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+        
+
+.peoples__item {
+    align-self: center;
+    margin-right: rem(10);
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.peoples__image {
+    width: rem(77);
+    height: rem(77);
+    box-sizing: content-box;
+    overflow: hidden;
+    border: rem(6) solid transparent;
+    border-radius: 50%;
+
+    &:hover {
+        border-color: #0f5947;
+        transition: border-color 0.5s;
+    }
+
+    @include tablets_landscape {
+        width: rem(50);
+        height: rem(50);
+        border: rem(2) solid transparent;
+    }
+
+    @include phones {
+        width: rem(50);
+        height: rem(50);
+        border: rem(2) solid transparent;
+    }
+}
+
+.peoples__link {
+    display: block;
+}
+
+.peoples__pic {
+    max-width: 100%;
+    object-fit: fill;
+}
+                        
+.peoples-is-active {
+    border: rem(6) solid #0f5947;
+    transition: border-color 0.5s;
+
+    @include tablets_landscape {
+        border: rem(2) solid #0f5947;
+    }
+
+    @include phones {
+        border: rem(2) solid #0f5947;
+    }
+}
+
+.modal-link {
+    text-decoration: underline;
+    color: #C8C8C8;
+    cursor: pointer;
+    font-size: 12px;
+
+    &:hover {
+        color: #666666;
+    }
+}
+
+
+.modal-window-wrap {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(48, 52, 54, 0.7);
+    z-index: 20;
+    top: 0;
+    left: 0;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.modal-window {
+    background:  #303436;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 20px;
+    padding-right: 45px;
+}
+
+.modal-window__close-window {
+    margin: rem(20) rem(10) 0 0;
+    background: url(../img/close.png) no-repeat top center;
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    
+}

@@ -1,0 +1,79 @@
+.caption {
+    text-transform: uppercase;
+    z-index: 10;
+    font-family: 'alegreya_sansbold', Arial, Helvetica, sans-serif;
+    line-height: 3.7rem;
+    font-size: rem(48);
+
+    &_white {
+        color: #fff;
+        margin-bottom: rem(10);
+
+        @include laptop {
+            text-align: center;
+        }
+
+    }
+
+    &_black {
+        color: #000;
+        margin-bottom: rem(25);
+
+        @include tablets {
+            margin-bottom: rem(20);
+        }
+
+        @include tablets_landscape {
+            margin-bottom: rem(10);
+            line-height: 1.5rem;
+        }
+
+        @include phones {
+            margin-bottom: rem(10);
+            line-height: 1.5rem;
+        }
+
+    }
+
+    &_green {
+        color: #0f5a47;
+        margin-bottom: rem(25);
+
+        @include tablets_landscape {
+            margin-bottom: rem(10);
+            line-height: 1.5rem;
+        }
+    }
+
+    @include tablets {
+        font-size: rem(40);
+        text-align: center;
+    }
+
+    @include tablets_landscape {
+        font-size: rem(27);
+    }
+
+    @include phones {
+        font-size: rem(27);
+        line-height: 1.5rem;
+    }
+
+}
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: rem(50);
+
+    @include laptop {
+        margin-bottom: rem(20);
+    }
+
+    @include tablets_landscape {
+        margin-bottom: rem(10);
+    }
+
+}

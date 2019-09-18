@@ -1,0 +1,32 @@
+
+
+
+@mixin laptop {
+    @media screen and (max-width: 900px) {
+        @content;
+    }
+}
+
+@mixin tablets {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablets_landscape {
+    @media screen and  (max-height: 480px)  {
+        @content;
+    }
+}
+
+@mixin phones {
+    @media screen and (max-width: 400px) {
+        @content;
+    }
+}
+
+
+@function rem($px) {
+    @return $px/16+0rem;
+}
+ 

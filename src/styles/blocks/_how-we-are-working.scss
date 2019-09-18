@@ -1,0 +1,213 @@
+
+.section-how-we-are-working {
+    background-color: #f8faf9;
+    color: #000;
+    
+    
+    &::after {
+        content: url(../img/blackberry_background.png);
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -10%;
+        z-index: 2;
+
+        @include tablets_landscape {
+            transform: scale(0.5);
+            right: rem(-49);
+            bottom: rem(-125);
+        }
+
+        @include phones {
+            transform: scale(0.5);
+            right: rem(-49);
+            bottom: rem(-125);
+        }
+    }
+
+}
+
+.container-how-we-are-working {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    position: relative;
+    max-width: rem(660);
+    width: 100%;
+    z-index: 20;
+
+    @include laptop {
+
+    }
+
+    @include tablets {
+
+    }
+
+    @include tablets_landscape {
+        max-height: rem(200);
+    }
+
+    @include phones {
+
+    }
+
+    &::before {
+        content: url(../img/working-leaf-left.png);
+        display: block;
+        position: absolute;
+        left: -20%;
+        bottom: -10%;
+        z-index: 2;
+
+        @include laptop {
+            left: -12%;
+            bottom: 20%;
+        }
+
+        @include tablets_landscape {
+            transform: scale(0.5);
+            left: -20%;
+            bottom: 0%;
+        }
+
+        @include phones {
+            content: "";
+        }
+        
+    }
+
+    &::after {
+        content: url(../img/working-leaf-right.png);
+        display: block;
+        position: absolute;
+        right: -20%;
+        top: -15%;
+        z-index: 2;
+
+        @include laptop {
+            right: -10%;
+            top: -12%;
+        }
+
+        @include tablets_landscape {
+            transform: scale(0.5);
+            right: -25%;
+            top: -25%;
+        }
+
+        @include phones {
+            content: "";
+        }
+    }
+
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.controls {
+    height: rem(35);
+    display: flex;
+    background: #3e3e3e;
+}
+
+.controls__duration {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.controls__sound {
+    display: flex;
+    align-items: center;
+    margin-right: rem(20);
+}
+
+.controls__range {
+    appearance: none;
+    cursor: pointer;
+}
+
+
+
+.controls__range::-moz-range-track {
+    height: rem(4);
+    background: #626262;
+}
+.controls__range::-moz-range-thumb {
+    background: #626262;
+    border: 1px solid #626262;
+    width: rem(13);
+    height: rem(13);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.controls__range::-webkit-slider-runnable-track {
+    height: rem(4);
+    background: #626262;
+}
+
+.controls__range::-webkit-slider-thumb  {
+    appearance: none;
+    background: #626262;
+    border: 1px solid #626262;
+    width: rem(13);
+    height: rem(13);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.controls__range_duration {
+    width: 100%;
+}
+
+.controls__range_sound {
+    width: rem(58);
+}
+
+.controls__pic {
+    width: rem(16);
+    height: rem(22);
+    margin: 0 rem(20);
+}
+
+#video__video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video__img_play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.controls__pic {
+    width: rem(18);
+    height: rem(22);
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.video__img {
+    max-width: 100%
+}
+
+.play-button-hidden {
+    opacity: 0;
+}

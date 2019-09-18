@@ -1,0 +1,158 @@
+.section-menu {
+    background: url(../img/menu_background.png) no-repeat left top;
+    background-size: cover;
+    color: #fff;
+    justify-content: flex-end;
+}
+
+.container-menu {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 5%;
+}
+
+.caption_white {
+    width: initial;
+}
+
+.caption-menu {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.menu {
+    display: flex;
+    z-index: 10;
+}
+
+.menu__item {
+    height: 100%;
+    background-color: rgba(47, 50, 52,0.7);
+    width: 6.25rem; 
+    transition: width 1s;
+
+    @include laptop {
+        z-index: 1;
+    }
+
+    @include tablets {
+        width: rem(50);
+    }
+
+    @include tablets_landscape {
+        width: rem(50);
+    }
+}
+
+.menu__link {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    width: 6.25rem;
+
+    @include tablets {
+        width: rem(50);
+    }
+
+    @include tablets_landscape {
+        width: rem(50);
+    }
+}
+
+.menu__caption {
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 3rem;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    white-space: nowrap;
+    margin-bottom: rem(-30);
+    line-height: 2;
+
+    @include tablets {
+        font-size: rem(25);
+    }
+
+    @include tablets_landscape {
+        font-size: rem(20);
+        padding-top: rem(3);
+    }
+ 
+    @include phones {
+        font-size: rem(20);
+        margin-bottom: rem(5);
+    }
+}
+
+.bar-with-milk {
+    background: url(../img/bars-with-milk.png) no-repeat center center;
+    background-size: cover;
+    
+}
+
+.bar-with-calamondin {
+    background: url(../img/bars-with-calamondin.png) no-repeat center center;
+    background-size: cover;
+}
+
+.bar-with-berries {
+    background: url(../img/bars-with-berries.png) no-repeat center center;
+    background-size: cover;
+}
+
+
+.menu-description-wrapper {
+    width: 0;
+    height: 100%;
+    display: none;   
+    z-index: 20;
+    transition: width 1s;
+    
+}
+
+.menu-description {
+    opacity: 0;
+    transition: opacity 1s;
+    display: none;
+    position: relative;
+    
+}
+
+
+.menu-description__text {
+    margin: rem(20);
+    padding-right: 20px;
+    pointer-events: none;
+
+    @include tablets_landscape {
+        font-size: rem(16);
+    }
+}
+
+.menu-description__link {
+    margin: rem(20) rem(10) 0 0;
+    background: url(../img/close.png) no-repeat top center;
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+}
+
+.menu-description__close-button {
+    max-width: 100%
+}
+
+//////accordeon
+
+.menu-description-is-active {
+    display: flex;
+}
+
+.text-visible {
+    opacity: 1;
+    display: flex;
+}
